@@ -17,11 +17,25 @@ const serifDisplay = Source_Serif_4({
 });
 
 /**
- * Il dominio definitivo non è ancora assegnato: si legge da variabile
- * d'ambiente in fase di deploy, così i metadati assoluti (Open Graph,
- * canonical) restano corretti senza inventare un indirizzo.
+ * Base per i metadati assoluti (canonical, Open Graph, dati strutturati),
+ * risolta in tre gradini:
+ *
+ * 1. `NEXT_PUBLIC_SITE_URL`, da impostare a mano quando ci sarà un dominio
+ *    proprio: ha sempre la precedenza;
+ * 2. `VERCEL_PROJECT_PRODUCTION_URL`, che Vercel fornisce da sola in fase di
+ *    build con il dominio di produzione del progetto — nessuna configurazione
+ *    richiesta, e resta corretta anche nelle build di preview;
+ * 3. localhost, che resta solo per lo sviluppo in locale.
+ *
+ * Il gradino 2 esiste perché senza di esso una build su Vercel priva della
+ * variabile pubblicava `http://localhost:3000` come canonical e come og:image:
+ * un canonical verso localhost impedisce la corretta indicizzazione e rompe
+ * l'anteprima dei link condivisi.
  */
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const productionUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (productionUrl ? `https://${productionUrl}` : "http://localhost:3000");
 
 const description =
   `Ambulatorio veterinario per cani e gatti a Percoto, Pavia di Udine. ` +

@@ -28,19 +28,21 @@ npm run lint
 
 ## Deploy su Vercel
 
-Il progetto non ha variabili obbligatorie: `npm run build` produce una pagina
-statica ed è sufficiente collegare il repository.
+Il repository è collegato al progetto Vercel `ambulatorio-fornasarig`: ogni push
+su `main` fa partire un deploy di produzione.
 
-Quando il dominio definitivo è noto, impostare la variabile in Vercel:
+Non ci sono variabili obbligatorie. I metadati assoluti (canonical, Open Graph,
+dati strutturati) usano da soli `VERCEL_PROJECT_PRODUCTION_URL`, che Vercel
+fornisce in fase di build.
+
+Quando l'ambulatorio avrà un dominio proprio, impostare in Vercel:
 
 ```bash
 NEXT_PUBLIC_SITE_URL=https://dominio-definitivo.it
 ```
 
-Serve a rendere assoluti il canonical, gli Open Graph e l'immagine nei dati
-strutturati. Senza la variabile il sito funziona comunque, ma quei riferimenti
-puntano a `http://localhost:3000`: va impostata **prima** di segnalare il sito a
-Google.
+ha la precedenza su tutto il resto. Serve un nuovo deploy perché il valore
+venga fissato nella build.
 
 ## Dove stanno i contenuti
 

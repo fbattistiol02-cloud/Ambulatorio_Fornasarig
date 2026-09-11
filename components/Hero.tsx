@@ -20,7 +20,6 @@ export function Hero() {
         fill
         preload
         sizes="100vw"
-        quality={82}
         className="-z-10 object-cover object-center"
       />
 
