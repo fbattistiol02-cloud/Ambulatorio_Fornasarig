@@ -30,7 +30,7 @@ export function ProfileSection() {
                 esame e che cosa dicono davvero i risultati.
               </p>
               <p className="mt-5 max-w-[34rem] text-ink/70">
-                {site.availability} Le visite si concordano al telefono, così
+                {site.availability} Le visite si concordano su WhatsApp, così
                 ogni appuntamento ha lo spazio che serve.
               </p>
             </Reveal>

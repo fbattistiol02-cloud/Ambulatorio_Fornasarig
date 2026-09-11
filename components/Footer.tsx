@@ -1,11 +1,12 @@
 import { site } from "@/lib/site";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 import { Wordmark } from "./Wordmark";
 
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    /* Il margine inferiore lascia spazio alla barra di chiamata fissa su mobile. */
+    /* Il margine inferiore lascia spazio alla barra di contatto fissa su mobile. */
     <footer className="bg-deep pt-16 pb-28 text-bone lg:pt-20 lg:pb-12">
       <div className="wrap">
         <div className="grid gap-10 border-b border-bone/12 pb-12 sm:grid-cols-2 lg:grid-cols-4">
@@ -36,10 +37,13 @@ export function Footer() {
             <ul className="mt-2 text-[0.9375rem]">
               <li>
                 <a
-                  href={site.phone.href}
-                  className="inline-flex min-h-11 items-center text-bone/75 transition-colors hover:text-accent-warm"
+                  href={site.whatsapp.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-11 items-center gap-2 text-bone/75 transition-colors hover:text-accent-warm"
                 >
-                  {site.phone.label}
+                  <WhatsAppIcon className="size-4 shrink-0" />
+                  WhatsApp
                 </a>
               </li>
               <li>

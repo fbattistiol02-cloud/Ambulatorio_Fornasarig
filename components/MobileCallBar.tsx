@@ -1,14 +1,17 @@
 "use client";
 
-import { Phone } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 /**
- * Barra di chiamata fissa, solo su mobile. Compare dopo la hero: finché la
- * hero è a schermo il pulsante di chiamata è già lì, e coprirlo sarebbe
+ * Barra di contatto fissa, solo su mobile: WhatsApp primario, indicazioni
+ * stradali come icona secondaria (niente telefono: la dottoressa vuole
+ * ridurre le chiamate, non offrirle come alternativa). Compare dopo la hero:
+ * finché la hero è a schermo i CTA sono già lì, e coprirli sarebbe
  * ridondante.
  */
 export function MobileCallBar() {
@@ -31,13 +34,24 @@ export function MobileCallBar() {
       // Fuori schermo la barra non deve essere raggiungibile da tastiera.
       inert={!visible}
     >
-      <div className="wrap py-3">
+      <div className="wrap flex items-center gap-2.5 py-3">
         <a
-          href={site.phone.href}
-          className="flex items-center justify-center gap-3 rounded-sm bg-accent px-6 py-4 text-lg font-semibold text-white"
+          href={site.whatsapp.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-1 items-center justify-center gap-3 rounded-sm bg-whatsapp px-6 py-4 text-lg font-semibold text-white"
         >
-          <Phone className="size-5 shrink-0" strokeWidth={2} aria-hidden />
-          Chiama {site.phone.label}
+          <WhatsAppIcon className="size-5 shrink-0 text-whatsapp-bright" />
+          Scrivici su WhatsApp
+        </a>
+        <a
+          href={site.directions}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Vieni in ambulatorio, ottieni indicazioni"
+          className="flex size-[3.25rem] shrink-0 items-center justify-center rounded-sm text-bone ring-1 ring-inset ring-bone/30"
+        >
+          <MapPin className="size-5 shrink-0" strokeWidth={1.75} aria-hidden />
         </a>
       </div>
     </div>

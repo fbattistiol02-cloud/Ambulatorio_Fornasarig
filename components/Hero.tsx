@@ -1,7 +1,8 @@
 import Image from "next/image";
-import { ArrowDown, MapPin, Phone } from "lucide-react";
+import { ArrowDown, MapPin } from "lucide-react";
 
 import { site } from "@/lib/site";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 export function Hero() {
   return (
@@ -11,16 +12,16 @@ export function Hero() {
     >
       {/*
         Ritaglio quadrato: sul desktop `object-cover` taglia in alto e in basso
-        e lascia in campo mani e gatto, sul mobile taglia ai lati mantenendo il
+        e lascia in campo i due animali, sul mobile taglia ai lati mantenendo il
         soggetto al centro. Un solo file, nessun doppio download.
       */}
       <Image
-        src="/foto/visita-gatto.jpg"
-        alt="Le mani guantate di un medico veterinario mentre visitano un gatto bianco sul tavolo di un ambulatorio"
+        src="/foto/cane-gatto.jpg"
+        alt="Un cane bianco e un gattino rosso seduti a terra, vicini, che si guardano"
         fill
         preload
         sizes="100vw"
-        className="-z-10 object-cover object-center"
+        className="-z-10 object-cover object-center lg:object-[center_38%]"
       />
 
       {/* Velatura verticale: regge il testo sui formati stretti. */}
@@ -68,25 +69,42 @@ export function Hero() {
 
           <div className="rise rise-4 mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
             <a
-              href={site.phone.href}
-              className="inline-flex items-center justify-center gap-3 rounded-sm bg-accent px-7 py-4 text-base font-semibold text-white transition-colors hover:bg-accent-deep sm:text-[1.0625rem]"
+              href={site.whatsapp.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 rounded-sm bg-whatsapp px-7 py-4 text-base font-semibold text-white transition-colors hover:bg-whatsapp-deep sm:text-[1.0625rem]"
             >
-              <Phone className="size-5 shrink-0" strokeWidth={2} aria-hidden />
-              Chiama per un appuntamento
+              <WhatsAppIcon className="size-5 shrink-0 text-whatsapp-bright" />
+              Scrivici su WhatsApp
             </a>
             <a
-              href="#ambulatorio"
+              href={site.directions}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2.5 rounded-sm px-7 py-4 text-base text-bone ring-1 ring-inset ring-bone/35 transition-colors hover:bg-bone/10 sm:text-[1.0625rem]"
             >
-              Scopri l&rsquo;ambulatorio
-              <ArrowDown className="size-4 shrink-0" strokeWidth={1.75} aria-hidden />
+              <MapPin className="size-4 shrink-0" strokeWidth={1.75} aria-hidden />
+              Vieni in ambulatorio
             </a>
           </div>
 
-          <p className="rise rise-5 mt-8 flex items-center gap-2.5 border-t border-bone/15 pt-5 text-sm text-bone/65">
-            <MapPin className="size-4 shrink-0 text-accent-warm" strokeWidth={1.75} aria-hidden />
-            {site.address.short}
+          <p className="rise rise-5 mt-6 text-sm text-bone/60">
+            Risposta rapida su WhatsApp.
           </p>
+
+          <div className="rise rise-5 mt-6 flex flex-col gap-3 border-t border-bone/15 pt-5 sm:flex-row sm:items-center sm:justify-between">
+            <p className="flex items-center gap-2.5 text-sm text-bone/65">
+              <MapPin className="size-4 shrink-0 text-accent-warm" strokeWidth={1.75} aria-hidden />
+              {site.address.short}
+            </p>
+            <a
+              href="#ambulatorio"
+              className="inline-flex items-center gap-2 text-sm text-bone/75 transition-colors hover:text-bone"
+            >
+              Scopri l&rsquo;ambulatorio
+              <ArrowDown className="size-3.5 shrink-0" strokeWidth={1.75} aria-hidden />
+            </a>
+          </div>
         </div>
       </div>
     </section>

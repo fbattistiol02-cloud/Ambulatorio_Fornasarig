@@ -30,6 +30,17 @@
   --color-accent-warm: #f59e0b;
   --color-accent-deep: #8f4108;
 
+  /*
+   * Verde WhatsApp: riservato ai CTA verso WhatsApp, per restare
+   * immediatamente riconoscibili come tali. `whatsapp` è il verde scuro del
+   * brand (10.5:1 sotto testo bianco); `whatsapp-bright` è il verde chiaro
+   * usato solo per l'icona, mai come sfondo con testo sopra (contrasto
+   * insufficiente, ~2:1).
+   */
+  --color-whatsapp: #075e54;
+  --color-whatsapp-deep: #054942;
+  --color-whatsapp-bright: #25d366;
+
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, Arial, sans-serif;
   --font-serif: var(--font-serif-display), ui-serif, Georgia, "Times New Roman",

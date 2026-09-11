@@ -8,6 +8,7 @@ import { MobileCallBar } from "@/components/MobileCallBar";
 import { ProfileSection } from "@/components/ProfileSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { TrustBar } from "@/components/TrustBar";
+import { WhatsAppFloatingButton } from "@/components/WhatsAppFloatingButton";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       </main>
       <Footer />
       <MobileCallBar />
+      <WhatsAppFloatingButton />
     </>
   );
 }

@@ -22,6 +22,15 @@ export const site = {
     label: "338 827 3705",
     href: "tel:+393388273705",
   },
+  /** Stesso numero del telefono, usato anche su WhatsApp. */
+  whatsapp: {
+    label: "338 827 3705",
+    href:
+      "https://wa.me/393388273705?text=" +
+      encodeURIComponent(
+        "Ciao, vorrei prenotare una visita per il mio gatto/cane.",
+      ),
+  },
   email: {
     label: "elenafornasarig@hotmail.com",
     href: "mailto:elenafornasarig@hotmail.com",
@@ -70,7 +79,7 @@ export const services = [
   {
     number: "02",
     title: "Diagnostica per immagini",
-    description: "Radiografie, ecografie ed ecocardiografie.",
+    description: "Radiografie.",
     icon: "scan",
   },
   {

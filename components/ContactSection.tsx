@@ -1,7 +1,8 @@
-import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowUpRight, Clock, Mail, MapPin } from "lucide-react";
 
 import { site } from "@/lib/site";
 import { Reveal } from "./Reveal";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 export function ContactSection() {
   return (
@@ -15,32 +16,37 @@ export function ContactSection() {
                 Prenota una visita.
               </h2>
               <p className="mt-7 max-w-[32rem] text-lg leading-[1.7] text-ink/80">
-                {site.availability} Il modo più diretto per fissarlo è una
-                telefonata: si concordano giorno e orario e si capisce subito
-                che cosa portare con sé.
+                {site.availability} Il modo più diretto per fissarlo è
+                scrivere su WhatsApp: si concordano giorno e orario e si
+                capisce subito che cosa portare con sé.
               </p>
             </Reveal>
 
             <Reveal delay={0.1}>
-              <div className="mt-10">
+              <a
+                href={site.whatsapp.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-9 inline-flex w-full items-center justify-center gap-3 rounded-sm bg-whatsapp px-8 py-5 text-lg font-semibold text-white transition-colors hover:bg-whatsapp-deep sm:w-auto"
+              >
+                <WhatsAppIcon className="size-5 shrink-0 text-whatsapp-bright" />
+                Scrivici su WhatsApp
+              </a>
+
+              <div className="mt-8">
                 <p className="font-sans text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-muted">
-                  Telefono
+                  Oppure vieni in ambulatorio
                 </p>
                 <a
-                  href={site.phone.href}
-                  className="mt-1 inline-block py-2 font-serif text-[2.25rem] leading-none text-deep transition-colors hover:text-accent sm:text-[3rem]"
+                  href={site.directions}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-1 inline-flex items-center gap-2.5 py-2 text-xl text-deep/80 transition-colors hover:text-accent"
                 >
-                  {site.phone.label}
+                  <MapPin className="size-4 shrink-0" strokeWidth={1.75} aria-hidden />
+                  {site.address.short}
                 </a>
               </div>
-
-              <a
-                href={site.phone.href}
-                className="mt-8 inline-flex w-full items-center justify-center gap-3 rounded-sm bg-accent px-8 py-5 text-lg font-semibold text-white transition-colors hover:bg-accent-deep sm:w-auto"
-              >
-                <Phone className="size-5 shrink-0" strokeWidth={2} aria-hidden />
-                Chiama per un appuntamento
-              </a>
             </Reveal>
           </div>
 
@@ -88,7 +94,7 @@ export function ContactSection() {
                 </div>
 
                 <div className="flex gap-4 py-6">
-                  <Phone className="mt-1 size-5 shrink-0 text-accent" strokeWidth={1.75} aria-hidden />
+                  <Clock className="mt-1 size-5 shrink-0 text-accent" strokeWidth={1.75} aria-hidden />
                   <div>
                     <p className="font-sans text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-muted">
                       Visite

@@ -59,8 +59,7 @@ export const metadata: Metadata = {
     "medicina felina Udine",
     "GPCert medicina felina",
     "veterinario cani e gatti",
-    "ecografia veterinaria Udine",
-    "ecocardiografia veterinaria",
+    "radiografia veterinaria Udine",
     site.doctor,
   ],
   alternates: { canonical: "/" },
@@ -73,10 +72,10 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: "/foto/visita-gatto.jpg",
-        width: 2200,
-        height: 2200,
-        alt: "Le mani guantate di un medico veterinario durante la visita di un gatto",
+        url: "/foto/cane-gatto.jpg",
+        width: 2400,
+        height: 3600,
+        alt: "Un cane bianco e un gattino rosso seduti a terra, vicini, che si guardano",
       },
     ],
   },
@@ -112,7 +111,7 @@ const jsonLd = {
   },
   telephone: "+39 338 827 3705",
   email: site.email.label,
-  image: `${siteUrl}/foto/visita-gatto.jpg`,
+  image: `${siteUrl}/foto/cane-gatto.jpg`,
   hasMap: site.directions,
   currenciesAccepted: "EUR",
   founder: {

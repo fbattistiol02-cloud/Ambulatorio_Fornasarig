@@ -1,10 +1,11 @@
 "use client";
 
-import { Menu, Phone, X } from "lucide-react";
+import { Menu, MapPin, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { navLinks, site } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 import { Wordmark } from "./Wordmark";
 
 export function Header() {
@@ -80,16 +81,28 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <a
-            href={site.phone.href}
+            href={site.directions}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Vieni in ambulatorio, ottieni indicazioni"
             className={cn(
-              "hidden items-center gap-2.5 rounded-sm px-5 py-3 text-[0.9375rem] font-medium transition-colors sm:inline-flex",
+              "hidden size-11 items-center justify-center rounded-sm transition-colors sm:inline-flex",
               solid
-                ? "bg-deep text-bone hover:bg-deep-2"
-                : "bg-bone/10 text-bone ring-1 ring-inset ring-bone/30 backdrop-blur-sm hover:bg-bone/20",
+                ? "text-ink/70 hover:bg-sand hover:text-deep"
+                : "text-bone/85 hover:bg-bone/10 hover:text-bone",
             )}
           >
-            <Phone className="size-4" strokeWidth={1.75} aria-hidden />
-            <span>{site.phone.label}</span>
+            <MapPin className="size-[1.125rem]" strokeWidth={1.75} aria-hidden />
+          </a>
+
+          <a
+            href={site.whatsapp.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden items-center gap-2.5 rounded-sm bg-whatsapp px-5 py-3 text-[0.9375rem] font-medium text-white transition-colors hover:bg-whatsapp-deep sm:inline-flex"
+          >
+            <WhatsAppIcon className="size-4 text-whatsapp-bright" />
+            <span>WhatsApp</span>
           </a>
 
           <button
@@ -133,12 +146,24 @@ export function Header() {
           </ul>
 
           <a
-            href={site.phone.href}
+            href={site.whatsapp.href}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}
-            className="mt-5 mb-2 flex items-center justify-center gap-3 rounded-sm bg-accent px-6 py-4 text-lg font-semibold text-white"
+            className="mt-5 flex items-center justify-center gap-3 rounded-sm bg-whatsapp px-6 py-4 text-lg font-semibold text-white"
           >
-            <Phone className="size-5" strokeWidth={2} aria-hidden />
-            {site.phone.label}
+            <WhatsAppIcon className="size-5 text-whatsapp-bright" />
+            Scrivici su WhatsApp
+          </a>
+          <a
+            href={site.directions}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMenuOpen(false)}
+            className="mt-3 mb-2 flex items-center justify-center gap-2.5 rounded-sm px-6 py-3 text-[0.9375rem] text-deep/70"
+          >
+            <MapPin className="size-4" strokeWidth={1.75} aria-hidden />
+            Oppure vieni in ambulatorio
           </a>
           <p className="pb-2 text-center text-sm text-muted">
             {site.availability}
