@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Stesso stacco del marchio: filetto ambra e iniziale in grazie. -->
+  <rect width="64" height="64" rx="12" fill="#062726" />
+  <rect x="18" y="16" width="2" height="32" fill="#f59e0b" />
+  <text
+    x="41"
+    y="45"
+    font-family="Georgia, 'Times New Roman', Times, serif"
+    font-size="36"
+    fill="#fcfafa"
+    text-anchor="middle"
+  >F</text>
+</svg>

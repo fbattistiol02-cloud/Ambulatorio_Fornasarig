@@ -1,0 +1,188 @@
+@import "tailwindcss";
+
+@theme {
+  /* Verde-petrolio profondo: hero, footer, superfici scure. */
+  --color-deep: #062726;
+  --color-deep-2: #0f3b39;
+  --color-deep-3: #17514e;
+
+  /* Superfici chiare: bianco caldo e avorio per alternare le sezioni. */
+  --color-bone: #fcfafa;
+  --color-sand: #f0ebe1;
+
+  /* Testo e filetti. */
+  --color-ink: #1f2937;
+  --color-muted: #5b6673;
+  --color-line: #e6e0d6;
+  --color-line-soft: #ece7e5;
+
+  /*
+   * Accento ambra: CTA, sottolineature, numerazioni. Mai come sfondo esteso.
+   *
+   * Due tonalità, scelte sul contrasto e non a occhio:
+   * - `accent` vive sulle superfici chiare e sotto il testo bianco delle CTA
+   *   (5.45:1 su bianco, 5.24:1 su avorio, 4.59:1 su sabbia);
+   * - `accent-warm` vive solo sul verde profondo, dove arriva a 7.37:1 e dove
+   *   una tonalità più scura si spegnerebbe.
+   * Il #d97706 di partenza si fermava a 3.19:1 sotto il testo bianco.
+   */
+  --color-accent: #ab4f08;
+  --color-accent-warm: #f59e0b;
+  --color-accent-deep: #8f4108;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Arial, sans-serif;
+  --font-serif: var(--font-serif-display), ui-serif, Georgia, "Times New Roman",
+    serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+    /* `clip` e non `hidden`: impedisce lo scroll orizzontale senza rendere
+       html/body contenitori di scorrimento, cosa che romperebbe sia l'header
+       sticky sia lo scroll verso gli anchor. */
+    overflow-x: clip;
+  }
+
+  body {
+    background-color: var(--color-bone);
+    color: var(--color-ink);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  @media (min-width: 768px) {
+    body {
+      font-size: 1.125rem;
+    }
+  }
+
+  /* Compensa l'header sticky quando si salta a un anchor. */
+  [id] {
+    scroll-margin-top: 5.5rem;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background-color: #f8e3c4;
+    color: var(--color-deep);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-delay: 0ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Contenitore unico del sito: allinea ogni sezione sulla stessa gronda. */
+  .wrap {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: 1.375rem;
+  }
+
+  @media (min-width: 1024px) {
+    .wrap {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  /* Occhiello di sezione: maiuscoletto spaziato preceduto da un trattino. */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    /* Sotto i 400 px l'occhiello più lungo deve restare su una riga sola. */
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 640px) {
+    .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+    }
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 1.75rem;
+    height: 1px;
+    background-color: currentColor;
+    opacity: 0.55;
+  }
+
+  /*
+   * Entrata della hero. È in CSS e non in JavaScript di proposito: il blocco
+   * sopra la piega è la prima cosa che il visitatore vede e non deve dipendere
+   * dall'idratazione per comparire. Con `prefers-reduced-motion` la regola qui
+   * sopra azzera durata e ritardo, quindi il contenuto è subito al suo posto.
+   */
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 14px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .rise {
+    animation: rise 0.62s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .rise-2 {
+    animation-delay: 80ms;
+  }
+
+  .rise-3 {
+    animation-delay: 160ms;
+  }
+
+  .rise-4 {
+    animation-delay: 240ms;
+  }
+
+  .rise-5 {
+    animation-delay: 320ms;
+  }
+}
