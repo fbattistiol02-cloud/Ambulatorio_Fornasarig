@@ -42,6 +42,11 @@ export default function Prestazioni() {
   return (
     <>
       <PageHeader
+        indice={[
+          { href: "#elenco", label: "Le prestazioni" },
+          { href: "#perimetro", label: "Il perimetro" },
+          { href: "#portare", label: "Prima di venire" },
+        ]}
         occhiello="Prestazioni"
         luce={{ x: "20%", y: "18%" }}
         titolo="Che cosa si fa in ambulatorio."

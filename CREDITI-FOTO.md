@@ -69,12 +69,29 @@ Non più referenziate da alcun componente.
 
 ## Immagini non fotografiche
 
-- Icone delle prestazioni, sequenza del trasportino e diagramma di orientamento:
-  disegnati per questo sito, in `components/disegni/`. Sono disegni e non
-  documentano nulla.
-- Il diagramma della pagina contatti **non è una mappa in scala** e lo dichiara:
-  non disponiamo di un rilievo attendibile delle strade di Percoto e una mappa
-  disegnata a memoria porterebbe qualcuno a sbagliare strada.
+- Icone delle prestazioni e sequenza del trasportino: disegnate per questo sito,
+  in `components/disegni/`. Sono disegni e non documentano nulla.
+
+## Mappa di Percoto
+
+`components/disegni/MappaPercoto.tsx` disegna strade reali. La geometria viene da
+**OpenStreetMap**, licenza **ODbL**, ed è scaricata una volta sola da
+`scripts/genera-mappa.py`; la risposta grezza è conservata e versionata in
+`scripts/percoto.osm.json`, così ritoccare il disegno non comporta interrogare di
+nuovo un servizio pubblico gratuito.
+
+L'attribuzione «© OpenStreetMap contributors», con collegamento alla pagina della
+licenza, è resa visibile sotto la mappa. **Non è opzionale e non va nascosta**:
+è la condizione d'uso dei dati.
+
+Il disegno — spessori, colori, tipografia, scelta di che cosa etichettare — è
+nostro. La mappa è quindi insieme vera e su misura: sostituisce il diagramma
+astratto della prima versione, che non era in scala, non diceva nulla e sembrava
+un'immagine generata.
+
+La posizione dell'ambulatorio viene dalla geocodifica Nominatim dell'indirizzo
+(45.9742348, 13.3188538). Le fonti confermano anche il CAP 33050 e la distanza da
+Piazza della Vittoria, 267 metri.
 - Anteprime Open Graph: generate da `lib/og.tsx`, solo tipografia e gradiente.
 - `public/qr-whatsapp.svg`: generato da `scripts/genera-qr.py`, file statico.
 

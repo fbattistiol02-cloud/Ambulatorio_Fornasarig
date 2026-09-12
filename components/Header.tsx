@@ -175,7 +175,7 @@ export function Header() {
       >
         <nav aria-label="Navigazione principale, versione compatta" className="wrap py-3">
           <ul className="divide-y divide-line-soft">
-            {[{ href: "/", label: "Pagina iniziale" }, ...navLinks].map((link) => {
+            {navLinks.map((link) => {
               const attiva = pathname === link.href;
 
               return (

@@ -21,7 +21,7 @@ export function Footer() {
               Pagine
             </h2>
             <ul className="mt-2 text-[0.9375rem]">
-              {[{ href: "/", label: "Pagina iniziale" }, ...navLinks].map((link) => (
+              {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}

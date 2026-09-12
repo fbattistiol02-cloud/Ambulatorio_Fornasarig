@@ -5,7 +5,7 @@ import { ArrowUpRight, Mail, MapPin } from "lucide-react";
 import { Briciole } from "@/components/Briciole";
 import { ModelloMessaggio } from "@/components/ModelloMessaggio";
 import { PageHeader } from "@/components/PageHeader";
-import { Posizione } from "@/components/disegni/Posizione";
+import { MappaPercoto } from "@/components/disegni/MappaPercoto";
 import { Reveal } from "@/components/Reveal";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { nearbyTowns, site } from "@/lib/site";
@@ -35,6 +35,11 @@ export default function Contatti() {
   return (
     <>
       <PageHeader
+        indice={[
+          { href: "#scrivere", label: "Come si prenota" },
+          { href: "#dove", label: "Dove siamo" },
+          { href: "#urgenze", label: "Urgenze" },
+        ]}
         occhiello="Contatti"
         luce={{ x: "12%", y: "8%" }}
         titolo="Richiedi un appuntamento."
@@ -167,8 +172,8 @@ export default function Contatti() {
                 </h2>
                 <p className="mt-6 max-w-[30rem] text-[1.0625rem] leading-[1.7] text-ink/80">
                   L&rsquo;ambulatorio è in {site.address.street}, a Percoto,
-                  frazione di {site.address.municipality}, a circa trecento metri
-                  dal centro del paese.
+                  frazione di {site.address.municipality}. Piazza della Vittoria,
+                  il centro del paese, è a poco meno di trecento metri.
                 </p>
                 <a
                   href={site.directions}
@@ -204,13 +209,9 @@ export default function Contatti() {
 
             <div className="lg:col-span-6 lg:col-start-7">
               <Reveal delay={0.12}>
-                <div className="rounded-sm bg-bone p-6 text-deep ring-1 ring-inset ring-line sm:p-8">
-                  <Posizione />
+                <div className="rounded-sm bg-bone p-5 ring-1 ring-inset ring-line sm:p-7">
+                  <MappaPercoto />
                 </div>
-                <p className="mt-4 text-sm leading-relaxed text-muted">
-                  Diagramma di orientamento, non una mappa in scala: per il
-                  percorso reale conviene aprire le indicazioni stradali.
-                </p>
               </Reveal>
             </div>
           </div>

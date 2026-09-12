@@ -26,8 +26,10 @@ pagina di medicina felina, perché la certificazione **è** il profilo.
 - Nessuna dipendenza runtime aggiuntiva: le cinque pagine, le anteprime Open
   Graph, la sitemap e il robots sono prerenderizzati come contenuto statico
 
-Le icone di contenuto (prestazioni), la sequenza del trasportino e il diagramma
-di orientamento sono disegnati per questo sito e vivono in `components/disegni/`.
+Le icone di contenuto (prestazioni) e la sequenza del trasportino sono disegnate
+per questo sito e vivono in `components/disegni/`. Nella stessa cartella c'è la
+mappa di Percoto: strade reali da OpenStreetMap, disegnate con la palette del
+sito.
 
 ## Comandi
 
@@ -56,8 +58,16 @@ Rigenerare il codice QR verso WhatsApp:
 python3 scripts/genera-qr.py
 ```
 
-I due script chiedono rispettivamente `Pillow` e `segno`. Sono strumenti di
-sviluppo, non dipendenze del sito.
+Rigenerare la mappa. Senza argomenti riusa la risposta OpenStreetMap già
+conservata in `scripts/percoto.osm.json`; con `--aggiorna` la riscarica:
+
+```bash
+python3 scripts/genera-mappa.py
+```
+
+`scarica-foto.py` chiede `Pillow`, `genera-qr.py` chiede `segno`,
+`genera-mappa.py` non chiede nulla. Sono strumenti di sviluppo, non dipendenze
+del sito: nessuno dei tre viene invocato dalla build.
 
 ## Deploy su Vercel
 
@@ -104,4 +114,5 @@ Queste regole non sono preferenze di stile: riguardano ciò che il sito afferma.
   sempre scritte dal lato del proprietario.
 
 I piani di lavoro sono in `IMPLEMENTATION_PLAN.MD`, `IMPLEMENTATION_V1.MD` e
-`IMPLEMENTATION_V2.MD`. La provenienza delle immagini è in `CREDITI-FOTO.md`.
+`IMPLEMENTATION_V2.MD`. La provenienza delle immagini e dei dati della mappa è in
+`CREDITI-FOTO.md`.

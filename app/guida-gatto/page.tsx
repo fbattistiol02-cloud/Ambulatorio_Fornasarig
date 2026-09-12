@@ -118,6 +118,12 @@ export default function GuidaGatto() {
   return (
     <>
       <PageHeader
+        indice={[
+          { href: "#trasportino", label: "Il trasportino" },
+          { href: "#dolore", label: "Il dolore" },
+          { href: "#segnali", label: "Quando farlo vedere" },
+          { href: "#preparazione", label: "Prima della visita" },
+        ]}
         occhiello="Guida"
         luce={{ x: "50%", y: "6%" }}
         titolo="Guida per chi ha un gatto."

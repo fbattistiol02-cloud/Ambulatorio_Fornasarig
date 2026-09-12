@@ -62,7 +62,21 @@ export function Reveal({ children, delay = 0, className }: RevealProps) {
           setPhase("nascosto");
         }
       },
-      { threshold: 0.15 },
+      /*
+       * Soglia zero, non una frazione dell'elemento.
+       *
+       * Con `threshold: 0.15` un blocco alto restava invisibile ogni volta che
+       * se ne vedeva solo il bordo superiore: un elenco di 480 px con 50 px a
+       * schermo sta al 10%, sotto soglia, quindi l'observer non lo considerava
+       * intersecante e la rivelazione non partiva mai. Succedeva fermandosi a
+       * metà scorrimento e, in modo sistematico, saltando a un'ancora.
+       *
+       * Il margine negativo in basso sostituisce la soglia nel suo scopo
+       * originale: non si rivela appena il bordo tocca la finestra, ma quando è
+       * entrato per davvero — e il criterio non dipende più dall'altezza del
+       * blocco.
+       */
+      { threshold: 0, rootMargin: "0px 0px -8% 0px" },
     );
 
     observer.observe(node);

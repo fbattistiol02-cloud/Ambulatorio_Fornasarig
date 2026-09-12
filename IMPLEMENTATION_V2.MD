@@ -207,7 +207,7 @@ per costo nullo.
 - [x] Applicare la grana uniforme senza modificare i file della dottoressa.
 - [x] Disegnare le quattro icone delle prestazioni.
 - [x] Disegnare la sequenza illustrata della Guida.
-- [x] Disegnare la mappa di Percoto. — **Variato:** realizzato come diagramma di orientamento dichiaratamente non in scala. Motivo nelle evidenze.
+- [x] Disegnare la mappa di Percoto. — In V2 era stata realizzata come diagramma astratto; **superato in V2.1**, che disegna strade reali. Vedi in fondo.
 - [x] Disegnare il monogramma e generare la favicon. — **Non applicabile:** `app/icon.svg` usa già lo stesso dispositivo del lockup (filetto ambra e iniziale in grazie). Ridisegnarlo avrebbe rotto la coerenza che si voleva costruire.
 - [x] Sostituire i due caratteri e ricontrollare gerarchia e interlinee.
 - [x] Portare il gradiente su tutte e cinque le testate.
@@ -460,7 +460,7 @@ sulla formulazione confermata dalla dottoressa. Rischio residuo dichiarato.
 
 ### Checklist
 
-- [x] Disegnare la mappa di Percoto. — **Variato:** realizzato come diagramma di orientamento dichiaratamente non in scala. Motivo nelle evidenze.
+- [x] Disegnare la mappa di Percoto. — In V2 era stata realizzata come diagramma astratto; **superato in V2.1**, che disegna strade reali. Vedi in fondo.
 - [x] Scrivere la pagina senza fotografie.
 - [x] Decidere e motivare l'inserimento o l'esclusione del CAP.
 - [x] Inserire i comuni di provenienza.
@@ -708,7 +708,10 @@ La gradazione è stata tarata misurando le due foto della dottoressa
 di archivio in quell'intorno, con un viraggio lieve. Una sola immagine ha
 richiesto un limite di luminosità più alto, annotato nello script.
 
-### Il diagramma al posto della mappa
+### Il diagramma al posto della mappa — superato in V2.1
+
+> **Questa sezione descrive una decisione poi rovesciata.** Vedi
+> «Aggiornamento V2.1» in fondo al documento.
 
 Il piano prevedeva una mappa disegnata di Percoto. **Non è stata realizzata**, e
 la decisione è deliberata: non disponiamo di un rilievo attendibile delle strade
@@ -782,3 +785,86 @@ indicazioni reali.
 - `main` è indietro rispetto a questo ramo, e lo era già prima della V2: in
   produzione gira ancora una build precedente alle fotografie della dottoressa.
   La pubblicazione richiede un merge su `main`, non eseguito in questa fase.
+
+
+---
+
+## Aggiornamento V2.1 — 12 settembre 2026
+
+Tre difetti emersi guardando la V2 in funzione.
+
+### 1. La mappa, rifatta con dati reali
+
+Il diagramma astratto della V2 non comunicava nulla e sembrava un'immagine
+generata. La premessa su cui l'avevo motivato — «non disponiamo di un rilievo
+attendibile delle strade di Percoto» — **era falsa**: i dati stradali sono
+pubblici, verificabili e liberamente riutilizzabili.
+
+- L'indirizzo geocodifica a **45.9742348, 13.3188538**; Nominatim lo restituisce
+  come «7, Via Guglielmo Marconi, Percoto, Pavia di Udine, Udine,
+  Friuli-Venezia Giulia, **33050**, Italia», confermando in modo indipendente
+  anche il CAP inserito in V2.
+- Una query Overpass restituisce la geometria completa delle vie del paese.
+- **Piazza della Vittoria dista 267 m**: il «circa trecento metri» che in V2
+  veniva da una directory risulta corretto e ora poggia su una fonte migliore.
+
+`scripts/genera-mappa.py` scarica i dati una volta, li proietta in metri sul
+terreno e scrive `components/disegni/percoto.dati.ts`. La risposta grezza è
+conservata in `scripts/percoto.osm.json`: ritoccare il disegno non comporta
+interrogare di nuovo un servizio pubblico gratuito, e la generazione resta
+riproducibile. `components/disegni/MappaPercoto.tsx` disegna con la palette del
+sito e rende visibile l'attribuzione «© OpenStreetMap contributors», obbligatoria
+perché i dati sono ODbL. `Posizione.tsx` è stato eliminato.
+
+Rifiniture fatte guardando il risultato: la rotatoria su Via Marconi veniva
+disegnata con il tratto delle strade principali e si riempiva fino a diventare
+una macchia; i raccordi sotto i 28 m si rendevano come puntini sparsi che
+sembravano segnaposto; l'etichetta «Ambulatorio» cadeva sul nome della via.
+
+### 2. Tasto Home
+
+«Home» è ora la prima voce di `navLinks`, quindi compare in menu desktop,
+pannello mobile e piè di pagina. La radice della briciola diceva «Ambulatorio»
+per la stessa destinazione ed è stata allineata. Il menu a cinque voci resta su
+una riga a 1280 e a 1440 px.
+
+### 3. Indice di pagina
+
+`PageHeader` accetta una lista di sezioni e la rende nella colonna destra della
+testata, che prima era vuota. Tre voci per Medicina felina, Prestazioni e
+Contatti, quattro per la Guida. Gli ancoraggi esistevano già.
+
+### Un bug trovato durante la verifica
+
+Saltando a un'ancora dall'indice, l'elenco dei segnali restava **invisibile pur
+essendo a schermo**. Causa: `Reveal` usava `threshold: 0.15`, cioè una frazione
+dell'altezza dell'elemento. Un blocco di 483 px con 50 px in vista sta al 10%,
+sotto soglia: l'observer non lo considerava intersecante e la rivelazione non
+partiva mai.
+
+Non riguardava solo l'indice: **succedeva a chiunque si fermasse a metà
+scorrimento con un blocco alto appena entrato**. Sostituito con `threshold: 0` e
+un margine inferiore negativo dell'8%, che assolve allo scopo originale — non
+rivelare appena il bordo tocca la finestra — senza dipendere dall'altezza del
+blocco.
+
+È il terzo difetto di `Reveal` corretto in due interventi. I primi due erano
+casi particolari; questo era il criterio sbagliato in partenza.
+
+### Verifiche
+
+- Le 9 etichette della mappa: nessuna fuori dal riquadro, nessuna sovrapposta,
+  misurato sulle scatole di ingombro reali comprensive di rotazione.
+- A 320 px restano i tre nomi che contano, a 8,4–9,1 px: il ritaglio è stato
+  escluso proprio perché tagliava a metà «Via Guglielmo Marconi» e «Piazza della
+  Vittoria», e al suo posto la tipografia cresce.
+- Ancoraggi dell'indice: nessuno rotto su nessuna delle quattro pagine.
+- Dopo un salto, nessun elemento invisibile in vista.
+- Contrasti: voci dell'indice 8,96:1, intestazione 4,77:1, numerazione 4,77:1
+  dopo averla schiarita da 2,59:1, attribuzione OSM 5,62:1.
+- Nessuno scorrimento orizzontale a 320, 768 e 1440 px; menu su una riga.
+
+### Punti aperti
+
+Invariati rispetto alla V2: dominio da acquistare, prova di scansione del QR,
+profilo Google Business. `main` resta indietro.

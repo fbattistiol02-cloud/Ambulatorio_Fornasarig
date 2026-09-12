@@ -85,6 +85,11 @@ export default function MedicinaFelina() {
   return (
     <>
       <PageHeader
+        indice={[
+          { href: "#profilo", label: "Chi visita" },
+          { href: "#gpcert", label: "La certificazione" },
+          { href: "#differenze", label: "Le differenze" },
+        ]}
         occhiello="Medicina felina"
         luce={{ x: "78%", y: "10%" }}
         titolo={

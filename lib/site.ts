@@ -95,6 +95,12 @@ export const messageTemplate = [
 ].join("\n");
 
 export const navLinks = [
+  /*
+   * «Home» come prima voce, e non soltanto il logo cliccabile in alto: chi non
+   * naviga abitualmente non sa che il logo riporta alla pagina iniziale e
+   * resta bloccato sulle pagine interne.
+   */
+  { href: "/", label: "Home" },
   { href: "/medicina-felina", label: "Medicina felina" },
   { href: "/prestazioni", label: "Prestazioni" },
   { href: "/guida-gatto", label: "Guida" },
