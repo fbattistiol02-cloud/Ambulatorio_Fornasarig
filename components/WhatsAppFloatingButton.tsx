@@ -1,6 +1,6 @@
 "use client";
 
-import { site } from "@/lib/site";
+import { whatsappHref, whatsappMessages } from "@/lib/site";
 import { useContactVisibility } from "@/lib/useContactVisibility";
 import { cn } from "@/lib/utils";
 import { WhatsAppIcon } from "./WhatsAppIcon";
@@ -10,10 +10,10 @@ export function WhatsAppFloatingButton() {
 
   return (
     <a
-      href={site.whatsapp.href}
+      href={whatsappHref(whatsappMessages.generale)}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Scrivi su WhatsApp"
+      aria-label="Scrivici su WhatsApp"
       inert={!visible}
       data-contact-affordance
       className={cn(

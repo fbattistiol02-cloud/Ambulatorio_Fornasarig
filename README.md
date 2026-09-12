@@ -1,16 +1,33 @@
 # Ambulatorio Veterinario Dott.ssa Elena Fornasarig
 
-Sito vetrina di una pagina per l'ambulatorio veterinario di Percoto (Pavia di
-Udine). Statico, senza backend, senza database e senza raccolta di dati: il contatto principale
-è WhatsApp, per informazioni e richieste di appuntamento.
+Sito vetrina di cinque pagine per l'ambulatorio veterinario di Percoto (Pavia di
+Udine). Statico, senza backend, senza database e senza raccolta di dati: il
+contatto è WhatsApp, per informazioni e richieste di appuntamento.
+
+## Le cinque pagine
+
+| Rotta | Pagina | Ruolo |
+| --- | --- | --- |
+| `/` | Pagina iniziale | Chi, che cosa, dove; apre le tre strade di approfondimento |
+| `/medicina-felina` | Medicina felina | Identità, credenziali, che cos'è il GPCert, perché il gatto è diverso |
+| `/prestazioni` | Prestazioni | Le quattro prestazioni, il perimetro, che cosa portare |
+| `/guida-gatto` | Guida per chi ha un gatto | Trasportino, segni che meritano una visita, preparazione |
+| `/contatti` | Contatti e come arrivare | Appuntamento, modello di messaggio, QR, indirizzo, urgenze |
+
+Non esiste una pagina biografica separata: identità e credenziali aprono la
+pagina di medicina felina, perché la certificazione **è** il profilo.
 
 ## Stack
 
 - Next.js 16 (App Router) con Turbopack
 - TypeScript, Tailwind CSS v4
-- `lucide-react` per le icone, `framer-motion` per le entrate in scorrimento
-- Nessuna dipendenza runtime aggiuntiva: la pagina è prerenderizzata come
-  contenuto statico
+- `lucide-react` per le icone di interfaccia, `framer-motion` per le entrate in
+  scorrimento
+- Nessuna dipendenza runtime aggiuntiva: le cinque pagine, le anteprime Open
+  Graph, la sitemap e il robots sono prerenderizzati come contenuto statico
+
+Le icone di contenuto (prestazioni), la sequenza del trasportino e il diagramma
+di orientamento sono disegnati per questo sito e vivono in `components/disegni/`.
 
 ## Comandi
 
@@ -26,14 +43,30 @@ npm run build
 npm run lint
 ```
 
+Rigenerare le immagini di archivio — ritagli e gradazione sono documentati nello
+script, i file sono già versionati:
+
+```bash
+python3 scripts/scarica-foto.py
+```
+
+Rigenerare il codice QR verso WhatsApp:
+
+```bash
+python3 scripts/genera-qr.py
+```
+
+I due script chiedono rispettivamente `Pillow` e `segno`. Sono strumenti di
+sviluppo, non dipendenze del sito.
+
 ## Deploy su Vercel
 
 Il repository è collegato al progetto Vercel `ambulatorio-fornasarig`: ogni push
 su `main` fa partire un deploy di produzione.
 
 Non ci sono variabili obbligatorie. I metadati assoluti (canonical, Open Graph,
-dati strutturati) usano da soli `VERCEL_PROJECT_PRODUCTION_URL`, che Vercel
-fornisce in fase di build.
+sitemap, dati strutturati) usano da soli `VERCEL_PROJECT_PRODUCTION_URL`, che
+Vercel fornisce in fase di build.
 
 Quando l'ambulatorio avrà un dominio proprio, impostare in Vercel:
 
@@ -47,62 +80,28 @@ venga fissato nella build.
 ## Dove stanno i contenuti
 
 `lib/site.ts` è l'unica fonte dei dati dell'attività: nome, recapiti, indirizzo,
-qualifiche, elenco delle prestazioni. Header, hero, contatti, footer e dati
-strutturati leggono tutti da lì, quindi un recapito si corregge in un punto solo.
+qualifiche, prestazioni, messaggi WhatsApp precompilati, comuni limitrofi.
+Header, footer, pagine, metadati e dati strutturati leggono da lì.
 
-### Cosa non aggiungere senza conferma diretta
+## Regole di contenuto
 
-Il sito è stato costruito per non dichiarare nulla che l'ambulatorio non possa
-sostenere. In particolare **non** vanno inseriti senza verifica:
+Queste regole non sono preferenze di stile: riguardano ciò che il sito afferma.
 
-- tabelle di orari — l'unica formula ammessa è «Si riceve su appuntamento»;
-- recensioni, stelle, testimonianze o metriche («oltre N pazienti»);
-- pronto soccorso h24, prenotazione online, calendari, chat automatiche;
-- certificazioni, titoli o esperienze diverse da D.V.M. e GPCert Medicina
-  Felina;
-- fotografie di volti presentate come ritratto della professionista, o di
-  interni presentati come i locali dell'ambulatorio (vedi `CREDITI-FOTO.md`).
+- **Non è più possibile chiedere informazioni alla dottoressa.** Si scrive solo
+  ciò che è già in `lib/site.ts` o ciò che è vero in generale e verificabile
+  pubblicamente. In caso di dubbio si omette.
+- Mai la parola **«clinica»**: ambulatorio e clinica sono strutture con requisiti
+  diversi.
+- Mai **«specialista»** o **«specializzazione»**: il GPCert è una certificazione
+  post-laurea. La pagina di medicina felina lo dice esplicitamente.
+- Mai **«diagnostica per immagini»** in forma generica: si legge come
+  comprensiva delle ecografie. Si scrive **«radiografie»**.
+- **Ecocardiografia ed ecografia addominale sono escluse** da testi, elenchi,
+  icone e immagini.
+- Nessun orario, nessuna tariffa, nessun tempo di risposta, nessuna recensione,
+  nessuna promessa clinica.
+- Nessuna descrizione della prassi interna dell'ambulatorio: le indicazioni sono
+  sempre scritte dal lato del proprietario.
 
-## Fotografie
-
-La hero usa `public/foto/gattino-arancione.webp`, con posizionamento e
-dissolvenza responsive. La sezione felina usa
-`public/foto/gatto-bianco-nero-sdraiato.webp` nel formato originale 4:3.
-Entrambe le fotografie sono state fornite dalla dottoressa e conservate
-senza ricompressione. Provenienza e criteri sono in `CREDITI-FOTO.md`.
-Lo script seguente rigenera soltanto le due immagini Unsplash precedenti
-(`visita-gatto.jpg` e `gatto-in-braccio.jpg`), non le fotografie attualmente
-mostrate nella pagina:
-
-```bash
-python3 scripts/scarica-foto.py
-```
-
-Lo script riscarica gli originali e riapplica gli stessi ritagli, producendo
-file identici a quelli versionati.
-
-## Scelte di accessibilità e prestazioni
-
-- **Contrasto.** Il pulsante chiaro della hero usa testo verde scuro su
-  fondo verde pallido (8.92:1). I pulsanti verdi con testo bianco raggiungono
-  7.67:1; l'accento scuro sulle superfici sabbia raggiunge 4.59:1.
-- **Contenuti sempre visibili.** L'HTML servito dal server non contiene mai
-  `opacity: 0`. Le entrate in scorrimento (`components/Reveal.tsx`) nascondono
-  un blocco *solo* tramite lo stesso IntersectionObserver che poi lo rivela: se
-  lo script non parte, il contenuto resta semplicemente visibile. L'entrata
-  della hero è in CSS puro per lo stesso motivo.
-- **Movimento ridotto.** Con `prefers-reduced-motion` durata e ritardo delle
-  animazioni sono azzerati e le entrate JavaScript non vengono nemmeno armate.
-- **Bersagli tattili.** Sul mobile ogni link e pulsante supera i 44 px di
-  altezza, e una barra WhatsApp compare dopo il pulsante della hero. Si ritira
-  quando si raggiungono i contatti e durante l’apertura del menu.
-- **Immagini.** Servite con `next/image`; la hero riutilizza un unico originale verticale (2400 × 3600).
-  Il fondale cambia posizione su desktop, tablet e mobile, senza duplicare
-  il file né alterare la fotografia. Il layout riserva lo spazio prima
-  del caricamento dell’immagine.
-
-## Revisione frontend V1
-
-`IMPLEMENTATION_V1.MD` contiene la checklist e le evidenze della revisione:
-nuova composizione fotografica, gerarchia della hero, presentazione avorio
-e percorso WhatsApp coerente. Architettura, dipendenze e backend invariati.
+I piani di lavoro sono in `IMPLEMENTATION_PLAN.MD`, `IMPLEMENTATION_V1.MD` e
+`IMPLEMENTATION_V2.MD`. La provenienza delle immagini è in `CREDITI-FOTO.md`.

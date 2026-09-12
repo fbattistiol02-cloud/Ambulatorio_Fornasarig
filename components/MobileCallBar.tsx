@@ -2,7 +2,7 @@
 
 import { MapPin } from "lucide-react";
 
-import { site } from "@/lib/site";
+import { site, whatsappHref, whatsappMessages } from "@/lib/site";
 import { useContactVisibility } from "@/lib/useContactVisibility";
 import { cn } from "@/lib/utils";
 import { WhatsAppIcon } from "./WhatsAppIcon";
@@ -23,9 +23,9 @@ export function MobileCallBar() {
       data-mobile-contact-bar
     >
       <div className="wrap flex items-center gap-2.5 py-3">
-        <a href={site.whatsapp.href} target="_blank" rel="noopener noreferrer" className="whatsapp-cta whatsapp-cta-light min-w-0 flex-1 px-3">
+        <a href={whatsappHref(whatsappMessages.generale)} target="_blank" rel="noopener noreferrer" className="whatsapp-cta whatsapp-cta-light min-w-0 flex-1 px-3">
           <WhatsAppIcon className="size-5 shrink-0" />
-          Scrivi su WhatsApp
+          Scrivici su WhatsApp
         </a>
         <a href={site.directions} target="_blank" rel="noopener noreferrer" aria-label="Come raggiungerci, apri le indicazioni" className="flex size-12 shrink-0 items-center justify-center rounded-sm text-bone ring-1 ring-inset ring-bone/30">
           <MapPin className="size-5 shrink-0" strokeWidth={1.75} aria-hidden />

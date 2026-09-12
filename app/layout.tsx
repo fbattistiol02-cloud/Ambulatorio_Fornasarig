@@ -1,16 +1,26 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Source_Serif_4 } from "next/font/google";
+import { Inter_Tight, Newsreader } from "next/font/google";
 
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import { MobileCallBar } from "@/components/MobileCallBar";
+import { WhatsAppFloatingButton } from "@/components/WhatsAppFloatingButton";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const inter = Inter({
+/*
+ * Inter e Source Serif 4 erano corretti e invisibili: le due scelte più
+ * prevedibili di Google Fonts. Newsreader ha un asse verticale più marcato e
+ * una grazia meno neutra, Inter Tight stringe il testo corrente senza perdere
+ * leggibilità. Nessuna dipendenza nuova: `next/font/google` era già in uso.
+ */
+const sans = Inter_Tight({
   variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
 
-const serifDisplay = Source_Serif_4({
+const serifDisplay = Newsreader({
   variable: "--font-serif-display",
   subsets: ["latin"],
   display: "swap",
@@ -26,21 +36,16 @@ const serifDisplay = Source_Serif_4({
  *    build con il dominio di produzione del progetto — nessuna configurazione
  *    richiesta, e resta corretta anche nelle build di preview;
  * 3. localhost, che resta solo per lo sviluppo in locale.
- *
- * Il gradino 2 esiste perché senza di esso una build su Vercel priva della
- * variabile pubblicava `http://localhost:3000` come canonical e come og:image:
- * un canonical verso localhost impedisce la corretta indicizzazione e rompe
- * l'anteprima dei link condivisi.
  */
 const productionUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL;
-const siteUrl =
+export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
   (productionUrl ? `https://${productionUrl}` : "http://localhost:3000");
 
 const description =
   `Ambulatorio veterinario per cani e gatti a Percoto, Pavia di Udine. ` +
   `${site.doctor}, ${site.role} ${site.degree} con ${site.certification}. ` +
-  `Diagnostica per immagini e di laboratorio, piccola chirurgia. ` +
+  `Radiografie, esami di laboratorio, piccola chirurgia. ` +
   `${site.availability}`;
 
 export const metadata: Metadata = {
@@ -70,14 +75,6 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: `${site.name} — Percoto, Pavia di Udine`,
     description,
-    images: [
-      {
-        url: "/foto/cane-gatto.jpg",
-        width: 2400,
-        height: 3600,
-        alt: "Un cane bianco e un gattino rosso seduti a terra, vicini, che si guardano",
-      },
-    ],
   },
   robots: {
     index: true,
@@ -96,24 +93,33 @@ export const viewport: Viewport = {
  * Dati strutturati per la ricerca locale. Contengono esclusivamente
  * informazioni confermate: nessun orario di apertura, nessuna recensione,
  * nessuna valutazione aggregata.
+ *
+ * `availableService` nomina le radiografie e non «diagnostica per immagini»:
+ * la formula generica si leggerebbe come comprensiva delle ecografie.
  */
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "VeterinaryCare",
+  "@id": `${siteUrl}/#ambulatorio`,
   name: site.name,
   description,
+  url: siteUrl,
   address: {
     "@type": "PostalAddress",
     streetAddress: site.address.street,
+    postalCode: site.address.postalCode,
     addressLocality: `${site.address.locality}, ${site.address.municipality}`,
     addressRegion: site.address.province,
     addressCountry: site.address.country,
   },
   telephone: "+39 338 827 3705",
   email: site.email.label,
-  image: `${siteUrl}/foto/cane-gatto.jpg`,
   hasMap: site.directions,
   currenciesAccepted: "EUR",
+  areaServed: {
+    "@type": "AdministrativeArea",
+    name: "Pavia di Udine e comuni limitrofi",
+  },
   founder: {
     "@type": "Person",
     name: site.doctor,
@@ -122,8 +128,8 @@ const jsonLd = {
     memberOf: { "@type": "Organization", name: site.order },
   },
   availableService: [
-    { "@type": "MedicalProcedure", name: "Medicina veterinaria per cani e gatti" },
-    { "@type": "MedicalProcedure", name: "Diagnostica per immagini" },
+    { "@type": "MedicalProcedure", name: "Visita veterinaria per cani e gatti" },
+    { "@type": "MedicalProcedure", name: "Radiografie" },
     { "@type": "MedicalProcedure", name: "Diagnostica di laboratorio" },
     { "@type": "MedicalProcedure", name: "Piccola chirurgia" },
   ],
@@ -133,10 +139,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="it"
-      className={`${inter.variable} ${serifDisplay.variable} h-full antialiased`}
+      className={`${sans.variable} ${serifDisplay.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-bone">
-        {children}
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+        <MobileCallBar />
+        <WhatsAppFloatingButton />
         <script
           type="application/ld+json"
           // Oggetto costruito internamente da `lib/site.ts`: nessun input esterno.

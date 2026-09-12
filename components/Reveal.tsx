@@ -50,6 +50,13 @@ export function Reveal({ children, delay = 0, className }: RevealProps) {
           // era già a schermo e non deve comparire dal nulla.
           if (everHidden.current) setPhase("rivelato");
           observer.disconnect();
+        } else if (entry.boundingClientRect.top < 0) {
+          // Il blocco è ormai sopra la finestra: lo si è superato senza che
+          // arrivasse mai una soglia di intersezione — succede con uno scorrimento
+          // rapido o con un salto ad ancora. Se restasse nascosto, la sezione
+          // risulterebbe vuota risalendo la pagina.
+          if (everHidden.current) setPhase("rivelato");
+          observer.disconnect();
         } else if (!everHidden.current) {
           everHidden.current = true;
           setPhase("nascosto");

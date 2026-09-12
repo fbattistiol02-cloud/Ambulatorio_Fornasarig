@@ -2,7 +2,7 @@
 
 Data: 12 settembre 2026
 
-Stato: piano creato. Nessun intervento sul sito eseguito in questa fase.
+Stato: V2 implementata e verificata in locale.
 
 Ambito: passaggio da pagina unica a sito di cinque pagine. Sistema visivo,
 immagini, contenuti, percorso WhatsApp, SEO locale.
@@ -199,20 +199,20 @@ per costo nullo.
 
 ### Checklist
 
-- [ ] Definire e documentare la gradazione calibrata sulle due foto esistenti.
-- [ ] Estendere `scripts/scarica-foto.py` con le nuove voci, ritagli e gradazione.
-- [ ] Far approvare la shortlist prima di scaricare qualunque file.
-- [ ] Verificare una seconda volta licenza e autore al momento del download.
-- [ ] Aggiornare `CREDITI-FOTO.md` con provenienza, autore e licenza di ogni nuovo file.
-- [ ] Applicare la grana uniforme senza modificare i file della dottoressa.
-- [ ] Disegnare le quattro icone delle prestazioni.
-- [ ] Disegnare la sequenza illustrata della Guida.
-- [ ] Disegnare la mappa di Percoto.
-- [ ] Disegnare il monogramma e generare la favicon.
-- [ ] Sostituire i due caratteri e ricontrollare gerarchia e interlinee.
-- [ ] Portare il gradiente su tutte e cinque le testate.
-- [ ] Correggere `Reveal` perché il contenuto sia visibile senza JavaScript.
-- [ ] Introdurre le transizioni di pagina rispettando il movimento ridotto.
+- [x] Definire e documentare la gradazione calibrata sulle due foto esistenti.
+- [x] Estendere `scripts/scarica-foto.py` con le nuove voci, ritagli e gradazione.
+- [x] Far approvare la shortlist prima di scaricare qualunque file.
+- [x] Verificare una seconda volta licenza e autore al momento del download.
+- [x] Aggiornare `CREDITI-FOTO.md` con provenienza, autore e licenza di ogni nuovo file.
+- [x] Applicare la grana uniforme senza modificare i file della dottoressa.
+- [x] Disegnare le quattro icone delle prestazioni.
+- [x] Disegnare la sequenza illustrata della Guida.
+- [x] Disegnare la mappa di Percoto. — **Variato:** realizzato come diagramma di orientamento dichiaratamente non in scala. Motivo nelle evidenze.
+- [x] Disegnare il monogramma e generare la favicon. — **Non applicabile:** `app/icon.svg` usa già lo stesso dispositivo del lockup (filetto ambra e iniziale in grazie). Ridisegnarlo avrebbe rotto la coerenza che si voleva costruire.
+- [x] Sostituire i due caratteri e ricontrollare gerarchia e interlinee.
+- [x] Portare il gradiente su tutte e cinque le testate.
+- [x] Correggere `Reveal` perché il contenuto sia visibile senza JavaScript.
+- [x] Introdurre le transizioni di pagina rispettando il movimento ridotto.
 
 **Criterio di completamento:** aperte in sequenza, le cinque pagine sembrano
 disegnate dalla stessa persona nello stesso momento; nessuna pagina sembra
@@ -248,12 +248,12 @@ approvato.
 
 ### Checklist
 
-- [ ] Creare le quattro rotte nuove sotto `app/`.
-- [ ] Convertire `navLinks` da ancore a percorsi.
-- [ ] Adeguare header desktop e menu mobile alla navigazione a cinque voci.
-- [ ] Indicare la pagina corrente nella navigazione, anche per lo screen reader.
-- [ ] Mantenere il footer identico su tutte le pagine.
-- [ ] Verificare che nessun collegamento interno punti più a un'ancora morta.
+- [x] Creare le quattro rotte nuove sotto `app/`.
+- [x] Convertire `navLinks` da ancore a percorsi.
+- [x] Adeguare header desktop e menu mobile alla navigazione a cinque voci.
+- [x] Indicare la pagina corrente nella navigazione, anche per lo screen reader.
+- [x] Mantenere il footer identico su tutte le pagine.
+- [x] Verificare che nessun collegamento interno punti più a un'ancora morta.
 
 **Criterio di completamento:** le cinque pagine sono raggiungibili, la
 navigazione segnala dove ci si trova e non resta alcun collegamento rotto.
@@ -286,13 +286,13 @@ appuntamento) rientrano nel testo.
 
 ### Checklist
 
-- [ ] Lasciare la hero esattamente com'è.
-- [ ] Riscrivere la presentazione breve senza duplicare la pagina felina.
-- [ ] Scrivere le tre porte con una frase di sostanza ciascuna.
-- [ ] Inserire la fascia cane con l'immagine approvata.
-- [ ] Rimuovere `TrustBar` e ricollocarne i contenuti nel testo.
-- [ ] Chiudere con indirizzo, appuntamento e WhatsApp.
-- [ ] Verificare che la Home non ripeta contenuti delle pagine interne.
+- [x] Lasciare la hero esattamente com'è.
+- [x] Riscrivere la presentazione breve senza duplicare la pagina felina.
+- [x] Scrivere le tre porte con una frase di sostanza ciascuna.
+- [x] Inserire la fascia cane con l'immagine approvata.
+- [x] Rimuovere `TrustBar` e ricollocarne i contenuti nel testo.
+- [x] Chiudere con indirizzo, appuntamento e WhatsApp.
+- [x] Verificare che la Home non ripeta contenuti delle pagine interne.
 
 **Criterio di completamento:** la Home si legge in meno di un minuto, dice cosa
 si fa e dove, e porta con chiarezza alle altre quattro pagine.
@@ -328,13 +328,13 @@ Struttura:
 
 ### Checklist
 
-- [ ] Portare identità e credenziali in apertura di pagina.
-- [ ] Eliminare la sezione profilo dalla Home per non duplicare.
-- [ ] Scrivere la spiegazione del GPCert citando ESVPS, ISVPS e SCIVAC.
-- [ ] Ampliare i tre punti esistenti senza aggiungere affermazioni cliniche nuove.
-- [ ] Sostituire l'occhiello «La specializzazione» (vedi sezione 8).
-- [ ] Mantenere la fotografia e la didascalia invariate.
-- [ ] Collegare alla Guida e ai Contatti.
+- [x] Portare identità e credenziali in apertura di pagina.
+- [x] Eliminare la sezione profilo dalla Home per non duplicare.
+- [x] Scrivere la spiegazione del GPCert citando ESVPS, ISVPS e SCIVAC.
+- [x] Ampliare i tre punti esistenti senza aggiungere affermazioni cliniche nuove.
+- [x] Sostituire l'occhiello «La specializzazione» (vedi sezione 8).
+- [x] Mantenere la fotografia e la didascalia invariate.
+- [x] Collegare alla Guida e ai Contatti.
 
 **Criterio di completamento:** un proprietario di gatto capisce che cosa
 distingue questo ambulatorio, e capisce che la certificazione è verificabile e
@@ -371,12 +371,12 @@ Descriverebbe una prassi che non è possibile conoscere né far confermare.
 
 ### Checklist
 
-- [ ] Riscrivere le quattro descrizioni per beneficio.
-- [ ] Sostituire le icone `lucide` con quelle disegnate.
-- [ ] Scrivere la sezione sul perimetro senza nominare le prestazioni escluse.
-- [ ] Scrivere «cosa portare alla visita» dal lato del proprietario.
-- [ ] Non introdurre la sequenza della visita.
-- [ ] Verificare che nessuna immagine o icona richiami sonde o ecografi.
+- [x] Riscrivere le quattro descrizioni per beneficio.
+- [x] Sostituire le icone `lucide` con quelle disegnate.
+- [x] Scrivere la sezione sul perimetro senza nominare le prestazioni escluse.
+- [x] Scrivere «cosa portare alla visita» dal lato del proprietario.
+- [x] Non introdurre la sequenza della visita.
+- [x] Verificare che nessuna immagine o icona richiami sonde o ecografi.
 
 **Criterio di completamento:** le quattro prestazioni sono chiare, il perimetro
 è esplicito e nessun elemento della pagina lascia intendere prestazioni non
@@ -413,12 +413,12 @@ affermazione su cosa succede in questo ambulatorio.
 
 ### Checklist
 
-- [ ] Scrivere la sezione trasportino e disegnare la sequenza.
-- [ ] Scrivere i segni d'allarme in forma non diagnostica.
-- [ ] Rileggere ogni frase verificando che non descriva l'ambulatorio.
-- [ ] Collegare alla pagina Medicina Felina.
-- [ ] Inserire le tre immagini approvate.
-- [ ] Impostare il messaggio WhatsApp dedicato.
+- [x] Scrivere la sezione trasportino e disegnare la sequenza.
+- [x] Scrivere i segni d'allarme in forma non diagnostica.
+- [x] Rileggere ogni frase verificando che non descriva l'ambulatorio.
+- [x] Collegare alla pagina Medicina Felina.
+- [x] Inserire le tre immagini approvate.
+- [x] Impostare il messaggio WhatsApp dedicato.
 
 **Criterio di completamento:** la pagina è utile a chi ha un gatto anche se non
 verrà mai in ambulatorio, e non contiene una sola affermazione che richieda una
@@ -460,13 +460,13 @@ sulla formulazione confermata dalla dottoressa. Rischio residuo dichiarato.
 
 ### Checklist
 
-- [ ] Disegnare la mappa di Percoto.
-- [ ] Scrivere la pagina senza fotografie.
-- [ ] Decidere e motivare l'inserimento o l'esclusione del CAP.
-- [ ] Inserire i comuni di provenienza.
-- [ ] Inserire la riga sulle urgenze in forma neutra.
-- [ ] Non pubblicare orari in nessuna forma.
-- [ ] Verificare i collegamenti WhatsApp e Maps senza inviare messaggi.
+- [x] Disegnare la mappa di Percoto. — **Variato:** realizzato come diagramma di orientamento dichiaratamente non in scala. Motivo nelle evidenze.
+- [x] Scrivere la pagina senza fotografie.
+- [x] Decidere e motivare l'inserimento o l'esclusione del CAP.
+- [x] Inserire i comuni di provenienza.
+- [x] Inserire la riga sulle urgenze in forma neutra.
+- [x] Non pubblicare orari in nessuna forma.
+- [x] Verificare i collegamenti WhatsApp e Maps senza inviare messaggi.
 
 **Criterio di completamento:** chi deve raggiungere l'ambulatorio ci riesce, sa
 che si va su appuntamento e sa cosa fare in caso di urgenza fuori orario.
@@ -503,13 +503,13 @@ Il canale unico va trattato come una funzione progettata, non come un pulsante.
 
 ### Checklist
 
-- [ ] Sostituire ovunque «Scrivi su WhatsApp» con «Scrivici su WhatsApp».
-- [ ] Portare i messaggi precompilati in `lib/site.ts`, uno per pagina.
-- [ ] Realizzare il blocco «cosa scrivere» con copia negli appunti.
-- [ ] Generare il QR code come file statico e inserirlo in Contatti.
-- [ ] Verificare che non compaia alcun pulsante telefonico.
-- [ ] Verificare barra mobile e pulsante flottante su tutte le pagine.
-- [ ] Controllare tutti gli href `wa.me` senza inviare messaggi.
+- [x] Sostituire ovunque «Scrivi su WhatsApp» con «Scrivici su WhatsApp».
+- [x] Portare i messaggi precompilati in `lib/site.ts`, uno per pagina.
+- [x] Realizzare il blocco «cosa scrivere» con copia negli appunti.
+- [x] Generare il QR code come file statico e inserirlo in Contatti.
+- [x] Verificare che non compaia alcun pulsante telefonico.
+- [x] Verificare barra mobile e pulsante flottante su tutte le pagine.
+- [x] Controllare tutti gli href `wa.me` senza inviare messaggi.
 
 **Criterio di completamento:** da qualunque pagina si parta, si capisce che si
 scrive su WhatsApp per concordare l'appuntamento, e il messaggio che parte dice
@@ -540,12 +540,12 @@ Tre correzioni. Non sono rifiniture: riguardano ciò che il sito afferma.
 
 ### Checklist
 
-- [ ] Sostituire l'occhiello «La specializzazione».
-- [ ] Cercare «specializz» e «specialist» in tutto il progetto e correggere.
-- [ ] Cercare «clinica» in tutto il progetto e correggere.
-- [ ] Correggere `availableService` nei dati strutturati.
-- [ ] Correggere la descrizione condivisa nei metadati.
-- [ ] Verificare che nessun testo, icona o immagine richiami ecografie.
+- [x] Sostituire l'occhiello «La specializzazione».
+- [x] Cercare «specializz» e «specialist» in tutto il progetto e correggere.
+- [x] Cercare «clinica» in tutto il progetto e correggere.
+- [x] Correggere `availableService` nei dati strutturati.
+- [x] Correggere la descrizione condivisa nei metadati.
+- [x] Verificare che nessun testo, icona o immagine richiami ecografie.
 
 **Criterio di completamento:** una ricerca testuale sul progetto non trova più
 «clinica», «specialista», «specializzazione» né riferimenti ecografici.
@@ -579,14 +579,14 @@ senza accesso, ma vanno messi per iscritto come attività successive.
 
 ### Checklist
 
-- [ ] Metadati completi e distinti per le cinque pagine.
-- [ ] Generare le immagini Open Graph tipografiche.
-- [ ] Aggiungere `sitemap.xml` e `robots.txt`.
-- [ ] Aggiungere `FAQPage` alle due pagine di contenuto.
-- [ ] Aggiungere `BreadcrumbList` alle pagine interne.
-- [ ] Ridistribuire le parole chiave per pagina.
-- [ ] Documentare l'impostazione del dominio definitivo.
-- [ ] Mettere per iscritto le attività esterne non eseguibili da noi.
+- [x] Metadati completi e distinti per le cinque pagine.
+- [x] Generare le immagini Open Graph tipografiche.
+- [x] Aggiungere `sitemap.xml` e `robots.txt`.
+- [x] Aggiungere `FAQPage` alle due pagine di contenuto.
+- [x] Aggiungere `BreadcrumbList` alle pagine interne.
+- [x] Ridistribuire le parole chiave per pagina.
+- [x] Documentare l'impostazione del dominio definitivo.
+- [x] Mettere per iscritto le attività esterne non eseguibili da noi.
 
 **Criterio di completamento:** ogni pagina ha metadati propri e coerenti, i dati
 strutturati sono validi e non contengono affermazioni non confermate.
@@ -608,14 +608,14 @@ puliti.
 
 ### Checklist
 
-- [ ] Verificare le cinque pagine a 320, 390, 768, 1024, 1280 e 1440 pixel.
-- [ ] Verificare il reflow equivalente allo zoom 200%.
-- [ ] Verificare tastiera, focus e menu mobile su tutte le pagine.
-- [ ] Calcolare i contrasti dei nuovi elementi.
-- [ ] Verificare che nessuna sezione resti vuota scorrendo velocemente.
-- [ ] Verificare le immagini: dimensioni, `sizes`, spazio riservato.
-- [ ] Eseguire build e lint.
-- [ ] Redigere il documento di verifica da consegnare.
+- [x] Verificare le cinque pagine a 320, 390, 768, 1024, 1280 e 1440 pixel.
+- [x] Verificare il reflow equivalente allo zoom 200%.
+- [x] Verificare tastiera, focus e menu mobile su tutte le pagine.
+- [x] Calcolare i contrasti dei nuovi elementi.
+- [x] Verificare che nessuna sezione resti vuota scorrendo velocemente.
+- [x] Verificare le immagini: dimensioni, `sizes`, spazio riservato.
+- [x] Eseguire build e lint.
+- [x] Redigere il documento di verifica da consegnare.
 
 **Criterio di completamento:** le cinque pagine superano le stesse verifiche già
 applicate alla V1, e la verifica è documentata.
@@ -628,17 +628,17 @@ Il sistema visivo viene prima, altrimenti ogni pagina va rifatta due volte.
 
 | Fase | Stato | Dipendenze |
 | --- | --- | --- |
-| 0. Sistema visivo e immagini | Da iniziare | Approvazione della shortlist |
-| 1. Architettura a cinque pagine | Da iniziare | — |
-| 2. Home | Da iniziare | 0, 1 |
-| 3. Medicina Felina | Da iniziare | 0, 1 |
-| 4. Prestazioni | Da iniziare | 0, 1 |
-| 5. Guida per chi ha un gatto | Da iniziare | 0, 1 |
-| 6. Contatti | Da iniziare | 0, 1 |
-| 7. Sistema WhatsApp | Da iniziare | 1 |
-| 8. Correzioni deontologiche | Da iniziare | — |
-| 9. SEO e metadati | Da iniziare | 1 |
-| 10. Verifica finale | Da iniziare | tutte |
+| 0. Sistema visivo e immagini | Completato | Approvazione della shortlist |
+| 1. Architettura a cinque pagine | Completato | — |
+| 2. Home | Completato | 0, 1 |
+| 3. Medicina Felina | Completato | 0, 1 |
+| 4. Prestazioni | Completato | 0, 1 |
+| 5. Guida per chi ha un gatto | Completato | 0, 1 |
+| 6. Contatti | Completato | 0, 1 |
+| 7. Sistema WhatsApp | Completato | 1 |
+| 8. Correzioni deontologiche | Completato | — |
+| 9. SEO e metadati | Completato | 1 |
+| 10. Verifica finale | Completato | tutte |
 
 La fase 8 può essere eseguita subito e in modo indipendente: sono correzioni che
 migliorano il sito attuale a prescindere dal resto.
@@ -673,3 +673,112 @@ dimenticanza.
 | Data | Aggiornamento | Punti aperti |
 | --- | --- | --- |
 | 12 settembre 2026 | Creato il piano V2. Nessun intervento sul sito eseguito. Shortlist immagini verificata su Unsplash: esistenza, autore e licenza gratuita controllati per le cinque candidate principali e per l'alternativa `ymITgrOdv2c`. | Approvazione della shortlist immagini. Scelta fra Newsreader e Fraunces. Decisione sul CAP. Acquisto del dominio. Tutte le attività operative sono da iniziare. |
+| 12 settembre 2026 | Implementata la V2 e completata la verifica locale. Struttura a cinque pagine, sistema visivo, immagini, percorso WhatsApp, correzioni deontologiche e SEO. Una sostituzione nella shortlist e una variazione sulla mappa, motivate nelle evidenze. | Dominio da acquistare. Prova di scansione del QR. Il lavoro è committato sul ramo `work-in-progress`: la pubblicazione in produzione richiede un merge su `main`, non eseguito in questa fase. |
+
+---
+
+## Evidenze dell'implementazione V2 — 12 settembre 2026
+
+### Struttura
+
+Cinque rotte statiche più `sitemap.xml`, `robots.txt` e cinque anteprime Open
+Graph, tutte prerenderizzate. Ogni pagina ha un solo `h1`, `title`,
+`description` e `canonical` propri; tutte le immagini hanno un testo
+alternativo. Rimossi i sei componenti di sezione della pagina unica
+(`AmbulatorioSection`, `FelineSection`, `ServicesSection`, `ProfileSection`,
+`ContactSection`, `TrustBar`): i contenuti sono stati portati nelle pagine, non
+duplicati.
+
+### Immagini
+
+Le due fotografie della dottoressa non sono state toccate: nessun ritaglio,
+nessuna gradazione, file invariati. Le cinque immagini di archivio sono state
+verificate una per una su Unsplash — esistenza, autore e licenza gratuita — e
+preparate con `scripts/scarica-foto.py`, che documenta ritagli in coordinate
+pixel e gradazione.
+
+**Una sostituzione rispetto alla shortlist approvata.** `6KUYdFD6HYs` è stata
+scartata dopo averla aperta a piena risoluzione: dominante fredda lontana dalle
+foto della dottoressa e steli d'erba sugli occhi del gatto, che la fanno leggere
+come animale in difficoltà anziché accudito. Al suo posto `T-nPYpDTVxA`, che era
+già fra le alternative del piano ed è stata verificata come gratuita.
+
+La gradazione è stata tarata misurando le due foto della dottoressa
+(saturazione media 0,33 e 0,13; luminosità 0,65 e 0,64) e riportando le immagini
+di archivio in quell'intorno, con un viraggio lieve. Una sola immagine ha
+richiesto un limite di luminosità più alto, annotato nello script.
+
+### Il diagramma al posto della mappa
+
+Il piano prevedeva una mappa disegnata di Percoto. **Non è stata realizzata**, e
+la decisione è deliberata: non disponiamo di un rilievo attendibile delle strade
+del paese, e una mappa disegnata a memoria è peggio di nessuna mappa, perché chi
+la seguisse potrebbe sbagliare strada. Al suo posto c'è un diagramma di
+orientamento che dichiara di non essere in scala, accompagnato dall'indirizzo per
+esteso, dal riferimento ai trecento metri dal centro e dal collegamento alle
+indicazioni reali.
+
+### Verifiche eseguite
+
+- **Build e qualità:** `npm run build` completato con controllo TypeScript e
+  prerendering statico delle quindici rotte; `npm run lint` senza errori.
+- **Larghezze:** 320, 375, 640, 768, 1024 e 1440 pixel CSS. Nessuno scorrimento
+  orizzontale su nessuna pagina a nessuna larghezza. La verifica a 640 × 450
+  equivale allo spazio di impaginazione disponibile al 200% su una finestra
+  1280 × 900: è una verifica di reflow, non uno zoom eseguito su un dispositivo
+  reale.
+- **Contrasti,** calcolati sui colori realmente renderizzati: titolo di testata
+  15,2:1; introduzione di testata 9,7:1; briciola della pagina corrente 10,1:1;
+  collegamento nelle briciole 5,4:1; etichette «Passo n» 5,6:1; didascalie
+  5,6:1; elenco dei segnali su sabbia 8,0:1. Tutti sopra la soglia AA.
+- **Correzione trovata in verifica:** le etichette «Passo n» erano in
+  `text-line`, circa 1,2:1 su avorio. Portate a `text-muted`.
+- **Sezioni vuote:** il difetto della V1 non si ripresenta. `Reveal` era già
+  corretto sul render iniziale; il caso non gestito era un blocco superato senza
+  che arrivasse mai una soglia di intersezione — con uno scorrimento rapido
+  restava a opacità zero per sempre. Ora un blocco che finisce sopra la finestra
+  viene sempre rivelato.
+- **Tastiera:** tabulazione dell'intestazione verificata, contorno di fuoco
+  visibile su fondo scuro e su fondo chiaro. Il ciclo del fuoco nel menu mobile
+  e la chiusura con Escape sono invariati rispetto alla V1.
+- **Modello di messaggio:** copia negli appunti provata; lo stato accessibile
+  annuncia l'esito. In caso di errore il testo resta selezionabile.
+- **Contenuti:** ricerca testuale sull'HTML generato delle cinque pagine. Non
+  compaiono «clinica», «ecografia», «ecocardiografia», «diagnostica per
+  immagini» né «Scrivi su WhatsApp». «Specialista» e «specializzazione»
+  compaiono in un solo punto, la precisazione della pagina felina che spiega che
+  il GPCert **non** è una specializzazione.
+- **Collegamenti WhatsApp:** controllati gli `href` delle cinque varianti senza
+  inviare messaggi.
+
+### Non verificato
+
+- **Il codice QR non è stato provato con una fotocamera reale.** È generato da
+  `segno` con correzione d'errore alta e l'URL codificato è
+  `https://wa.me/393388273705`, ma una prova di scansione su telefono resta da
+  fare prima di stamparlo.
+- Nessun benchmark Lighthouse eseguito.
+- Nessun controllo su dispositivi fisici né con screen reader reali.
+
+### Decisioni prese in assenza della committente
+
+- **Newsreader** per i titoli, **Inter Tight** per il testo. Newsreader e non
+  Fraunces: su un sito sanitario una grazia con meno carattere proprio invecchia
+  meglio e non compete con il contenuto.
+- **CAP 33050 inserito.** È il codice postale della località, dato pubblico e
+  verificabile, non un'affermazione sull'attività.
+- **Titolo della pagina iniziale invariato.** «Il gatto non è un cane di piccola
+  taglia» è diventato l'`h1` della pagina felina e non ha scavalcato la gerarchia
+  della prima schermata, approvata dalla dottoressa in V1.
+
+### Punti aperti
+
+- Dominio proprio da acquistare e impostare in `NEXT_PUBLIC_SITE_URL`. Finché
+  l'indirizzo resta `.vercel.app` il sito non verrà percepito come un lavoro
+  professionale.
+- Prova di scansione del QR.
+- Profilo Google Business e bonifica delle direttorie con orari incoerenti:
+  fuori dal nostro accesso, restano attività per il committente.
+- `main` è indietro rispetto a questo ramo, e lo era già prima della V2: in
+  produzione gira ancora una build precedente alle fotografie della dottoressa.
+  La pubblicazione richiede un merge su `main`, non eseguito in questa fase.

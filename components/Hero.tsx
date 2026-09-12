@@ -1,14 +1,14 @@
 import Image from "next/image";
-import { ArrowDown, ArrowUpRight, MapPin } from "lucide-react";
+import { ArrowDown, MapPin } from "lucide-react";
 
 import { site } from "@/lib/site";
-import { WhatsAppIcon } from "./WhatsAppIcon";
+import { WhatsAppCTA } from "./WhatsAppCTA";
 
 export function Hero() {
   return (
     <section id="top" className="hero" aria-labelledby="hero-title">
       {/* Fondale continuo: fotografia fornita dalla dottoressa, sfumata ai bordi. */}
-      <div className="hero-photo">
+      <div className="hero-photo grain">
         <Image
           src="/foto/gattino-arancione.webp"
           alt="Un gattino arancione guarda verso l’obiettivo"
@@ -26,7 +26,7 @@ export function Hero() {
             Ambulatorio veterinario · Percoto
           </p>
           <h1 id="hero-title" className="hero-title rise rise-2">
-            Cura veterinaria
+            Cura veterinaria{" "}
             <span className="block">per cani e gatti.</span>
           </h1>
           <p className="hero-intro rise rise-3">
@@ -40,17 +40,12 @@ export function Hero() {
             </p>
           </div>
           <div className="hero-actions rise rise-4">
-            <a
-              href={site.whatsapp.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="whatsapp-cta whatsapp-cta-light"
-              data-hero-contact
-            >
-              <WhatsAppIcon className="size-5 shrink-0" />
-              Scrivi su WhatsApp
-              <ArrowUpRight className="ml-2 size-4 shrink-0" strokeWidth={1.75} aria-hidden />
-            </a>
+            <WhatsAppCTA
+              contesto="generale"
+              variante="light"
+              freccia
+              marcatore="inizio"
+            />
             <p className="mt-3 text-sm text-bone/80">
               Per informazioni e appuntamenti.
             </p>
