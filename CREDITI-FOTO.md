@@ -1,45 +1,40 @@
-# Crediti e licenza delle fotografie
+# Crediti e provenienza delle fotografie
 
-Le due fotografie in `public/foto/` provengono da **Unsplash** e sono usate in
-base alla [Licenza Unsplash](https://unsplash.com/license): download e uso
-gratuiti, anche **commerciali**, senza obbligo di chiedere il permesso.
-L'attribuzione non è richiesta ma è buona pratica, e gli autori sono elencati
-qui sotto.
+## Fotografie in uso — aggiornamento del 12 settembre 2026
 
-| File                   | Soggetto                                                | Autore            | Pagina originale                            |
-| ---------------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------- |
-| `visita-gatto.jpg`     | Mani guantate durante la visita di un gatto in ambulatorio | Sueda Güzeldere   | https://unsplash.com/photos/BATIVPqWwqw     |
-| `gatto-in-braccio.jpg` | Gatto soriano tenuto in braccio, tranquillo              | Werzk Luuuuuuu    | https://unsplash.com/photos/tDlo2ZPlQlU     |
+Le due immagini sono state fornite dalla Dott.ssa Fornasarig tramite il
+committente per essere inserite nel sito. I file WebP originali sono stati
+copiati senza modifiche o ricompressione, assegnando nomi descrittivi.
+Non vengono attribuiti ad archivi fotografici né indicati come immagini generate.
 
-Entrambe sono ritagliate e ricompresse da `scripts/scarica-foto.py`, che
-contiene le coordinate esatte del riquadro e rigenera file identici a quelli
-versionati.
+| File in `public/foto/` | Utilizzo | Soggetto | Dimensioni |
+| --- | --- | --- | --- |
+| `gattino-arancione.webp` | Sfondo continuo della hero | Gattino arancione rivolto verso l’obiettivo | 1448 × 1086 |
+| `gatto-bianco-nero-sdraiato.webp` | Sezione medicina felina | Gatto bianco e nero sdraiato accanto a un gradino | 1448 × 1086 |
 
-## Criteri di scelta
+La hero usa un ritaglio responsive e una dissolvenza CSS; la seconda foto
+mantiene il formato 4:3 per mostrare il gatto per intero. I testi alternativi
+sono aggiornati ai soggetti effettivi. Le immagini non vengono presentate
+come ritratti della dottoressa o documentazione dei locali dell’ambulatorio.
 
-- **Nessun volto riconoscibile.** Il sito non mostra ritratti, né reali né
-  generati: una foto d'archivio con un volto in primo piano verrebbe letta come
-  il ritratto della Dott.ssa Fornasarig, e non lo è.
-- **Atto medico reale.** La foto della hero mostra guanti, tavolo da visita e
-  contenimento corretto di un gatto: nessuna posa costruita, nessun cucciolo nel
-  cestino.
-- **Ambiente coerente.** Toni freddi e puliti sul soggetto, che si sposano con
-  il verde profondo della velatura senza sembrare un fotomontaggio.
+## Fotografie precedenti conservate nel repository
 
-## Attenzione: non sono i locali dell'ambulatorio
+Questi file non sono più utilizzati dai componenti della pagina.
 
-Le immagini illustrano **la specie trattata e il tipo di prestazione**, non la
-struttura di Percoto. Non aggiungere fotografie di sale visita, attrezzature o
-interni presi da archivi: darebbero a intendere che siano quelli
-dell'ambulatorio.
+| File | Provenienza documentata | Pagina originale |
+| --- | --- | --- |
+| `visita-gatto.jpg` | Unsplash, Sueda Güzeldere | https://unsplash.com/photos/BATIVPqWwqw |
+| `gatto-in-braccio.jpg` | Unsplash, Werzk Luuuuuuu | https://unsplash.com/photos/tDlo2ZPlQlU |
+| `cane-gatto.jpg` | Già presente al commit `72d3637`; autore e provenienza esterna non registrati | — |
 
-## Sostituzione
+Le due immagini Unsplash sono documentate secondo la
+[Licenza Unsplash](https://unsplash.com/license) e sono rigenerabili con
+`scripts/scarica-foto.py`. Lo script non modifica le nuove immagini WebP.
+Il precedente file della hero `cane-gatto.jpg` (2400 × 3600) è rimasto invariato;
+non gli viene attribuita una licenza non documentata.
 
-Appena la Dott.ssa Fornasarig fornisce fotografie proprie basta sovrascrivere i
-file mantenendo gli stessi nomi e le stesse proporzioni:
+## Sostituzioni future
 
-- `visita-gatto.jpg` — quadrato (1:1), soggetto al centro;
-- `gatto-in-braccio.jpg` — verticale (4:5).
-
-Il testo alternativo va aggiornato in `components/Hero.tsx` e
-`components/FelineSection.tsx`, e questo file va corretto di conseguenza.
+Aggiornare insieme percorso, proporzioni, ritaglio responsive, testo
+alternativo e provenienza. Non presentare foto di archivio o immagini generate
+come ritratti della professionista o fotografie reali della struttura.

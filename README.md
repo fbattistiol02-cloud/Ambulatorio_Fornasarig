@@ -1,8 +1,8 @@
 # Ambulatorio Veterinario Dott.ssa Elena Fornasarig
 
 Sito vetrina di una pagina per l'ambulatorio veterinario di Percoto (Pavia di
-Udine). Statico, senza backend, senza database e senza raccolta di dati: l'unico
-invito all'azione è la telefonata.
+Udine). Statico, senza backend, senza database e senza raccolta di dati: il contatto principale
+è WhatsApp, per informazioni e richieste di appuntamento.
 
 ## Stack
 
@@ -65,8 +65,14 @@ sostenere. In particolare **non** vanno inseriti senza verifica:
 
 ## Fotografie
 
-Due immagini Unsplash in `public/foto/`, con crediti e criteri in
-`CREDITI-FOTO.md`. Per rigenerarle:
+La hero usa `public/foto/gattino-arancione.webp`, con posizionamento e
+dissolvenza responsive. La sezione felina usa
+`public/foto/gatto-bianco-nero-sdraiato.webp` nel formato originale 4:3.
+Entrambe le fotografie sono state fornite dalla dottoressa e conservate
+senza ricompressione. Provenienza e criteri sono in `CREDITI-FOTO.md`.
+Lo script seguente rigenera soltanto le due immagini Unsplash precedenti
+(`visita-gatto.jpg` e `gatto-in-braccio.jpg`), non le fotografie attualmente
+mostrate nella pagina:
 
 ```bash
 python3 scripts/scarica-foto.py
@@ -77,10 +83,9 @@ file identici a quelli versionati.
 
 ## Scelte di accessibilità e prestazioni
 
-- **Contrasto.** Ogni combinazione di testo raggiunge almeno 4.59:1, sopra la
-  soglia WCAG AA. L'ambra di partenza (`#d97706`) sotto il testo bianco delle
-  CTA si fermava a 3.19:1: la tonalità operativa è `#ab4f08`, mentre `#f59e0b`
-  resta riservato al verde profondo, dove arriva a 7.37:1.
+- **Contrasto.** Il pulsante chiaro della hero usa testo verde scuro su
+  fondo verde pallido (8.92:1). I pulsanti verdi con testo bianco raggiungono
+  7.67:1; l'accento scuro sulle superfici sabbia raggiunge 4.59:1.
 - **Contenuti sempre visibili.** L'HTML servito dal server non contiene mai
   `opacity: 0`. Le entrate in scorrimento (`components/Reveal.tsx`) nascondono
   un blocco *solo* tramite lo stesso IntersectionObserver che poi lo rivela: se
@@ -89,7 +94,15 @@ file identici a quelli versionati.
 - **Movimento ridotto.** Con `prefers-reduced-motion` durata e ritardo delle
   animazioni sono azzerati e le entrate JavaScript non vengono nemmeno armate.
 - **Bersagli tattili.** Sul mobile ogni link e pulsante supera i 44 px di
-  altezza, e una barra di chiamata fissa compare dopo la hero.
-- **Immagini.** Servite con `next/image`; la hero è un unico ritaglio quadrato
-  che `object-cover` inquadra correttamente sia in orizzontale sia in verticale,
-  così non esiste un secondo download per il mobile.
+  altezza, e una barra WhatsApp compare dopo il pulsante della hero. Si ritira
+  quando si raggiungono i contatti e durante l’apertura del menu.
+- **Immagini.** Servite con `next/image`; la hero riutilizza un unico originale verticale (2400 × 3600).
+  Il fondale cambia posizione su desktop, tablet e mobile, senza duplicare
+  il file né alterare la fotografia. Il layout riserva lo spazio prima
+  del caricamento dell’immagine.
+
+## Revisione frontend V1
+
+`IMPLEMENTATION_V1.MD` contiene la checklist e le evidenze della revisione:
+nuova composizione fotografica, gerarchia della hero, presentazione avorio
+e percorso WhatsApp coerente. Architettura, dipendenze e backend invariati.

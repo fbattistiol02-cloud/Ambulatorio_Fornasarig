@@ -73,10 +73,10 @@ export function FelineSection() {
           <div className="lg:col-span-5">
             <Reveal delay={0.12}>
               <figure>
-                <div className="relative aspect-4/5 overflow-hidden rounded-sm">
+                <div className="relative aspect-4/3 overflow-hidden rounded-sm">
                   <Image
-                    src="/foto/gatto-in-braccio.jpg"
-                    alt="Un gatto soriano tenuto in braccio con delicatezza, tranquillo"
+                    src="/foto/gatto-bianco-nero-sdraiato.webp"
+                    alt="Un gatto bianco e nero sdraiato accanto a un gradino"
                     fill
                     sizes="(min-width: 1024px) 34vw, 100vw"
                     className="object-cover object-center"

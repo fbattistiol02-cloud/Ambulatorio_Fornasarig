@@ -31,9 +31,9 @@ export function Wordmark({
           className={cn(
             "font-sans font-semibold uppercase leading-none",
             size === "sm"
-              ? "text-[0.5625rem] tracking-[0.2em]"
+              ? "text-[0.625rem] tracking-[0.14em]"
               : "text-[0.625rem] tracking-[0.22em]",
-            light ? "text-bone/60" : "text-muted",
+            light ? "text-bone/80" : "text-muted",
           )}
         >
           Ambulatorio Veterinario
@@ -41,7 +41,7 @@ export function Wordmark({
         <span
           className={cn(
             "mt-1 font-serif leading-none",
-            size === "sm" ? "text-[0.9375rem]" : "text-lg",
+            size === "sm" ? "text-base" : "text-lg",
             light ? "text-bone" : "text-deep",
           )}
         >

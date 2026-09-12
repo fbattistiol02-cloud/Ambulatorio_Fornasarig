@@ -78,8 +78,8 @@ export const services = [
   },
   {
     number: "02",
-    title: "Diagnostica per immagini",
-    description: "Radiografie.",
+    title: "Radiografie",
+    description: "Diagnostica radiografica a supporto della visita.",
     icon: "scan",
   },
   {

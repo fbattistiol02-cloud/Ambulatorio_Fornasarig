@@ -43,7 +43,7 @@ export function Footer() {
                   className="inline-flex min-h-11 items-center gap-2 text-bone/75 transition-colors hover:text-accent-warm"
                 >
                   <WhatsAppIcon className="size-4 shrink-0" />
-                  WhatsApp
+                  Scrivi su WhatsApp
                 </a>
               </li>
               <li>

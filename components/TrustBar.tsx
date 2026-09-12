@@ -1,10 +1,10 @@
-import { BadgeCheck, Phone, ScanLine, Stethoscope } from "lucide-react";
+import { BadgeCheck, CalendarDays, ScanLine, Stethoscope } from "lucide-react";
 
 const items = [
   { icon: BadgeCheck, label: "GPCert Medicina Felina" },
-  { icon: ScanLine, label: "Diagnostica per immagini" },
+  { icon: ScanLine, label: "Radiografie" },
   { icon: Stethoscope, label: "Cani e gatti" },
-  { icon: Phone, label: "Su appuntamento" },
+  { icon: CalendarDays, label: "Su appuntamento" },
 ] as const;
 
 /**
@@ -20,7 +20,7 @@ export function TrustBar() {
             <li
               key={label}
               className={[
-                "flex items-center gap-3 py-5 lg:justify-center lg:py-6",
+                "flex items-center gap-3 py-4 lg:justify-center lg:py-5",
                 // Filetti interni sul mobile, dove la griglia è a due colonne.
                 index % 2 === 1 ? "border-l border-line pl-4 lg:border-l-0 lg:pl-0" : "",
                 index < 2 ? "border-b border-line lg:border-b-0" : "",

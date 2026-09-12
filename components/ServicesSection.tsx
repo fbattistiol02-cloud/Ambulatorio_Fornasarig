@@ -28,8 +28,9 @@ export function ServicesSection() {
                   Che cosa si fa in ambulatorio.
                 </h2>
                 <p className="mt-6 max-w-sm text-ink/70">
-                  Dalla visita di base al percorso diagnostico, fino agli
-                  interventi di piccola chirurgia.
+                  Visite per cani e gatti, radiografie ed esami di laboratorio
+                  a supporto del percorso diagnostico. In ambulatorio si
+                  eseguono anche interventi di piccola chirurgia.
                 </p>
               </Reveal>
             </div>

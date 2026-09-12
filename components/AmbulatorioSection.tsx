@@ -1,55 +1,41 @@
+import { ArrowUpRight } from "lucide-react";
+
 import { site } from "@/lib/site";
 import { Reveal } from "./Reveal";
 
-const facts = [
-  { label: "Dove", value: site.address.full },
-  { label: "Pazienti", value: site.patients },
-  { label: "Visite", value: "Su appuntamento" },
-] as const;
-
 export function AmbulatorioSection() {
   return (
-    <section id="ambulatorio" className="bg-bone py-20 lg:py-28">
+    <section id="ambulatorio" className="bg-sand py-16 sm:py-20 lg:py-24">
       <div className="wrap">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-5">
+        <div className="grid gap-9 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-6">
             <Reveal>
               <p className="eyebrow text-accent">L&rsquo;ambulatorio</p>
-              <h2 className="mt-6 text-[2rem] leading-[1.15] text-deep sm:text-[2.5rem] lg:text-[2.75rem]">
-                Un ambulatorio a Percoto, dedicato a cani e gatti.
+              <h2 className="mt-6 text-[2.125rem] leading-[1.12] text-deep sm:text-[2.75rem] lg:text-[3.25rem]">
+                <span className="mb-2 block font-sans text-sm font-medium tracking-normal text-muted">Dott.ssa</span>
+                Elena Fornasarig
               </h2>
+              <p className="mt-5 text-base text-ink/80">
+                {site.role} · {site.degree}
+              </p>
+              <a href="#profilo" className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent">
+                Profilo professionale
+                <ArrowUpRight className="size-4" strokeWidth={1.75} aria-hidden />
+              </a>
             </Reveal>
           </div>
-
-          <div className="lg:col-span-6 lg:col-start-7">
+          <div className="lg:col-span-6 lg:pt-10">
             <Reveal delay={0.1}>
-              <p className="text-lg leading-[1.7] text-ink/85 lg:text-xl">
-                L&rsquo;Ambulatorio Veterinario della {site.doctor} si trova in{" "}
-                {site.address.street}, a {site.address.locality}, nel comune di{" "}
-                {site.address.municipality}.
+              <p className="max-w-[34rem] text-lg leading-[1.75] text-ink/85 lg:text-xl">
+                A Percoto, un ambulatorio dedicato alla salute di cani e gatti,
+                con una preparazione specifica in medicina felina.
               </p>
-              <p className="mt-5 text-ink/70">
-                L&rsquo;attività copre la medicina veterinaria di base per cani e
-                gatti, la diagnostica per immagini e di laboratorio e gli
-                interventi di piccola chirurgia. {site.availability} È il modo
-                per dedicare a ogni animale il tempo che la visita richiede.
-              </p>
-            </Reveal>
-
-            <Reveal delay={0.18}>
-              <dl className="mt-10 border-t border-line-soft">
-                {facts.map((fact) => (
-                  <div
-                    key={fact.label}
-                    className="flex flex-col gap-1 border-b border-line-soft py-4 sm:flex-row sm:items-baseline sm:gap-8"
-                  >
-                    <dt className="font-sans text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-muted sm:w-28 sm:shrink-0">
-                      {fact.label}
-                    </dt>
-                    <dd className="text-[0.9375rem] text-ink/85">{fact.value}</dd>
-                  </div>
-                ))}
-              </dl>
+              <div className="mt-7 border-t border-line pt-6">
+                <p className="text-base font-medium text-deep">{site.availability}</p>
+                <p className="mt-2 max-w-[32rem] text-base leading-relaxed text-ink/80">
+                  Per informazioni e per concordare una visita, scrivi su WhatsApp.
+                </p>
+              </div>
             </Reveal>
           </div>
         </div>
