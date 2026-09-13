@@ -211,7 +211,10 @@ export function Header() {
                 rel="noopener noreferrer"
                 aria-label="Come raggiungerci, apri le indicazioni"
                 className={cn(
-                  "hidden size-11 items-center justify-center rounded-sm transition-colors sm:inline-flex",
+                  // Visibile a ogni larghezza: tolta la barra di contatto in
+                  // basso, sotto i 640 px questo restava l'unico collegamento
+                  // permanente alle indicazioni e spariva proprio dove serve.
+                  "inline-flex size-11 items-center justify-center rounded-sm transition-colors",
                   // Sotto `xl` la superficie è sempre chiara: colori da fondo chiaro.
                   "text-ink/70 hover:bg-sand hover:text-deep",
                   !solid &&
@@ -241,19 +244,19 @@ export function Header() {
               </a>
 
               {/*
-              Icona più parola, e non il solo hamburger: la clientela
-              dell'ambulatorio non è quella che riconosce tre righe a colpo
-              d'occhio. `active:` dà il riscontro immediato al tocco che
-              mancava — senza, premendo non succedeva niente di visibile e il
-              pulsante sembrava rotto.
-            */}
+                Solo l'icona: la parola accanto è stata tolta su richiesta.
+                Il nome accessibile resta nell'`aria-label`, e `active:` tiene
+                il riscontro immediato al tocco — senza, premendo non succedeva
+                niente di visibile e il pulsante sembrava rotto.
+              */}
               <button
                 ref={menuButtonRef}
                 type="button"
                 onClick={() => setMenuOpen((open) => !open)}
                 aria-expanded={menuOpen}
                 aria-controls="menu-mobile"
-                className="-mr-3 inline-flex h-12 items-center gap-2 rounded-sm px-3 text-[0.9375rem] font-medium text-deep transition-colors active:bg-sand xl:hidden"
+                aria-label={menuOpen ? "Chiudi il menu" : "Apri il menu"}
+                className="-mr-2 inline-flex size-12 items-center justify-center rounded-sm text-deep transition-colors active:bg-sand xl:hidden"
               >
                 {menuOpen ? (
                   <X
@@ -268,9 +271,6 @@ export function Header() {
                     aria-hidden
                   />
                 )}
-                <span className="pointer-events-none">
-                  {menuOpen ? "Chiudi" : "Menu"}
-                </span>
               </button>
             </div>
           </div>

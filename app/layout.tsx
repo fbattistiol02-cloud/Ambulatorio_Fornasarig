@@ -3,7 +3,6 @@ import { Inter_Tight, Newsreader } from "next/font/google";
 
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { MobileCallBar } from "@/components/MobileCallBar";
 import { WhatsAppFloatingButton } from "@/components/WhatsAppFloatingButton";
 import { site } from "@/lib/site";
 import { isPreview, siteUrl } from "@/lib/site-url";
@@ -65,7 +64,11 @@ export const metadata: Metadata = {
   robots: {
     index: !isPreview,
     follow: true,
-    googleBot: { index: !isPreview, follow: true, "max-image-preview": "large" },
+    googleBot: {
+      index: !isPreview,
+      follow: true,
+      "max-image-preview": "large",
+    },
   },
   formatDetection: { telephone: true, address: true, email: true },
 };
@@ -116,7 +119,10 @@ const jsonLd = {
     memberOf: { "@type": "Organization", name: site.order },
   },
   availableService: [
-    { "@type": "MedicalProcedure", name: "Visita veterinaria per cani e gatti" },
+    {
+      "@type": "MedicalProcedure",
+      name: "Visita veterinaria per cani e gatti",
+    },
     { "@type": "MedicalProcedure", name: "Radiografie" },
     { "@type": "MedicalProcedure", name: "Diagnostica di laboratorio" },
     { "@type": "MedicalProcedure", name: "Piccola chirurgia" },
@@ -133,7 +139,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
-        <MobileCallBar />
         <WhatsAppFloatingButton />
         <script
           type="application/ld+json"

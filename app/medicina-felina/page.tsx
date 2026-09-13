@@ -161,32 +161,39 @@ export default function MedicinaFelina() {
                   GPCert sta per <i>General Practitioner Certificate</i>: una
                   certificazione post-laurea rilasciata da ESVPS, la scuola
                   europea di studi veterinari post-laurea, nell&rsquo;ambito del
-                  sistema ISVPS. È il primo livello di formazione certificata fra
-                  la laurea in medicina veterinaria e un diploma europeo di
+                  sistema ISVPS. È il primo livello di formazione certificata
+                  fra la laurea in medicina veterinaria e un diploma europeo di
                   specialità.
                 </p>
                 <p className="mt-5 max-w-[38rem] text-ink/70">
-                  In Italia il percorso in medicina felina si segue attraverso gli
-                  itinerari didattici SCIVAC e si conclude con un esame, al quale
-                  si accede solo dopo aver frequentato tutti i moduli previsti.
-                  Riguarda il modo di visitare, di leggere i parametri clinici e
-                  di impostare la terapia tenendo conto delle caratteristiche
-                  della specie.
+                  In Italia il percorso in medicina felina si segue attraverso
+                  gli itinerari didattici SCIVAC e si conclude con un esame, al
+                  quale si accede solo dopo aver frequentato tutti i moduli
+                  previsti. Riguarda il modo di visitare, di leggere i parametri
+                  clinici e di impostare la terapia tenendo conto delle
+                  caratteristiche della specie.
                 </p>
               </Reveal>
 
               <Reveal delay={0.12}>
                 <p className="note mt-10 max-w-[38rem] text-[0.9375rem] leading-[1.7]">
                   Una precisazione dovuta: il GPCert non è una specializzazione.
-                  In Italia il titolo di specialista è riservato a chi possiede un
-                  Diploma di Specializzazione o il diploma di un College europeo.
-                  Il GPCert attesta un approfondimento strutturato e verificabile
-                  su una singola disciplina — nel caso, la medicina del gatto.
+                  In Italia il titolo di specialista è riservato a chi possiede
+                  un Diploma di Specializzazione o il diploma di un College
+                  europeo. Il GPCert attesta un approfondimento strutturato e
+                  verificabile su una singola disciplina — nel caso, la medicina
+                  del gatto.
                 </p>
               </Reveal>
             </div>
 
-            <div className="lg:col-span-5">
+            {/*
+              `lg:self-center`: la colonna del testo è più alta della foto e
+              lasciava oltre centocinquanta pixel vuoti sotto l'immagine, che
+              risultava così incollata in alto. Centrata in verticale si allinea
+              al corpo del testo invece che al suo bordo superiore.
+            */}
+            <div className="lg:col-span-5 lg:self-center">
               <Reveal delay={0.16}>
                 <figure>
                   {/* Fotografia fornita dalla dottoressa: invariata, senza gradazione. */}
@@ -200,9 +207,9 @@ export default function MedicinaFelina() {
                     />
                   </div>
                   <figcaption className="mt-4 border-l border-accent/40 pl-4 text-sm leading-relaxed text-muted">
-                    Metà del lavoro, con un gatto, è ottenere una visita completa
-                    senza trasformarla in un&rsquo;esperienza che il paziente
-                    ricorderà male.
+                    Metà del lavoro, con un gatto, è ottenere una visita
+                    completa senza trasformarla in un&rsquo;esperienza che il
+                    paziente ricorderà male.
                   </figcaption>
                 </figure>
               </Reveal>
@@ -212,7 +219,10 @@ export default function MedicinaFelina() {
       </section>
 
       {/* Perché il gatto è diverso. */}
-      <section className="bg-deep py-20 text-bone lg:py-28" aria-labelledby="differenze">
+      <section
+        className="bg-deep py-20 text-bone lg:py-28"
+        aria-labelledby="differenze"
+      >
         <div className="wrap">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
@@ -297,7 +307,11 @@ export default function MedicinaFelina() {
                   className="mt-6 inline-flex min-h-11 items-center gap-2 text-[0.9375rem] font-medium text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent"
                 >
                   Vai alla guida per chi ha un gatto
-                  <ArrowUpRight className="size-4" strokeWidth={1.75} aria-hidden />
+                  <ArrowUpRight
+                    className="size-4"
+                    strokeWidth={1.75}
+                    aria-hidden
+                  />
                 </Link>
               </div>
 
@@ -309,7 +323,10 @@ export default function MedicinaFelina() {
                   <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink/70">
                     Per una visita al gatto, scrivici su WhatsApp.
                   </p>
-                  <WhatsAppCTA contesto="gatto" className="mt-5 w-full sm:w-auto" />
+                  <WhatsAppCTA
+                    contesto="gatto"
+                    className="mt-5 w-full sm:w-auto"
+                  />
                 </div>
               </div>
             </div>

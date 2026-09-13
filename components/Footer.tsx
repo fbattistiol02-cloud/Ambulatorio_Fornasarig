@@ -9,8 +9,8 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    /* Il margine inferiore lascia spazio alla barra di contatto fissa su mobile. */
-    <footer className="bg-deep pt-16 pb-28 text-bone lg:pt-20 lg:pb-12">
+    /* Il margine inferiore lascia respirare il pulsante WhatsApp flottante. */
+    <footer className="bg-deep pt-16 pb-20 text-bone lg:pt-20 lg:pb-12">
       <div className="wrap">
         <div className="grid gap-10 border-b border-bone/12 pb-12 sm:grid-cols-2 lg:grid-cols-5">
           <div className="sm:col-span-2 lg:col-span-1">

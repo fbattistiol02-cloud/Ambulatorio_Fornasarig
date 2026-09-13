@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 
 /**
- * Decide quando mostrare le affordance di contatto fisse (barra mobile e
- * pulsante flottante).
+ * Decide quando mostrare il pulsante WhatsApp flottante da `lg` in su. Su
+ * telefono il pulsante è permanente e non consulta questo valore.
  *
  * Due marcatori opzionali, cercati nel documento:
  *
