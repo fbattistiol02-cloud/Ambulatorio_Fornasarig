@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter_Tight, Newsreader } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { Footer } from "@/components/Footer";
@@ -146,6 +147,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           // Oggetto costruito internamente da `lib/site.ts`: nessun input esterno.
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <Analytics />
         <SpeedInsights />
       </body>
     </html>
