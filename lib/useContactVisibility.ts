@@ -41,7 +41,14 @@ export function useContactVisibility() {
       observers.push(observer);
     } else {
       onScroll = () => {
-        started = window.scrollY > 320;
+        /*
+         * L'offset si legge dal rettangolo dell'elemento radice e non da
+         * `window.scrollY`: su Safari iOS quel valore può restare fermo a zero
+         * mentre la pagina scorre davvero, e la barra di contatto non
+         * comparirebbe mai sulle pagine interne — quelle senza marcatore.
+         */
+        started =
+          -document.documentElement.getBoundingClientRect().top > 320;
         update();
       };
       onScroll();

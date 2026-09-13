@@ -14,7 +14,9 @@ export function MobileCallBar() {
   return (
     <div
       className={cn(
-        "fixed inset-x-0 bottom-0 z-40 border-t border-bone/15 bg-deep/95 backdrop-blur-md transition-transform duration-300 lg:hidden",
+        // Stessa grammatica di vetro dell'header: due superfici sospese sopra
+        // la pagina devono leggersi come lo stesso materiale, non come due.
+        "vetro vetro-scuro fixed inset-x-0 bottom-0 z-40 border-t border-bone/15 transition-transform duration-300 lg:hidden",
         "pb-[env(safe-area-inset-bottom)]",
         visible ? "translate-y-0" : "translate-y-full",
       )}

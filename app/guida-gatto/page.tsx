@@ -3,7 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Briciole } from "@/components/Briciole";
-import { Trasportino, type PassoTrasportino } from "@/components/disegni/Trasportino";
+import {
+  Trasportino,
+  type PassoTrasportino,
+} from "@/components/disegni/Trasportino";
 import { PageHeader } from "@/components/PageHeader";
 import { Reveal } from "@/components/Reveal";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
@@ -173,7 +176,10 @@ export default function GuidaGatto() {
                     <Reveal delay={indice * 0.06}>
                       <article className="py-8 lg:py-10">
                         <div className="flex items-start gap-5">
-                          <Trasportino passo={passo.passo} className="mt-1 shrink-0" />
+                          <Trasportino
+                            passo={passo.passo}
+                            className="mt-1 shrink-0"
+                          />
                           <div>
                             <p
                               aria-hidden
@@ -197,10 +203,10 @@ export default function GuidaGatto() {
 
               <Reveal delay={0.2}>
                 <p className="note mt-8 max-w-[38rem] text-[0.9375rem] leading-[1.7]">
-                  Non forzare mai l&rsquo;ingresso spingendo il gatto dalla porta
-                  anteriore. Se il trasportino si apre anche dall&rsquo;alto, è
-                  quasi sempre la via più semplice: si appoggia il gatto dentro
-                  invece di infilarcelo.
+                  Non forzare mai l&rsquo;ingresso spingendo il gatto dalla
+                  porta anteriore. Se il trasportino si apre anche
+                  dall&rsquo;alto, è quasi sempre la via più semplice: si
+                  appoggia il gatto dentro invece di infilarcelo.
                 </p>
               </Reveal>
             </div>
@@ -238,8 +244,8 @@ export default function GuidaGatto() {
                   Il gatto è insieme predatore e preda. Per un animale che in
                   natura può essere a sua volta cacciato, mostrare debolezza è
                   pericoloso: la tendenza a non manifestare il dolore è un
-                  comportamento, non una soglia del dolore più alta. Soffre quanto
-                  gli altri, lo fa vedere meno.
+                  comportamento, non una soglia del dolore più alta. Soffre
+                  quanto gli altri, lo fa vedere meno.
                 </p>
                 <p className="mt-5 text-[0.9375rem] leading-[1.75] text-bone/60">
                   È anche la ragione per cui chi vive con lui è la fonte di
@@ -290,31 +296,41 @@ export default function GuidaGatto() {
                 <p className="note mt-8 max-w-[34rem] text-[0.9375rem] leading-[1.7]">
                   Alcune situazioni non aspettano: un gatto che respira a bocca
                   aperta, che tenta di urinare senza riuscirci o che è
-                  improvvisamente immobile e dolorante va fatto vedere subito. In
-                  caso di urgenza fuori orario, rivolgiti al servizio di pronto
-                  soccorso veterinario più vicino.
+                  improvvisamente immobile e dolorante va fatto vedere subito.
+                  In caso di urgenza fuori orario, rivolgiti al servizio di
+                  pronto soccorso veterinario più vicino.
                 </p>
               </Reveal>
             </div>
 
             <div className="lg:col-span-5 lg:col-start-8">
-              <Reveal delay={0.16}>
-                <figure className="lg:sticky lg:top-32">
-                  <div className="photo grain relative aspect-3/2">
-                    <Image
-                      src="/foto/gatto-sotto-divano.webp"
-                      alt="Un gatto grigio sdraiato su un tappeto, sotto il bordo di un divano"
-                      fill
-                      sizes="(min-width: 1024px) 38vw, 100vw"
-                      className="object-cover"
-                    />
-                  </div>
-                  <figcaption className="mt-4 text-sm leading-relaxed text-muted">
-                    Nascondersi più del solito è uno dei cambiamenti che passa
-                    più facilmente inosservato.
-                  </figcaption>
-                </figure>
-              </Reveal>
+              {/*
+                `sticky` sul contenitore esterno e `Reveal` all'interno, come in
+                Prestazioni e nella sezione del trasportino. Con `sticky` sul
+                `<figure>` il genitore diventava il div di `Reveal`, alto
+                esattamente quanto la figura: un elemento sticky si muove solo
+                dentro il proprio genitore, quindi non aveva un pixel di corsa e
+                la fotografia restava in cima mentre l'elenco proseguiva.
+              */}
+              <div className="lg:sticky lg:top-32">
+                <Reveal delay={0.16}>
+                  <figure>
+                    <div className="photo grain relative aspect-3/2">
+                      <Image
+                        src="/foto/gatto-sotto-divano.webp"
+                        alt="Un gatto grigio sdraiato su un tappeto, sotto il bordo di un divano"
+                        fill
+                        sizes="(min-width: 1024px) 38vw, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
+                    <figcaption className="mt-4 text-sm leading-relaxed text-muted">
+                      Nascondersi più del solito è uno dei cambiamenti che passa
+                      più facilmente inosservato.
+                    </figcaption>
+                  </figure>
+                </Reveal>
+              </div>
             </div>
           </div>
         </div>
@@ -338,10 +354,14 @@ export default function GuidaGatto() {
                   Come prepararsi.
                 </h2>
                 <p className="mt-6 max-w-[30rem] text-[1.0625rem] leading-[1.7] text-ink/75">
-                  {site.availability} Se hai notato qualcosa e non sei sicuro che
-                  valga una visita, scrivici: è il modo più rapido per capirlo.
+                  {site.availability} Se hai notato qualcosa e non sei sicuro
+                  che valga una visita, scrivici: è il modo più rapido per
+                  capirlo.
                 </p>
-                <WhatsAppCTA contesto="guida" className="mt-7 w-full sm:w-auto" />
+                <WhatsAppCTA
+                  contesto="guida"
+                  className="mt-7 w-full sm:w-auto"
+                />
                 <p className="mt-4 text-[0.9375rem] text-muted">
                   Le indicazioni su che cosa portare sono nella{" "}
                   <Link
