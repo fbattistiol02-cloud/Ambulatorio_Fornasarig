@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Source_Serif_4 } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -142,6 +143,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           // Oggetto costruito internamente da `lib/site.ts`: nessun input esterno.
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <SpeedInsights />
       </body>
     </html>
   );
