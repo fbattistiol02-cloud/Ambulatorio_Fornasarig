@@ -35,7 +35,8 @@ export function PageHeader({ occhiello, titolo, intro, luce, indice }: Props) {
       <div className="wrap grid gap-10 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-7">
           <nav aria-label="Percorso" className="crumbs">
-            <Link href="/" className="transition-colors">
+            {/* `-my-2 py-2`: area toccabile da 36 px senza spostare la riga. */}
+            <Link href="/" className="-my-2 py-2 transition-colors">
               Home
             </Link>
             <span aria-hidden>/</span>

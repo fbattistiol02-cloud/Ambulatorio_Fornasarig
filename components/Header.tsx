@@ -160,9 +160,9 @@ export function Header() {
             )}
           >
             {menuOpen ? (
-              <X className="size-6" strokeWidth={1.75} aria-hidden />
+              <X className="pointer-events-none size-6" strokeWidth={1.75} aria-hidden />
             ) : (
-              <Menu className="size-6" strokeWidth={1.75} aria-hidden />
+              <Menu className="pointer-events-none size-6" strokeWidth={1.75} aria-hidden />
             )}
           </button>
         </div>
