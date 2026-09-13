@@ -1,91 +1,54 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
+import { monogramPath } from "./brand";
 import { site } from "./site";
 
 export const ogSize = { width: 1200, height: 630 };
 export const ogContentType = "image/png";
 
-/**
- * Immagine di anteprima tipografica.
- *
- * Non usa fotografie: le due disponibili sono impegnate nelle pagine e una
- * fotografia di archivio in anteprima verrebbe letta come una foto
- * dell'ambulatorio. Il gradiente verde petrolio è lo stesso del sito, così
- * l'anteprima condivisa è riconoscibile quanto la pagina.
- *
- * Nessun carattere esterno viene scaricato in fase di build: una build che
- * dipende da una richiesta di rete è una build che può fallire per motivi che
- * non c'entrano con il codice.
- */
-export function ogImage(titolo: string, sottotitolo?: string) {
+// Font locali con licenza OFL: le immagini sono prerenderizzate in build,
+// senza richieste a servizi esterni o backend per la condivisione.
+export async function ogImage(titolo?: string, sottotitolo?: string) {
+  const [serif, sans] = await Promise.all([
+    readFile(join(process.cwd(), "assets/fonts/Newsreader-Regular.ttf")),
+    readFile(join(process.cwd(), "assets/fonts/InterTight-Regular.ttf")),
+  ]);
+
   return new ImageResponse(
     (
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          padding: "72px 80px",
-          background:
-            "radial-gradient(120% 140% at 78% 8%, #17514e 0%, #0f3b39 38%, #062726 74%)",
-          color: "#fcfafa",
-          fontFamily: "sans-serif",
-        }}
-      >
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-            <div style={{ width: 3, height: 44, background: "#f59e0b" }} />
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div
-                style={{
-                  fontSize: 17,
-                  letterSpacing: 4,
-                  textTransform: "uppercase",
-                  color: "rgba(252,250,250,0.7)",
-                }}
-              >
-                Ambulatorio Veterinario
-              </div>
-              <div style={{ fontSize: 27, marginTop: 4 }}>{site.doctor}</div>
-            </div>
+      <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", padding: "62px 76px", background: "#062726", color: "#fcfafa", fontFamily: "Inter Tight", justifyContent: "space-between" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: titolo ? 32 : 44 }}>
+          <svg width={titolo ? 110 : 168} height={titolo ? 110 : 168} viewBox="0 0 64 64">
+            <rect x="11" y="11" width="4" height="42" fill="#f59e0b" />
+            <path d={monogramPath} fill="#fcfafa" />
+          </svg>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <div style={{ fontSize: 20, letterSpacing: 3 }}>AMBULATORIO VETERINARIO</div>
+            <div style={{ fontFamily: "Newsreader", fontSize: titolo ? 30 : 38, marginTop: 18 }}>Dott.ssa Elena</div>
+            <div style={{ fontFamily: "Newsreader", fontSize: titolo ? 58 : 132, lineHeight: 1.03, marginTop: 4 }}>Fornasarig</div>
           </div>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 68, lineHeight: 1.1, letterSpacing: -1.6 }}>
-            {titolo}
-          </div>
-          {sottotitolo ? (
-            <div
-              style={{
-                fontSize: 28,
-                marginTop: 22,
-                color: "rgba(252,250,250,0.72)",
-                maxWidth: 880,
-              }}
-            >
-              {sottotitolo}
-            </div>
-          ) : null}
+        <div style={{ display: "flex", flexDirection: "column", marginTop: 22, marginLeft: titolo ? 0 : 212 }}>
+          <div style={{ fontFamily: titolo ? "Newsreader" : "Inter Tight", fontSize: titolo ? 52 : 34, lineHeight: 1.13 }}>{titolo ?? "Cura veterinaria per cani e gatti"}</div>
+          {sottotitolo ? <div style={{ fontSize: 23, lineHeight: 1.4, color: "#d4ded9", marginTop: 14 }}>{sottotitolo}</div> : null}
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            fontSize: 22,
-            color: "rgba(252,250,250,0.6)",
-            borderTop: "1px solid rgba(252,250,250,0.2)",
-            paddingTop: 24,
-          }}
-        >
-          <div>{site.address.short}</div>
-          <div style={{ color: "#f59e0b" }}>{site.availability}</div>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, borderTop: "1px solid #78908a", paddingTop: 24, marginTop: 24, fontSize: 24 }}>
+          <span>{site.address.locality}</span>
+          <span style={{ color: "#f59e0b" }}>·</span>
+          <span>{site.address.municipality}</span>
         </div>
       </div>
     ),
-    ogSize,
+    {
+      ...ogSize,
+      fonts: [
+        { name: "Newsreader", data: serif, weight: 400, style: "normal" },
+        { name: "Inter Tight", data: sans, weight: 400, style: "normal" },
+      ],
+    },
   );
 }

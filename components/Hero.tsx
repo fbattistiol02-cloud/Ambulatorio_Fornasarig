@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ArrowDown, MapPin } from "lucide-react";
 
-import { site } from "@/lib/site";
+import { site, whatsappHelp } from "@/lib/site";
 import { WhatsAppCTA } from "./WhatsAppCTA";
 
 export function Hero() {
@@ -46,8 +46,8 @@ export function Hero() {
               freccia
               marcatore="inizio"
             />
-            <p className="mt-3 text-sm text-bone/80">
-              Per informazioni e appuntamenti.
+            <p className="mt-3 max-w-sm text-sm text-bone/80">
+              {whatsappHelp}
             </p>
           </div>
         </div>

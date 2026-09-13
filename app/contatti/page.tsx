@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ArrowUpRight, Mail, MapPin } from "lucide-react";
+import { ArrowUpRight, ContactRound, Mail, MapPin } from "lucide-react";
 
 import { Briciole } from "@/components/Briciole";
 import { ModelloMessaggio } from "@/components/ModelloMessaggio";
@@ -8,14 +8,14 @@ import { PageHeader } from "@/components/PageHeader";
 import { MappaPercoto } from "@/components/disegni/MappaPercoto";
 import { Reveal } from "@/components/Reveal";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
-import { nearbyTowns, site } from "@/lib/site";
+import { nearbyTowns, site, whatsappHelp } from "@/lib/site";
 
 const description =
   `Ambulatorio veterinario ${site.doctor}: ${site.address.full}. ` +
-  `${site.availability} Si scrive su WhatsApp per informazioni e appuntamenti.`;
+  `${site.availability} Contattaci su WhatsApp per informazioni e appuntamenti.`;
 
 export const metadata: Metadata = {
-  title: "Contatti e come arrivare",
+  title: "Contatti e come arrivare a Percoto",
   description,
   keywords: [
     "veterinario Percoto contatti",
@@ -25,7 +25,10 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/contatti" },
   openGraph: {
-    title: `Contatti e come arrivare — ${site.shortName}`,
+    type: "website",
+    locale: "it_IT",
+    siteName: site.name,
+    title: "Contatti e come arrivare a Percoto | Fornasarig",
     description,
     url: "/contatti",
   },
@@ -57,19 +60,18 @@ export default function Contatti() {
                   id="scrivere"
                   className="mt-6 text-[1.875rem] leading-[1.2] text-deep sm:text-[2.25rem]"
                 >
-                  Si scrive su WhatsApp.
+                  Contattaci su WhatsApp.
                 </h2>
                 <p className="mt-6 max-w-[32rem] text-[1.0625rem] leading-[1.7] text-ink/80">
-                  {site.availability} Non esiste un accesso libero: passare senza
-                  aver concordato un orario significa, quasi sempre, aspettare o
-                  tornare un altro giorno con l&rsquo;animale al seguito.
+                  {site.availability} Scrivici prima di venire, così possiamo
+                  concordare giorno e orario della visita.
                 </p>
                 <WhatsAppCTA
                   contesto="appuntamento"
                   className="mt-8 w-full sm:w-auto"
                 />
-                <p className="mt-3 text-sm text-muted">
-                  Per informazioni e appuntamenti.
+                <p className="mt-3 max-w-sm text-sm text-muted">
+                  {whatsappHelp}
                 </p>
               </Reveal>
 
@@ -129,6 +131,22 @@ export default function Contatti() {
                         {site.email.label}
                       </a>
                     </div>
+                  </div>
+
+                  <div className="border-b border-line-soft py-6">
+                    <a
+                      href="/contatto-fornasarig.vcf"
+                      download="Ambulatorio-Fornasarig.vcf"
+                      aria-describedby="salva-contatto-help"
+                      className="inline-flex min-h-11 items-center gap-2.5 rounded-sm px-4 py-2.5 text-[0.9375rem] font-medium text-accent ring-1 ring-inset ring-accent/30 transition-colors hover:bg-accent/5 hover:ring-accent/50"
+                    >
+                      <ContactRound className="size-5 shrink-0" strokeWidth={1.75} aria-hidden />
+                      Salva il contatto
+                    </a>
+                    <p id="salva-contatto-help" className="mt-3 max-w-sm text-sm text-muted">
+                      Apri o scarica la scheda per aggiungere l&rsquo;ambulatorio
+                      alla rubrica, con numero, email e indirizzo.
+                    </p>
                   </div>
 
                   {/* QR statico: nessun servizio esterno, né in build né nel browser. */}

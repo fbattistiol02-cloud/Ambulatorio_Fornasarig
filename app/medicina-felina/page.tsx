@@ -14,11 +14,14 @@ const description =
   `farmacologia e patologie della specie. Ambulatorio veterinario a Percoto, Pavia di Udine.`;
 
 export const metadata: Metadata = {
-  title: "Medicina felina",
+  title: "Medicina felina a Percoto",
   description,
   alternates: { canonical: "/medicina-felina" },
   openGraph: {
-    title: `Medicina felina — ${site.shortName}`,
+    type: "website",
+    locale: "it_IT",
+    siteName: site.name,
+    title: "Medicina felina a Percoto | Fornasarig",
     description,
     url: "/medicina-felina",
   },

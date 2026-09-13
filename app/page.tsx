@@ -5,7 +5,7 @@ import { ArrowUpRight, MapPin } from "lucide-react";
 import { Hero } from "@/components/Hero";
 import { Reveal } from "@/components/Reveal";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
-import { site } from "@/lib/site";
+import { site, whatsappHelp } from "@/lib/site";
 
 /**
  * Pagina iniziale.
@@ -20,6 +20,7 @@ const porte = [
     href: "/medicina-felina",
     occhiello: "La certificazione",
     titolo: "Medicina felina",
+    azione: "Scopri la medicina felina",
     testo:
       "Il gatto ha una fisiologia, un metabolismo e un comportamento propri, e una spiccata tendenza a mascherare il dolore. Per questo esiste una preparazione dedicata alla medicina del gatto.",
   },
@@ -27,6 +28,7 @@ const porte = [
     href: "/prestazioni",
     occhiello: "In ambulatorio",
     titolo: "Prestazioni",
+    azione: "Scopri le prestazioni",
     testo:
       "Visite, radiografie ed esami di laboratorio si eseguono qui: per una lastra non è necessario spostare l'animale in un'altra struttura.",
   },
@@ -34,6 +36,7 @@ const porte = [
     href: "/guida-gatto",
     occhiello: "Per il proprietario",
     titolo: "Guida per chi ha un gatto",
+    azione: "Leggi la guida",
     testo:
       "Il trasportino, i segni che meritano una visita, come arrivare in ambulatorio senza trasformare la giornata in un trauma.",
   },
@@ -114,7 +117,7 @@ export default function Home() {
                       {porta.testo}
                     </p>
                     <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent">
-                      Vai alla pagina
+                      {porta.azione}
                       <ArrowUpRight
                         className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                         strokeWidth={1.75}
@@ -157,13 +160,13 @@ export default function Home() {
                   id="cani"
                   className="mt-6 text-[1.75rem] leading-[1.2] text-bone sm:text-[2.125rem]"
                 >
-                  I cani restano una parte centrale dell&rsquo;attività.
+                  Cura e attenzione anche per il tuo cane.
                 </h2>
                 <p className="mt-6 text-[1.0625rem] leading-[1.7] text-bone/75">
-                  La preparazione in medicina felina si aggiunge alla medicina
-                  veterinaria generale: non la sostituisce e non la riduce.
                   Visite, radiografie, esami di laboratorio e piccola chirurgia
-                  valgono per cani e gatti.
+                  sono disponibili anche per il tuo cane. La preparazione in
+                  medicina felina affianca la medicina veterinaria generale,
+                  dedicata alla salute di cani e gatti.
                 </p>
               </Reveal>
             </div>
@@ -194,8 +197,8 @@ export default function Home() {
                   concordare giorno e orario della visita.
                 </p>
                 <WhatsAppCTA contesto="generale" className="mt-8 w-full sm:w-auto" />
-                <p className="mt-3 text-sm text-muted">
-                  Per informazioni e appuntamenti.
+                <p className="mt-3 max-w-sm text-sm text-muted">
+                  {whatsappHelp}
                 </p>
               </Reveal>
             </div>

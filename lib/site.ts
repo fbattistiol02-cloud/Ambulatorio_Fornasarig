@@ -82,6 +82,8 @@ export const whatsappMessages = {
   appuntamento: "Ciao, vorrei fissare un appuntamento.",
 } as const;
 
+export const whatsappHelp = "Si apre WhatsApp con un messaggio già pronto da completare.";
+
 export type WhatsAppContext = keyof typeof whatsappMessages;
 
 /** Modello suggerito per il primo messaggio, copiabile dalla pagina contatti. */
@@ -103,7 +105,7 @@ export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/medicina-felina", label: "Medicina felina" },
   { href: "/prestazioni", label: "Prestazioni" },
-  { href: "/guida-gatto", label: "Guida" },
+  { href: "/guida-gatto", label: "Guida al gatto" },
   { href: "/contatti", label: "Contatti" },
 ] as const;
 

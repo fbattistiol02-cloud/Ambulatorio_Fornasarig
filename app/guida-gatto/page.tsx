@@ -25,7 +25,10 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/guida-gatto" },
   openGraph: {
-    title: `Guida per chi ha un gatto — ${site.shortName}`,
+    type: "website",
+    locale: "it_IT",
+    siteName: site.name,
+    title: "Guida per chi ha un gatto | Fornasarig",
     description,
     url: "/guida-gatto",
   },

@@ -116,3 +116,34 @@ Queste regole non sono preferenze di stile: riguardano ciò che il sito afferma.
 I piani di lavoro sono in `IMPLEMENTATION_PLAN.MD`, `IMPLEMENTATION_V1.MD` e
 `IMPLEMENTATION_V2.MD`. La provenienza delle immagini e dei dati della mappa è in
 `CREDITI-FOTO.md`.
+
+
+## Identità, contatto e SEO — V3
+
+Il piano e la checklist aggiornati sono in `IMPLEMENTATION_V3.MD`.
+
+- `app/icon.svg` contiene il monogramma a tracciati, senza font esterni.
+- `node scripts/genera-icone.mjs` rigenera ICO 16/32/48, Apple Touch 180 e
+  il PNG 512 in `public/brand/`. Usa sharp già installato con Next.js.
+- `lib/brand.ts` conserva lo stesso tracciato per le immagini Open Graph:
+  se cambia il monogramma, aggiornare insieme questo file e `app/icon.svg`.
+- `lib/og.tsx` produce le cinque copertine da 1200 × 630 in fase di build.
+  I font statici ridotti al set latino e le licenze OFL sono in `assets/fonts/`.
+  Le card X riusano titolo, descrizione e immagine Open Graph della pagina.
+- `public/contatto-fornasarig.vcf` è una vCard 3.0 statica: quando cambiano i
+  recapiti in `lib/site.ts`, aggiornare anche la scheda, mantenendo UTF-8,
+  terminatori CRLF e righe ripiegate entro 75 ottetti. Non raccoglie dati.
+  Aggiungere la proprietà URL solo dopo la conferma del dominio definitivo.
+- `lib/site-url.ts` centralizza il dominio: `NEXT_PUBLIC_SITE_URL` prevale
+  su `VERCEL_PROJECT_PRODUCTION_URL`, con fallback locale. Il valore deve
+  essere un’origine HTTP(S) senza percorsi, query o credenziali.
+- Con `VERCEL_ENV=preview`, le pagine espongono `noindex, follow`, la sitemap
+  è vuota e robots non la pubblicizza. La scansione rimane consentita per
+  permettere ai crawler di leggere il noindex. La configurazione normale
+  mantiene `index, follow` e le cinque URL nella sitemap.
+- La sitemap omette `lastModified` finché non sono disponibili date di
+  modifica sostanziale attendibili. Non usa la data della build.
+
+Prima della consegna pubblica completare le voci aperte della checklist:
+dominio definitivo, accessibilità pubblica, anteprime effettive WhatsApp,
+importazione vCard su dispositivi reali, Profilo dell’attività e Search Console.

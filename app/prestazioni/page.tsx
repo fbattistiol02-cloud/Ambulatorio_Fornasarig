@@ -13,7 +13,7 @@ const description =
   `nell'ambulatorio della ${site.doctor} a Percoto, Pavia di Udine. ${site.availability}`;
 
 export const metadata: Metadata = {
-  title: "Prestazioni",
+  title: "Visite e prestazioni veterinarie a Percoto",
   description,
   keywords: [
     "radiografia veterinaria Udine",
@@ -23,7 +23,10 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/prestazioni" },
   openGraph: {
-    title: `Prestazioni — ${site.shortName}`,
+    type: "website",
+    locale: "it_IT",
+    siteName: site.name,
+    title: "Visite e prestazioni veterinarie a Percoto | Fornasarig",
     description,
     url: "/prestazioni",
   },

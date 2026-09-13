@@ -5,5 +5,5 @@ export const size = ogSize;
 export const contentType = ogContentType;
 
 export default function Image() {
-  return ogImage("Richiedi un appuntamento.", "Si scrive su WhatsApp. Via Marconi 7/B, Percoto — Pavia di Udine.");
+  return ogImage("Richiedi un appuntamento", "Contattaci su WhatsApp · Via Guglielmo Marconi 7/B");
 }

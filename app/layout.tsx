@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { MobileCallBar } from "@/components/MobileCallBar";
 import { WhatsAppFloatingButton } from "@/components/WhatsAppFloatingButton";
 import { site } from "@/lib/site";
+import { isPreview, siteUrl } from "@/lib/site-url";
 import "./globals.css";
 
 /*
@@ -26,22 +27,6 @@ const serifDisplay = Newsreader({
   display: "swap",
 });
 
-/**
- * Base per i metadati assoluti (canonical, Open Graph, dati strutturati),
- * risolta in tre gradini:
- *
- * 1. `NEXT_PUBLIC_SITE_URL`, da impostare a mano quando ci sarà un dominio
- *    proprio: ha sempre la precedenza;
- * 2. `VERCEL_PROJECT_PRODUCTION_URL`, che Vercel fornisce da sola in fase di
- *    build con il dominio di produzione del progetto — nessuna configurazione
- *    richiesta, e resta corretta anche nelle build di preview;
- * 3. localhost, che resta solo per lo sviluppo in locale.
- */
-const productionUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL;
-export const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (productionUrl ? `https://${productionUrl}` : "http://localhost:3000");
-
 const description =
   `Ambulatorio veterinario per cani e gatti a Percoto, Pavia di Udine. ` +
   `${site.doctor}, ${site.role} ${site.degree} con ${site.certification}. ` +
@@ -52,7 +37,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: `${site.name} — Percoto, Pavia di Udine`,
-    template: `%s — ${site.shortName}`,
+    template: "%s | Fornasarig",
   },
   description,
   applicationName: site.shortName,
@@ -76,10 +61,11 @@ export const metadata: Metadata = {
     title: `${site.name} — Percoto, Pavia di Udine`,
     description,
   },
+  twitter: { card: "summary_large_image" },
   robots: {
-    index: true,
+    index: !isPreview,
     follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+    googleBot: { index: !isPreview, follow: true, "max-image-preview": "large" },
   },
   formatDetection: { telephone: true, address: true, email: true },
 };
@@ -104,6 +90,8 @@ const jsonLd = {
   name: site.name,
   description,
   url: siteUrl,
+  logo: `${siteUrl}/brand/fornasarig-512.png`,
+  image: `${siteUrl}/opengraph-image`,
   address: {
     "@type": "PostalAddress",
     streetAddress: site.address.street,

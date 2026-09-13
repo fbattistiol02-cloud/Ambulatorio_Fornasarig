@@ -5,5 +5,5 @@ export const size = ogSize;
 export const contentType = ogContentType;
 
 export default function Image() {
-  return ogImage("Che cosa si fa in ambulatorio.", "Visite per cani e gatti, radiografie, esami di laboratorio, piccola chirurgia.");
+  return ogImage("Prestazioni in ambulatorio", "Visite per cani e gatti, radiografie, esami di laboratorio e piccola chirurgia.");
 }
