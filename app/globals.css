@@ -33,7 +33,7 @@
   /*
    * Verde WhatsApp: riservato ai CTA verso WhatsApp, per restare
    * immediatamente riconoscibili come tali. `whatsapp` è il verde scuro del
-   * brand (10.5:1 sotto testo bianco); `whatsapp-bright` è il verde chiaro
+   * brand (7.67:1 sotto testo bianco); `whatsapp-bright` è il verde chiaro
    * usato solo per l'icona, mai come sfondo con testo sopra (contrasto
    * insufficiente, ~2:1).
    */
@@ -52,9 +52,24 @@
     scroll-behavior: smooth;
     color-scheme: light;
     -webkit-text-size-adjust: 100%;
-    /* `clip` e non `hidden`: impedisce lo scroll orizzontale senza rendere
-       html/body contenitori di scorrimento, cosa che romperebbe sia l'header
-       sticky sia lo scroll verso gli anchor. */
+  }
+
+  /*
+   * Contenimento orizzontale sui contenitori interni, non sull'elemento radice.
+   *
+   * `overflow-x` su `html` — `clip` incluso — è sospettato di lasciare
+   * `window.scrollY` fermo a zero su Safari iOS mentre la pagina scorre davvero:
+   * con esso si rompe ogni logica agganciata allo scorrimento, header compreso.
+   * Su `body` non si può spostare, perché in assenza di un `overflow` esplicito
+   * su `html` il valore del body si propaga al viewport e il problema si
+   * ripresenta identico.
+   *
+   * Resta `clip` e non `hidden`: `clip` non crea un contenitore di scorrimento,
+   * quindi le colonne `sticky` continuano ad agganciarsi e i salti agli anchor
+   * restano corretti.
+   */
+  main,
+  footer {
     overflow-x: clip;
   }
 
@@ -119,6 +134,159 @@
 }
 
 @layer components {
+  /* Fondale fotografico unico. La maschera sfuma i bordi, non i soggetti. */
+  .hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--color-deep);
+    color: var(--color-bone);
+  }
+
+  .hero-photo {
+    position: absolute;
+    z-index: -2;
+    inset: 0 0 auto;
+    height: 28rem;
+    mask-image: linear-gradient(to bottom, #000 48%, transparent 100%);
+  }
+
+  .hero-photo img { object-position: 25% 50%; }
+
+  .hero-shade {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgb(6 39 38 / 82%) 0, rgb(6 39 38 / 10%) 8rem, rgb(6 39 38 / 8%) 15rem, var(--color-deep) 27rem);
+  }
+
+  .hero-body { padding-top: 21rem; padding-bottom: 8rem; }
+  .hero-copy { max-width: 38rem; }
+  .hero .eyebrow { font-size: 0.75rem; letter-spacing: 0.08em; }
+
+  .hero-title {
+    margin-top: 1.25rem;
+    font-size: clamp(2.15rem, 7.9vw, 3.6rem);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    color: var(--color-bone);
+  }
+
+  .hero-intro {
+    margin-top: 1.25rem;
+    max-width: 23rem;
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    color: rgb(252 250 250 / 88%);
+  }
+
+  .hero-identity { margin-top: 1.5rem; font-size: 1rem; }
+  .hero-actions { margin-top: 1.75rem; }
+
+  .whatsapp-cta {
+    display: inline-flex;
+    min-height: 3.5rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    border-radius: 0.25rem;
+    padding: 1rem 1.5rem;
+    background: var(--color-whatsapp);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    transition: background-color 180ms ease, box-shadow 180ms ease;
+  }
+
+  .whatsapp-cta:hover { background: var(--color-whatsapp-deep); }
+
+  .whatsapp-cta-light {
+    background: #e8f2dd;
+    color: var(--color-whatsapp-deep);
+    box-shadow: 0 4px 24px rgb(0 0 0 / 10%);
+  }
+
+  .whatsapp-cta-light:hover { background: #f5faee; }
+  .hero-actions .whatsapp-cta { width: 100%; }
+  .hero-bottom { position: absolute; inset: auto 0 0; }
+
+  .hero-bottom-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-top: 1px solid rgb(252 250 250 / 20%);
+    padding-block: 1.25rem;
+  }
+
+  .hero-directions { display: inline-flex; min-height: 2.75rem; align-items: center; gap: 0.75rem; }
+  .hero-directions:hover span { color: white; }
+
+  .hero-explore {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    gap: 0.75rem;
+    padding-inline: 0.75rem;
+    color: rgb(252 250 250 / 85%);
+    font-size: 0.875rem;
+  }
+
+  body:has(#menu-mobile:not([hidden])) [data-contact-affordance] { visibility: hidden; }
+
+  .hero :focus-visible { outline-color: var(--color-accent-warm); }
+
+  .hero-explore:hover { color: white; }
+  .hero-explore span { display: none; }
+
+  @media (min-width: 640px) {
+    .hero-body { padding-top: 23rem; }
+    .hero-photo { height: 33rem; }
+    .hero-photo img { object-position: 35% 25%; }
+    .hero-actions .whatsapp-cta { width: auto; }
+    .hero-intro { font-size: 1.25rem; max-width: 29rem; }
+    .hero-explore span { display: inline; }
+    .hero-shade { background: linear-gradient(180deg, rgb(6 39 38 / 88%) 0, rgb(6 39 38 / 8%) 9rem, rgb(6 39 38 / 8%) 16rem, var(--color-deep) 31rem); }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-photo {
+      inset: 0 0 0 auto;
+      width: 68%;
+      height: 100%;
+      mask-image: linear-gradient(90deg, transparent, #000 24%);
+    }
+
+    .hero-photo img { object-position: 0% 50%; }
+
+    .hero-shade {
+      background:
+        linear-gradient(180deg, rgb(6 39 38 / 78%) 0, transparent 26%, transparent 66%, rgb(6 39 38 / 86%) 100%),
+        linear-gradient(90deg, var(--color-deep) 0, rgb(6 39 38 / 96%) 28%, rgb(6 39 38 / 72%) 43%, rgb(6 39 38 / 15%) 64%, rgb(6 39 38 / 3%) 100%);
+    }
+
+    .hero-body {
+      display: flex;
+      align-items: center;
+      min-height: min(54rem, 92svh);
+      padding-top: 9rem;
+      padding-bottom: 8.5rem;
+    }
+
+    .hero-title { margin-top: 1.75rem; font-size: clamp(3.4rem, 4.7vw, 4.5rem); }
+    .hero-intro { margin-top: 1.5rem; max-width: 27rem; }
+    .hero-identity { margin-top: 1.75rem; }
+    .hero-actions { margin-top: 2rem; }
+    .hero-bottom-inner { padding-block: 1.5rem; }
+  }
+
+  @media (min-width: 1440px) {
+    .hero-photo { width: 68%; }
+    .hero-photo img { object-position: 0% 50%; }
+  }
+
   /* Contenitore unico del sito: allinea ogni sezione sulla stessa gronda. */
   .wrap {
     width: 100%;
@@ -139,9 +307,9 @@
     align-items: center;
     gap: 0.75rem;
     /* Sotto i 400 px l'occhiello più lungo deve restare su una riga sola. */
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
   }
 
@@ -195,5 +363,243 @@
 
   .rise-5 {
     animation-delay: 320ms;
+  }
+}
+
+/* ========================================================================
+   V2 — sistema a cinque pagine
+   La hero e i suoi stili restano invariati: sono approvati dalla dottoressa.
+   ======================================================================== */
+
+@layer components {
+  /*
+   * Grana. È l'unico trattamento applicato anche alle due fotografie della
+   * dottoressa: essendo una texture sovrapposta via CSS, i file originali
+   * restano quelli forniti, bit per bit, mentre la resa di tutte le immagini
+   * del sito si uniforma. La gradazione del colore, invece, è applicata solo
+   * alle immagini di archivio, in fase di preparazione del file.
+   */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.16;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+  }
+
+  /* Cornice fotografica standard: un solo raggio, un solo filetto, la grana. */
+  .photo {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-radius: 0.125rem;
+    background-color: var(--color-deep);
+  }
+
+  .photo img {
+    object-fit: cover;
+  }
+
+  /*
+   * Testata delle pagine interne. È una fetta dello stesso gradiente della
+   * hero: cambia il punto da cui parte la luce, non il colore. Serve a far
+   * leggere le cinque pagine come un oggetto unico.
+   */
+  .page-head {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--color-deep);
+    color: var(--color-bone);
+    padding-block: 8.5rem 3.5rem;
+  }
+
+  .page-head::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(
+        120% 140% at var(--head-x, 78%) var(--head-y, 12%),
+        var(--color-deep-3) 0%,
+        var(--color-deep-2) 38%,
+        var(--color-deep) 72%
+      );
+  }
+
+  @media (min-width: 1024px) {
+    .page-head {
+      padding-block: 11rem 5rem;
+    }
+  }
+
+  .page-head h1 {
+    color: var(--color-bone);
+    font-size: clamp(2.1rem, 5.4vw, 3.5rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    max-width: 20ch;
+  }
+
+  .page-head .page-intro {
+    margin-top: 1.5rem;
+    max-width: 34rem;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: rgb(252 250 250 / 78%);
+  }
+
+  @media (min-width: 640px) {
+    .page-head .page-intro {
+      font-size: 1.1875rem;
+    }
+  }
+
+  .page-head :focus-visible {
+    outline-color: var(--color-accent-warm);
+  }
+
+  /* Filo di briciole, discreto, sopra il titolo. */
+  .crumbs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgb(252 250 250 / 55%);
+  }
+
+  .crumbs a:hover {
+    color: var(--color-accent-warm);
+  }
+
+  /*
+   * Elenco editoriale: filetti orizzontali e nessun riquadro. È la forma che
+   * regge le pagine con poche immagini senza sembrare svuotata.
+   */
+  .ed-list > li {
+    border-top: 1px solid var(--color-line-soft);
+  }
+
+  .ed-list > li:last-child {
+    border-bottom: 1px solid var(--color-line-soft);
+  }
+
+  .ed-list-dark > li {
+    border-top-color: rgb(252 250 250 / 12%);
+  }
+
+  .ed-list-dark > li:last-child {
+    border-bottom-color: rgb(252 250 250 / 12%);
+  }
+
+  /*
+   * Vetro. Una sola grammatica per tutte le superfici sospese sopra la pagina:
+   * l'header su telefono e la barra di contatto in basso. Due tinte, chiara e
+   * scura, perché la superficie sottostante cambia ma lo spessore del vetro no.
+   *
+   * La saturazione è ciò che distingue il vetro dal velo: la sfocatura da sola
+   * appiattisce, `saturate` tiene vivo il colore di ciò che scorre sotto. Il
+   * filetto interno chiaro è il bordo superiore del vetro, non un'ombra.
+   *
+   * Tinta avorio e non bianco puro: sparisce meglio sia sul verde della testata
+   * sia sulle sezioni chiare, e resta dentro la palette dell'ambulatorio.
+   */
+  .vetro {
+    /* Solo la proprietà standard: il prefisso `-webkit-` lo aggiunge la
+       toolchain in base ai target. Scrivendolo a mano, Lightning CSS teneva
+       quello e lasciava cadere la dichiarazione senza prefisso. */
+    backdrop-filter: blur(20px) saturate(180%);
+  }
+
+  .vetro-chiaro {
+    background-color: color-mix(in oklab, var(--color-bone) 76%, transparent);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 70%),
+      0 1px 2px rgb(6 39 38 / 4%);
+  }
+
+  .vetro-scuro {
+    background-color: color-mix(in oklab, var(--color-deep) 80%, transparent);
+    box-shadow: inset 0 1px 0 rgb(252 250 250 / 14%);
+  }
+
+  /*
+   * Senza `backdrop-filter` il vetro diventa un velo semi-trasparente e il
+   * testo sopra smette di essere leggibile: meglio una superficie piena.
+   * Stessa scelta per chi ha chiesto meno trasparenze a livello di sistema.
+   */
+  @supports not (backdrop-filter: blur(1px)) {
+    .vetro-chiaro {
+      background-color: var(--color-bone);
+    }
+
+    .vetro-scuro {
+      background-color: var(--color-deep);
+    }
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    .vetro {
+      backdrop-filter: none;
+    }
+
+    .vetro-chiaro {
+      background-color: var(--color-bone);
+    }
+
+    .vetro-scuro {
+      background-color: var(--color-deep);
+    }
+  }
+
+  /*
+   * Entrata del pannello del menu. Non è decorazione: è la conferma che il
+   * tocco è stato registrato. Comparendo di scatto, premendo il pulsante non
+   * succedeva nulla di percepibile e sembrava che il menu non funzionasse.
+   * La regola generale su `prefers-reduced-motion` ne azzera la durata.
+   */
+  @keyframes menu-entra {
+    from {
+      opacity: 0;
+      transform: translateY(-0.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .menu-pannello {
+    animation: menu-entra 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Nota a margine: usata per avvertenze e precisazioni non allarmistiche. */
+  .note {
+    border-left: 2px solid var(--color-accent);
+    padding-left: 1.25rem;
+    color: var(--color-ink);
+  }
+
+  .note-dark {
+    border-left-color: var(--color-accent-warm);
+    color: rgb(252 250 250 / 78%);
+  }
+
+  /*
+   * Transizioni tra pagine. Con cinque pagine è ciò che distingue un sito che
+   * si ricarica da uno che si muove. Disattivate con movimento ridotto dalla
+   * regola generale più in alto, che azzera le durate.
+   */
+  @media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+      navigation: auto;
+    }
   }
 }

@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Fornasarig;Elena;;Dott.ssa;
+FN:Ambulatorio Veterinario Dott.ssa Elena Fornasarig
+ORG:Ambulatorio Veterinario Fornasarig
+TITLE:Medico Veterinario
+TEL;TYPE=WORK,VOICE:+393388273705
+EMAIL;TYPE=INTERNET,WORK:elenafornasarig@hotmail.com
+ADR;TYPE=WORK:;;Via Guglielmo Marconi 7/B;Percoto - Pavia di Udine;UD;33050
+ ;Italia
+END:VCARD

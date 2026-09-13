@@ -1,45 +1,102 @@
-# Crediti e licenza delle fotografie
+# Crediti e provenienza delle fotografie
 
-Le due fotografie in `public/foto/` provengono da **Unsplash** e sono usate in
-base alla [Licenza Unsplash](https://unsplash.com/license): download e uso
-gratuiti, anche **commerciali**, senza obbligo di chiedere il permesso.
-L'attribuzione non è richiesta ma è buona pratica, e gli autori sono elencati
-qui sotto.
+## Principio
 
-| File                   | Soggetto                                                | Autore            | Pagina originale                            |
-| ---------------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------- |
-| `visita-gatto.jpg`     | Mani guantate durante la visita di un gatto in ambulatorio | Sueda Güzeldere   | https://unsplash.com/photos/BATIVPqWwqw     |
-| `gatto-in-braccio.jpg` | Gatto soriano tenuto in braccio, tranquillo              | Werzk Luuuuuuu    | https://unsplash.com/photos/tDlo2ZPlQlU     |
+Nessuna immagine di questo sito è presentata come la Dott.ssa Fornasarig, come i
+locali dell'ambulatorio o come i suoi pazienti. Le fotografie di archivio hanno
+un ruolo d'atmosfera; i testi alternativi descrivono ciò che si vede e nulla di
+più. Nessuna immagine è generata.
 
-Entrambe sono ritagliate e ricompresse da `scripts/scarica-foto.py`, che
-contiene le coordinate esatte del riquadro e rigenera file identici a quelli
-versionati.
+## Fotografie fornite dalla dottoressa — 12 settembre 2026
 
-## Criteri di scelta
+Fornite tramite il committente per essere inserite nel sito. I file WebP
+originali sono stati copiati **senza modifiche né ricompressione**, assegnando
+nomi descrittivi. Non vengono attribuiti ad archivi fotografici.
 
-- **Nessun volto riconoscibile.** Il sito non mostra ritratti, né reali né
-  generati: una foto d'archivio con un volto in primo piano verrebbe letta come
-  il ritratto della Dott.ssa Fornasarig, e non lo è.
-- **Atto medico reale.** La foto della hero mostra guanti, tavolo da visita e
-  contenimento corretto di un gatto: nessuna posa costruita, nessun cucciolo nel
-  cestino.
-- **Ambiente coerente.** Toni freddi e puliti sul soggetto, che si sposano con
-  il verde profondo della velatura senza sembrare un fotomontaggio.
+| File in `public/foto/` | Utilizzo | Soggetto | Dimensioni |
+| --- | --- | --- | --- |
+| `gattino-arancione.webp` | Sfondo continuo della hero, pagina iniziale | Gattino arancione rivolto verso l'obiettivo | 1448 × 1086 |
+| `gatto-bianco-nero-sdraiato.webp` | Pagina Medicina felina | Gatto bianco e nero sdraiato accanto a un gradino | 1448 × 1086 |
 
-## Attenzione: non sono i locali dell'ambulatorio
+Queste due fotografie **non vengono ritagliate né corrette nel colore**: sono
+approvate così dalla dottoressa. L'unico trattamento che le riguarda è la grana
+applicata via CSS a tutti gli slot fotografici del sito, che è una texture
+sovrapposta e non modifica i file.
 
-Le immagini illustrano **la specie trattata e il tipo di prestazione**, non la
-struttura di Percoto. Non aggiungere fotografie di sale visita, attrezzature o
-interni presi da archivi: darebbero a intendere che siano quelli
-dell'ambulatorio.
+## Fotografie di archivio — 12 settembre 2026
 
-## Sostituzione
+Tutte da Unsplash, tutte **gratuite sotto [Licenza Unsplash](https://unsplash.com/license)**.
+Esistenza della pagina, autore e tipo di licenza sono stati verificati uno per
+uno il 12 settembre 2026; nessuna è Unsplash+ a pagamento.
 
-Appena la Dott.ssa Fornasarig fornisce fotografie proprie basta sovrascrivere i
-file mantenendo gli stessi nomi e le stesse proporzioni:
+| File in `public/foto/` | Pagina | Autore | Pagina originale |
+| --- | --- | --- | --- |
+| `cane-divano-luce.webp` | Pagina iniziale, fascia cani | belettenoir | https://unsplash.com/photos/NcM8r8uM4s8 |
+| `mano-gatto.webp` | Prestazioni | Lucas Doddema | https://unsplash.com/photos/T-nPYpDTVxA |
+| `gatto-trasportino.webp` | Guida, sezione trasportino | Oles Borys | https://unsplash.com/photos/OBu_nabEpAw |
+| `gatto-sotto-divano.webp` | Guida, sezione segnali | Peyman Shojaei | https://unsplash.com/photos/69jt0MnXL8E |
+| `gatto-riposo-luce.webp` | Guida, sezione dolore | Alexander Chupikov | https://unsplash.com/photos/VVecHII1Abs |
 
-- `visita-gatto.jpg` — quadrato (1:1), soggetto al centro;
-- `gatto-in-braccio.jpg` — verticale (4:5).
+Ritagli e gradazione sono definiti in `scripts/scarica-foto.py`, in coordinate
+pixel sull'originale: il risultato è riproducibile con un comando e non dipende
+da ritocchi manuali non documentati.
 
-Il testo alternativo va aggiornato in `components/Hero.tsx` e
-`components/FelineSection.tsx`, e questo file va corretto di conseguenza.
+**Perché queste immagini sono gradate e quelle della dottoressa no.** Le sue
+sono approvate e restano il riferimento: sono le immagini di archivio ad
+adattarsi a loro, non il contrario. La gradazione avvicina saturazione e
+luminosità ai valori misurati sulle due foto esistenti e aggiunge un viraggio
+lieve — ombre verso il verde petrolio, alte luci verso l'avorio.
+
+### Candidate scartate
+
+- `6KUYdFD6HYs` (DL314 Lin) era nella prima selezione. Scartata a immagine
+  aperta: dominante fredda lontana dalle foto della dottoressa e steli d'erba
+  sugli occhi del gatto, che si legge come animale in difficoltà anziché come
+  animale accudito. Sostituita da `T-nPYpDTVxA`.
+- Escluse a priori perché Unsplash+ a pagamento: `d7KktajtN6Q`, `QxRBQKGpZZE`,
+  `4-BumD3OBnA`, `IgGdwOeSy9A`, `g1GjUP0Lg5k`, `XY8FAdgfCXM`.
+- Alternative verificate e non utilizzate: `ymITgrOdv2c` (Andy Luo).
+
+## Fotografie precedenti conservate nel repository
+
+Non più referenziate da alcun componente.
+
+| File | Provenienza documentata | Pagina originale |
+| --- | --- | --- |
+| `visita-gatto.jpg` | Unsplash, Sueda Güzeldere | https://unsplash.com/photos/BATIVPqWwqw |
+| `gatto-in-braccio.jpg` | Unsplash, Werzk Luuuuuuu | https://unsplash.com/photos/tDlo2ZPlQlU |
+| `cane-gatto.jpg` | Già presente al commit `72d3637`; autore e provenienza esterna non registrati | — |
+
+## Immagini non fotografiche
+
+- Icone delle prestazioni e sequenza del trasportino: disegnate per questo sito,
+  in `components/disegni/`. Sono disegni e non documentano nulla.
+
+## Mappa di Percoto
+
+`components/disegni/MappaPercoto.tsx` disegna strade reali. La geometria viene da
+**OpenStreetMap**, licenza **ODbL**, ed è scaricata una volta sola da
+`scripts/genera-mappa.py`; la risposta grezza è conservata e versionata in
+`scripts/percoto.osm.json`, così ritoccare il disegno non comporta interrogare di
+nuovo un servizio pubblico gratuito.
+
+L'attribuzione «© OpenStreetMap contributors», con collegamento alla pagina della
+licenza, è resa visibile sotto la mappa. **Non è opzionale e non va nascosta**:
+è la condizione d'uso dei dati.
+
+Il disegno — spessori, colori, tipografia, scelta di che cosa etichettare — è
+nostro. La mappa è quindi insieme vera e su misura: sostituisce il diagramma
+astratto della prima versione, che non era in scala, non diceva nulla e sembrava
+un'immagine generata.
+
+La posizione dell'ambulatorio viene dalla geocodifica Nominatim dell'indirizzo
+(45.9742348, 13.3188538). Le fonti confermano anche il CAP 33050 e la distanza da
+Piazza della Vittoria, 267 metri.
+- Anteprime Open Graph: generate da `lib/og.tsx`, solo tipografia e gradiente.
+- `public/qr-whatsapp.svg`: generato da `scripts/genera-qr.py`, file statico.
+
+## Sostituzioni future
+
+Aggiornare insieme percorso, proporzioni, ritaglio responsive, testo
+alternativo e provenienza. Non presentare fotografie di archivio o immagini
+generate come ritratti della professionista, dei locali o dei suoi pazienti.
