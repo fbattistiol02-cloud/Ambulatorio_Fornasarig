@@ -1,7 +1,7 @@
 # IMPLEMENTATION BLUE — Ambulatorio Fornasarig
 
 Data: 14 settembre 2026  
-Stato: implementazione locale completata e verificata; revisione dell’utente e pubblicazione da eseguire.
+Stato: implementazione completata e verificata, inviata su `origin/codex/blue-palette`; revisione dell’utente e pubblicazione in produzione da eseguire.
 
 ## 1. Richiesta e obiettivo
 
@@ -204,4 +204,6 @@ Il completamento sul sito pubblico richiede anche le verifiche della fase 7. Non
 - [x] Eliminare i token verdi WhatsApp non più utilizzati.
 - [x] Creare il branch `codex/blue-palette`.
 - [x] Verificare lint, build e resa visiva finale: lint e build superati; pulsanti blu e icone bianche verificati nel browser.
-- [ ] Eseguire commit e push di tutte le modifiche sul nuovo branch.
+- [x] Eseguire commit e push di tutte le modifiche sul nuovo branch: commit di implementazione `9e27e85`, pubblicato su `origin/codex/blue-palette`.
+
+Repository di consegna: https://github.com/fbattistiol02-cloud/Ambulatorio_Fornasarig/tree/codex/blue-palette. Il branch `main` non è stato modificato.
