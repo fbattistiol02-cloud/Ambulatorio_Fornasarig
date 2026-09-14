@@ -56,7 +56,7 @@ export default function Prestazioni() {
         intro="Visite per cani e gatti, radiografie ed esami di laboratorio a supporto del percorso diagnostico. In ambulatorio si eseguono anche interventi di piccola chirurgia."
       />
 
-      <section className="bg-bone py-16 lg:py-24" aria-labelledby="elenco">
+      <section className="bg-surface py-16 lg:py-24" aria-labelledby="elenco">
         <div className="wrap">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
@@ -99,17 +99,17 @@ export default function Prestazioni() {
 
                         <IconaPrestazione
                           nome={servizio.icon}
-                          className="text-accent sm:mt-0.5"
+                          className="text-action sm:mt-0.5"
                         />
 
                         <div className="col-span-2 sm:col-span-1">
-                          <h3 className="text-2xl leading-snug text-deep sm:text-[1.75rem]">
+                          <h3 className="text-2xl leading-snug text-heading sm:text-[1.75rem]">
                             {servizio.title}
                           </h3>
                           <p className="mt-2 max-w-lg text-ink/80">
                             {servizio.description}
                           </p>
-                          <p className="mt-3 max-w-lg text-[0.9375rem] leading-[1.7] text-ink/65">
+                          <p className="mt-3 max-w-lg text-[0.9375rem] leading-[1.7] text-muted">
                             {servizio.detail}
                           </p>
                         </div>
@@ -128,27 +128,27 @@ export default function Prestazioni() {
         prestazioni escluse dalla committente: non nominandole mai e dicendo
         con chiarezza che cosa si fa qui.
       */}
-      <section className="bg-deep py-16 text-bone lg:py-20" aria-labelledby="perimetro">
+      <section className="bg-surface-blue py-16 text-heading lg:py-20" aria-labelledby="perimetro">
         <div className="wrap">
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
               <div className="lg:col-span-5">
-                <p className="eyebrow text-accent-warm">Il perimetro</p>
+                <p className="eyebrow text-action">Il perimetro</p>
                 <h2
                   id="perimetro"
-                  className="mt-6 text-[1.75rem] leading-[1.2] text-bone sm:text-[2.125rem]"
+                  className="mt-6 text-[1.75rem] leading-[1.2] text-heading sm:text-[2.125rem]"
                 >
                   Che cosa si fa qui, e che cosa no.
                 </h2>
               </div>
               <div className="lg:col-span-6 lg:col-start-7">
-                <p className="text-[1.0625rem] leading-[1.75] text-bone/80">
+                <p className="text-[1.0625rem] leading-[1.75] text-ink">
                   L&rsquo;ambulatorio esegue le prestazioni elencate qui sopra.
                   Per gli accertamenti che richiedono strumentazione o competenze
                   diverse il percorso prosegue altrove, e te lo si dice durante la
                   visita.
                 </p>
-                <p className="mt-5 text-[0.9375rem] leading-[1.75] text-bone/60">
+                <p className="mt-5 text-[0.9375rem] leading-[1.75] text-muted">
                   Un elenco onesto è più utile di un elenco lungo: sapere in
                   anticipo che cosa si svolge in ambulatorio evita un viaggio
                   inutile all&rsquo;animale.
@@ -161,21 +161,21 @@ export default function Prestazioni() {
 
       <section
         data-contact-end
-        className="bg-sand py-16 lg:py-24"
+        className="bg-surface-alt py-16 lg:py-24"
         aria-labelledby="portare"
       >
         <div className="wrap">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
               <Reveal>
-                <p className="eyebrow text-accent">Prima di venire</p>
+                <p className="eyebrow text-action">Prima di venire</p>
                 <h2
                   id="portare"
-                  className="mt-6 text-[1.75rem] leading-[1.2] text-deep sm:text-[2.125rem]"
+                  className="mt-6 text-[1.75rem] leading-[1.2] text-heading sm:text-[2.125rem]"
                 >
                   Che cosa portare alla visita.
                 </h2>
-                <p className="mt-6 max-w-[30rem] text-[1.0625rem] leading-[1.7] text-ink/75">
+                <p className="mt-6 max-w-[30rem] text-[1.0625rem] leading-[1.7] text-muted">
                   {site.availability} Giorno e orario si concordano su WhatsApp.
                 </p>
                 <WhatsAppCTA

@@ -22,7 +22,7 @@ export function Hero() {
 
       <div className="wrap hero-body">
         <div className="hero-copy">
-          <p className="eyebrow rise text-accent-warm">
+          <p className="eyebrow rise text-action">
             Ambulatorio veterinario · Percoto
           </p>
           <h1 id="hero-title" className="hero-title rise rise-2">
@@ -31,22 +31,21 @@ export function Hero() {
           </h1>
           <p className="hero-intro rise rise-3">
             Con un&rsquo;attenzione particolare alla{" "}
-            <span className="text-accent-warm">medicina felina.</span>
+            <span className="text-action">medicina felina.</span>
           </p>
           <div className="hero-identity rise rise-3">
-            <p className="font-medium text-bone">{site.doctor}</p>
-            <p className="mt-1 text-sm text-bone/80">
+            <p className="font-medium text-heading">{site.doctor}</p>
+            <p className="mt-1 text-sm text-ink">
               {site.degree} <span className="mx-1.5" aria-hidden>·</span> {site.certification}
             </p>
           </div>
           <div className="hero-actions rise rise-4">
             <WhatsAppCTA
               contesto="generale"
-              variante="light"
               freccia
               marcatore="inizio"
             />
-            <p className="mt-3 max-w-sm text-sm text-bone/80">
+            <p className="mt-3 max-w-sm text-sm text-ink">
               {whatsappHelp}
             </p>
           </div>
@@ -57,10 +56,10 @@ export function Hero() {
         <div className="wrap">
           <div className="hero-bottom-inner">
             <a href={site.directions} target="_blank" rel="noopener noreferrer" className="hero-directions">
-              <MapPin className="size-4 shrink-0 text-accent-warm" strokeWidth={1.75} aria-hidden />
+              <MapPin className="size-4 shrink-0 text-action" strokeWidth={1.75} aria-hidden />
               <span>
-                <span className="block text-sm text-bone/85">{site.address.short}</span>
-                <span className="mt-0.5 block text-xs text-bone/75">Come raggiungerci ↗</span>
+                <span className="block text-sm text-ink">{site.address.short}</span>
+                <span className="mt-0.5 block text-xs text-ink">Come raggiungerci ↗</span>
               </span>
             </a>
             <a href="#ambulatorio" className="hero-explore" aria-label="Scopri l'ambulatorio">

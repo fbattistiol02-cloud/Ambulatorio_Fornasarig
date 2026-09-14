@@ -105,15 +105,15 @@ export default function MedicinaFelina() {
       />
 
       {/* Identità e credenziali: qui, e non in una pagina biografica a parte. */}
-      <section className="bg-sand py-16 lg:py-20" aria-labelledby="profilo">
+      <section className="bg-surface-alt py-16 lg:py-20" aria-labelledby="profilo">
         <div className="wrap">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
               <Reveal>
-                <p className="eyebrow text-accent">Chi visita</p>
+                <p className="eyebrow text-action">Chi visita</p>
                 <h2
                   id="profilo"
-                  className="mt-5 text-[1.875rem] leading-[1.2] text-deep sm:text-[2.25rem]"
+                  className="mt-5 text-[1.875rem] leading-[1.2] text-heading sm:text-[2.25rem]"
                 >
                   {site.doctor}
                 </h2>
@@ -132,7 +132,7 @@ export default function MedicinaFelina() {
                       <dt className="font-sans text-xs font-semibold uppercase tracking-[0.12em] text-muted">
                         {voce.label}
                       </dt>
-                      <dd className="mt-2 text-lg leading-snug text-deep">
+                      <dd className="mt-2 text-lg leading-snug text-heading">
                         {voce.value}
                       </dd>
                     </div>
@@ -145,15 +145,15 @@ export default function MedicinaFelina() {
       </section>
 
       {/* Che cos'è il GPCert: fatti verificabili, enti nominati per esteso. */}
-      <section className="bg-bone py-20 lg:py-28" aria-labelledby="gpcert">
+      <section className="bg-surface py-20 lg:py-28" aria-labelledby="gpcert">
         <div className="wrap">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-7">
               <Reveal>
-                <p className="eyebrow text-accent">La certificazione</p>
+                <p className="eyebrow text-action">La certificazione</p>
                 <h2
                   id="gpcert"
-                  className="mt-6 text-[2rem] leading-[1.15] text-deep sm:text-[2.5rem]"
+                  className="mt-6 text-[2rem] leading-[1.15] text-heading sm:text-[2.5rem]"
                 >
                   Che cos&rsquo;è il GPCert.
                 </h2>
@@ -165,7 +165,7 @@ export default function MedicinaFelina() {
                   fra la laurea in medicina veterinaria e un diploma europeo di
                   specialità.
                 </p>
-                <p className="mt-5 max-w-[38rem] text-ink/70">
+                <p className="mt-5 max-w-[38rem] text-muted">
                   In Italia il percorso in medicina felina si segue attraverso
                   gli itinerari didattici SCIVAC e si conclude con un esame, al
                   quale si accede solo dopo aver frequentato tutti i moduli
@@ -206,7 +206,7 @@ export default function MedicinaFelina() {
                       className="object-cover object-center"
                     />
                   </div>
-                  <figcaption className="mt-4 border-l border-accent/40 pl-4 text-sm leading-relaxed text-muted">
+                  <figcaption className="mt-4 border-l border-action/40 pl-4 text-sm leading-relaxed text-muted">
                     Metà del lavoro, con un gatto, è ottenere una visita
                     completa senza trasformarla in un&rsquo;esperienza che il
                     paziente ricorderà male.
@@ -220,7 +220,7 @@ export default function MedicinaFelina() {
 
       {/* Perché il gatto è diverso. */}
       <section
-        className="bg-deep py-20 text-bone lg:py-28"
+        className="bg-surface-blue py-20 text-heading lg:py-28"
         aria-labelledby="differenze"
       >
         <div className="wrap">
@@ -228,10 +228,10 @@ export default function MedicinaFelina() {
             <div className="lg:col-span-4">
               <div className="lg:sticky lg:top-32">
                 <Reveal>
-                  <p className="eyebrow text-accent-warm">Le differenze</p>
+                  <p className="eyebrow text-action">Le differenze</p>
                   <h2
                     id="differenze"
-                    className="mt-6 text-[1.875rem] leading-[1.2] text-bone sm:text-[2.25rem]"
+                    className="mt-6 text-[1.875rem] leading-[1.2] text-heading sm:text-[2.25rem]"
                   >
                     Che cosa cambia, in concreto.
                   </h2>
@@ -240,22 +240,22 @@ export default function MedicinaFelina() {
             </div>
 
             <div className="lg:col-span-8">
-              <ol className="ed-list ed-list-dark">
+              <ol className="ed-list">
                 {punti.map((punto, indice) => (
                   <li key={punto.titolo}>
                     <Reveal delay={indice * 0.06}>
                       <article className="grid grid-cols-[auto_1fr] gap-x-6 py-8 lg:py-10">
                         <p
                           aria-hidden
-                          className="font-serif text-2xl leading-none text-bone/25"
+                          className="font-serif text-2xl leading-none text-muted"
                         >
                           {String(indice + 1).padStart(2, "0")}
                         </p>
                         <div>
-                          <h3 className="font-sans text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-accent-warm">
+                          <h3 className="font-sans text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-action">
                             {punto.titolo}
                           </h3>
-                          <p className="mt-3 max-w-[36rem] text-[0.9375rem] leading-[1.75] text-bone/70">
+                          <p className="mt-3 max-w-[36rem] text-[0.9375rem] leading-[1.75] text-muted">
                             {punto.testo}
                           </p>
                         </div>
@@ -266,8 +266,8 @@ export default function MedicinaFelina() {
               </ol>
 
               <Reveal delay={0.18}>
-                <p className="note note-dark mt-10 max-w-[38rem] text-[0.9375rem] leading-[1.7]">
-                  <span className="font-sans font-semibold text-bone">
+                <p className="note mt-10 max-w-[38rem] text-[0.9375rem] leading-[1.7]">
+                  <span className="font-sans font-semibold text-heading">
                     I cani restano una parte centrale dell&rsquo;attività.
                   </span>{" "}
                   La preparazione in medicina felina si aggiunge alla medicina
@@ -282,29 +282,29 @@ export default function MedicinaFelina() {
       {/* Rimando alla guida e contatto. */}
       <section
         data-contact-end
-        className="bg-bone py-20 lg:py-24"
+        className="bg-surface py-20 lg:py-24"
         aria-labelledby="prossimo"
       >
         <div className="wrap">
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
               <div className="lg:col-span-7">
-                <p className="eyebrow text-accent">Continua</p>
+                <p className="eyebrow text-action">Continua</p>
                 <h2
                   id="prossimo"
-                  className="mt-6 text-[1.75rem] leading-[1.2] text-deep sm:text-[2.125rem]"
+                  className="mt-6 text-[1.75rem] leading-[1.2] text-heading sm:text-[2.125rem]"
                 >
                   Quasi tutto quello che serve al gatto succede prima della
                   visita.
                 </h2>
-                <p className="mt-6 max-w-[34rem] text-[1.0625rem] leading-[1.7] text-ink/75">
+                <p className="mt-6 max-w-[34rem] text-[1.0625rem] leading-[1.7] text-muted">
                   Come abituarlo al trasportino, quali cambiamenti meritano un
                   controllo e come arrivare in ambulatorio senza trasformare la
                   giornata in un trauma.
                 </p>
                 <Link
                   href="/guida-gatto"
-                  className="mt-6 inline-flex min-h-11 items-center gap-2 text-[0.9375rem] font-medium text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent"
+                  className="mt-6 inline-flex min-h-11 items-center gap-2 text-[0.9375rem] font-medium text-action underline decoration-action/30 underline-offset-4 hover:decoration-action"
                 >
                   Vai alla guida per chi ha un gatto
                   <ArrowUpRight
@@ -317,10 +317,10 @@ export default function MedicinaFelina() {
 
               <div className="lg:col-span-4 lg:col-start-9">
                 <div className="border-t border-line-soft pt-6">
-                  <p className="text-base font-medium text-deep">
+                  <p className="text-base font-medium text-heading">
                     {site.availability}
                   </p>
-                  <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink/70">
+                  <p className="mt-2 text-[0.9375rem] leading-relaxed text-muted">
                     Per una visita al gatto, scrivici su WhatsApp.
                   </p>
                   <WhatsAppCTA

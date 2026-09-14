@@ -44,7 +44,7 @@ export function WhatsAppFloatingButton() {
       inert={desktop && !visible}
       data-contact-affordance
       className={cn(
-        "fixed right-5 bottom-5 z-40 flex size-14 items-center justify-center rounded-full bg-whatsapp text-white shadow-lg shadow-deep/25 transition-[opacity,transform,background-color] duration-200 hover:bg-whatsapp-deep lg:right-6 lg:bottom-6",
+        "fixed right-5 bottom-5 z-40 flex size-14 items-center justify-center rounded-full bg-action text-white shadow-lg shadow-heading/25 transition-[opacity,transform,background-color] duration-200 hover:bg-action-hover active:bg-action-hover lg:right-6 lg:bottom-6",
         // Sopra la barra di sistema dell'iPhone, non sotto.
         "mb-[env(safe-area-inset-bottom)]",
         visible
@@ -52,7 +52,7 @@ export function WhatsAppFloatingButton() {
           : "lg:pointer-events-none lg:translate-y-20 lg:opacity-0",
       )}
     >
-      <WhatsAppIcon className="size-7 text-whatsapp-bright" />
+      <WhatsAppIcon className="size-7" />
     </a>
   );
 }

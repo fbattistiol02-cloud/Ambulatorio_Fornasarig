@@ -7,7 +7,7 @@ locali dell'ambulatorio o come i suoi pazienti. Le fotografie di archivio hanno
 un ruolo d'atmosfera; i testi alternativi descrivono ciò che si vede e nulla di
 più. Nessuna immagine è generata.
 
-## Fotografie fornite dalla dottoressa — 12 settembre 2026
+## Fotografie fornite dalla dottoressa — 12 e 14 settembre 2026
 
 Fornite tramite il committente per essere inserite nel sito. I file WebP
 originali sono stati copiati **senza modifiche né ricompressione**, assegnando
@@ -17,11 +17,20 @@ nomi descrittivi. Non vengono attribuiti ad archivi fotografici.
 | --- | --- | --- | --- |
 | `gattino-arancione.webp` | Sfondo continuo della hero, pagina iniziale | Gattino arancione rivolto verso l'obiettivo | 1448 × 1086 |
 | `gatto-bianco-nero-sdraiato.webp` | Pagina Medicina felina | Gatto bianco e nero sdraiato accanto a un gradino | 1448 × 1086 |
+| `cane-ambulatorio.webp` | Pagina iniziale, fascia cani | Cane a pelo ruvido con collare rosa, seduto in ambulatorio | 1254 × 1254 |
 
-Queste due fotografie **non vengono ritagliate né corrette nel colore**: sono
+Queste fotografie **non vengono ritagliate né corrette nel colore**: sono
 approvate così dalla dottoressa. L'unico trattamento che le riguarda è la grana
 applicata via CSS a tutti gli slot fotografici del sito, che è una texture
 sovrapposta e non modifica i file.
+
+`cane-ambulatorio.webp` è stata consegnata il 14 settembre 2026 come PNG
+quadrato di 2,5 MB, conservato senza modifiche in
+`assets/foto-originali/FORNASARIG-IMG-5.png`. L'unico intervento è la
+conversione in WebP a qualità 82 per il peso di pagina: inquadratura,
+proporzioni 1:1 e colore restano quelli originali. Lo slot in pagina è quadrato
+proprio per non doverla ritagliare. Sostituisce l'immagine di archivio
+`cane-divano-luce.webp`, che è stata rimossa dal repository.
 
 ## Fotografie di archivio — 12 settembre 2026
 
@@ -31,7 +40,6 @@ uno il 12 settembre 2026; nessuna è Unsplash+ a pagamento.
 
 | File in `public/foto/` | Pagina | Autore | Pagina originale |
 | --- | --- | --- | --- |
-| `cane-divano-luce.webp` | Pagina iniziale, fascia cani | belettenoir | https://unsplash.com/photos/NcM8r8uM4s8 |
 | `mano-gatto.webp` | Prestazioni | Lucas Doddema | https://unsplash.com/photos/T-nPYpDTVxA |
 | `gatto-trasportino.webp` | Guida, sezione trasportino | Oles Borys | https://unsplash.com/photos/OBu_nabEpAw |
 | `gatto-sotto-divano.webp` | Guida, sezione segnali | Peyman Shojaei | https://unsplash.com/photos/69jt0MnXL8E |
@@ -56,6 +64,9 @@ lieve — ombre verso il verde petrolio, alte luci verso l'avorio.
 - Escluse a priori perché Unsplash+ a pagamento: `d7KktajtN6Q`, `QxRBQKGpZZE`,
   `4-BumD3OBnA`, `IgGdwOeSy9A`, `g1GjUP0Lg5k`, `XY8FAdgfCXM`.
 - Alternative verificate e non utilizzate: `ymITgrOdv2c` (Andy Luo).
+- `NcM8r8uM4s8` (belettenoir), il cane sul divano, è stata rimossa il 14
+  settembre 2026: la dottoressa ha fornito una fotografia propria di un cane in
+  ambulatorio, che è preferibile a un'immagine di archivio.
 
 ## Fotografie precedenti conservate nel repository
 

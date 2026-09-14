@@ -7,8 +7,6 @@ import { WhatsAppIcon } from "./WhatsAppIcon";
 type Props = {
   /** Determina il messaggio precompilato: cambia da pagina a pagina. */
   contesto: WhatsAppContext;
-  /** `light` sul verde profondo, `solid` sulle superfici chiare. */
-  variante?: "solid" | "light";
   /** Freccia di uscita: si usa solo dove la CTA è l'azione principale. */
   freccia?: boolean;
   className?: string;
@@ -24,7 +22,6 @@ type Props = {
  */
 export function WhatsAppCTA({
   contesto,
-  variante = "solid",
   freccia = false,
   className,
   marcatore,
@@ -37,15 +34,11 @@ export function WhatsAppCTA({
       data-contact-start={marcatore === "inizio" ? "" : undefined}
       className={cn(
         "whatsapp-cta",
-        variante === "light" && "whatsapp-cta-light",
         className,
       )}
     >
       <WhatsAppIcon
-        className={cn(
-          "size-5 shrink-0",
-          variante === "solid" && "text-whatsapp-bright",
-        )}
+        className="size-5 shrink-0"
       />
       Scrivici su WhatsApp
       {freccia ? (

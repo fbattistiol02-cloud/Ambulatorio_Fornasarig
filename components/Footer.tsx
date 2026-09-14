@@ -10,15 +10,15 @@ export function Footer() {
 
   return (
     /* Il margine inferiore lascia respirare il pulsante WhatsApp flottante. */
-    <footer className="bg-deep pt-16 pb-20 text-bone lg:pt-20 lg:pb-12">
+    <footer className="bg-surface-blue pt-16 pb-20 text-heading lg:pt-20 lg:pb-12">
       <div className="wrap">
-        <div className="grid gap-10 border-b border-bone/12 pb-12 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-10 border-b border-line pb-12 sm:grid-cols-2 lg:grid-cols-5">
           <div className="sm:col-span-2 lg:col-span-1">
-            <Wordmark tone="light" size="md" />
+            <Wordmark size="md" />
           </div>
 
           <nav aria-label="Navigazione a piè di pagina">
-            <h2 className="font-sans text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-bone/55">
+            <h2 className="font-sans text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-muted">
               Pagine
             </h2>
             <ul className="mt-2 text-[0.9375rem]">
@@ -26,7 +26,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="inline-flex min-h-11 items-center text-bone/75 transition-colors hover:text-accent-warm"
+                    className="inline-flex min-h-11 items-center text-ink transition-colors hover:text-action"
                   >
                     {link.label}
                   </Link>
@@ -36,7 +36,7 @@ export function Footer() {
           </nav>
 
           <div>
-            <h2 className="font-sans text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-bone/55">
+            <h2 className="font-sans text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-muted">
               Ambulatorio
             </h2>
             {/*
@@ -49,7 +49,7 @@ export function Footer() {
                 href={site.directions}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-11 items-start gap-2 py-1 text-[0.9375rem] leading-relaxed text-bone/75 transition-colors hover:text-accent-warm"
+                className="inline-flex min-h-11 items-start gap-2 py-1 text-[0.9375rem] leading-relaxed text-ink transition-colors hover:text-action"
               >
                 <MapPin
                   className="mt-0.5 size-4 shrink-0"
@@ -65,13 +65,13 @@ export function Footer() {
                 </span>
               </a>
             </address>
-            <p className="mt-3 text-[0.9375rem] text-bone/55">
+            <p className="mt-3 text-[0.9375rem] text-muted">
               {site.availability}
             </p>
           </div>
 
           <div>
-            <h2 className="font-sans text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-bone/55">
+            <h2 className="font-sans text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-muted">
               Contatti
             </h2>
             {/* `min-h-11`: bersagli tattili comodi anche in fondo alla pagina. */}
@@ -81,7 +81,7 @@ export function Footer() {
                   href={whatsappHref(whatsappMessages.generale)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-11 items-center gap-2 text-bone/75 transition-colors hover:text-accent-warm"
+                  className="inline-flex min-h-11 items-center gap-2 text-ink transition-colors hover:text-action"
                 >
                   <WhatsAppIcon className="size-4 shrink-0" />
                   Scrivici su WhatsApp
@@ -90,7 +90,7 @@ export function Footer() {
               <li>
                 <a
                   href={site.email.href}
-                  className="inline-flex min-h-11 items-center gap-2 break-words text-bone/75 transition-colors hover:text-accent-warm"
+                  className="inline-flex min-h-11 items-center gap-2 break-words text-ink transition-colors hover:text-action"
                 >
                   <Mail
                     className="size-4 shrink-0"
@@ -104,17 +104,17 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="font-sans text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-bone/55">
+            <h2 className="font-sans text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-muted">
               Dati professionali
             </h2>
-            <p className="mt-4 text-[0.9375rem] leading-relaxed text-bone/75">
+            <p className="mt-4 text-[0.9375rem] leading-relaxed text-ink">
               {site.doctor}
               <br />
               {site.role} — {site.degree}
               <br />
               {site.certification}
             </p>
-            <p className="mt-3 text-[0.9375rem] leading-relaxed text-bone/55">
+            <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted">
               {site.order}
               <br />
               {site.registration}
@@ -122,7 +122,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-3 pt-7 text-[0.8125rem] text-bone/55 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-3 pt-7 text-[0.8125rem] text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {site.name}
           </p>

@@ -50,7 +50,7 @@ const CORPO_SEGNAPOSTO = "text-[17px] max-sm:text-[27px]";
 
 export function MappaPercoto({ className }: { className?: string }) {
   return (
-    <figure className={cn("text-deep", className)}>
+    <figure className={cn("text-heading", className)}>
       <svg
         viewBox={`0 0 ${vista.larghezza} ${vista.altezza}`}
         role="img"
@@ -65,7 +65,7 @@ export function MappaPercoto({ className }: { className?: string }) {
               <path
                 key={indice}
                 d={strada.d}
-                className="stroke-deep"
+                className="stroke-heading"
                 strokeWidth={spessore[strada.peso]}
                 opacity={opacita[strada.peso]}
               />
@@ -79,7 +79,7 @@ export function MappaPercoto({ className }: { className?: string }) {
               <path
                 key={`indirizzo-${indice}`}
                 d={strada.d}
-                className="stroke-accent"
+                className="stroke-action"
                 strokeWidth={12}
                 opacity={0.85}
               />
@@ -88,7 +88,7 @@ export function MappaPercoto({ className }: { className?: string }) {
         </g>
 
         {/* Nomi delle vie, ruotati lungo il tracciato come su una mappa vera. */}
-        <g className="fill-deep" textAnchor="middle">
+        <g className="fill-heading" textAnchor="middle">
           {etichette.map((etichetta) => {
             const contesto = etichetta.ruolo === "contesto";
 
@@ -103,7 +103,7 @@ export function MappaPercoto({ className }: { className?: string }) {
                   contesto ? "max-sm:hidden text-[12px]" : CORPO_PRINCIPALE
                 }
                 fontWeight={contesto ? 400 : 600}
-                opacity={contesto ? 0.45 : 0.85}
+                opacity={1}
               >
                 {etichetta.testo}
               </text>
@@ -116,9 +116,9 @@ export function MappaPercoto({ className }: { className?: string }) {
           cx={centroPaese.x}
           cy={centroPaese.y}
           r={7}
-          className="fill-bone stroke-deep"
+          className="fill-surface stroke-heading"
           strokeWidth={2.5}
-          opacity={0.55}
+          opacity={1}
         />
 
         {/* L'ambulatorio. Anello largo e punto pieno: è l'unica cosa che il
@@ -128,7 +128,7 @@ export function MappaPercoto({ className }: { className?: string }) {
             cx={ambulatorio.x}
             cy={ambulatorio.y}
             r={22}
-            className="fill-accent"
+            className="fill-action"
             opacity={0.12}
           />
           <circle
@@ -136,16 +136,16 @@ export function MappaPercoto({ className }: { className?: string }) {
             cy={ambulatorio.y}
             r={22}
             fill="none"
-            className="stroke-accent"
+            className="stroke-action"
             strokeWidth={2}
             opacity={0.55}
           />
-          <circle cx={ambulatorio.x} cy={ambulatorio.y} r={10} className="fill-accent" />
+          <circle cx={ambulatorio.x} cy={ambulatorio.y} r={10} className="fill-action" />
           <text
             x={ambulatorio.x}
             y={ambulatorio.y + 44}
             textAnchor="middle"
-            className={cn("fill-accent", CORPO_SEGNAPOSTO)}
+            className={cn("fill-action", CORPO_SEGNAPOSTO)}
             fontWeight={600}
           >
             Ambulatorio
@@ -159,7 +159,7 @@ export function MappaPercoto({ className }: { className?: string }) {
           href="https://www.openstreetmap.org/copyright"
           target="_blank"
           rel="noopener noreferrer"
-          className="underline decoration-line underline-offset-2 transition-colors hover:text-accent hover:decoration-accent/40"
+          className="underline decoration-line underline-offset-2 transition-colors hover:text-action hover:decoration-action/40"
         >
           © OpenStreetMap contributors
         </a>

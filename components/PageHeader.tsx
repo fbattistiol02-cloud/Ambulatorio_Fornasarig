@@ -3,7 +3,7 @@ import Link from "next/link";
 /**
  * Testata delle pagine interne.
  *
- * È una fetta dello stesso gradiente verde petrolio della hero: cambia il punto
+ * È una fetta dello stesso gradiente azzurro chiaro della hero: cambia il punto
  * da cui parte la luce, non il colore. Serve a far leggere le cinque pagine
  * come un oggetto unico invece che come cinque documenti separati.
  *
@@ -40,7 +40,7 @@ export function PageHeader({ occhiello, titolo, intro, luce, indice }: Props) {
               Home
             </Link>
             <span aria-hidden>/</span>
-            <span className="text-bone/80">{occhiello}</span>
+            <span className="text-ink">{occhiello}</span>
           </nav>
 
           <h1 className="mt-7">{titolo}</h1>
@@ -52,19 +52,19 @@ export function PageHeader({ occhiello, titolo, intro, luce, indice }: Props) {
             aria-label="Indice della pagina"
             className="lg:col-span-4 lg:col-start-9 lg:self-end"
           >
-            <p className="font-sans text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-bone/50">
+            <p className="font-sans text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-muted">
               In questa pagina
             </p>
-            <ol className="ed-list ed-list-dark mt-3">
+            <ol className="ed-list mt-3">
               {indice.map((voce, posizione) => (
                 <li key={voce.href}>
                   <a
                     href={voce.href}
-                    className="group flex min-h-12 items-baseline gap-4 py-3 text-[0.9375rem] text-bone/75 transition-colors hover:text-accent-warm"
+                    className="group flex min-h-12 items-baseline gap-4 py-3 text-[0.9375rem] text-ink transition-colors hover:text-action"
                   >
                     <span
                       aria-hidden
-                      className="font-serif text-bone/50 transition-colors group-hover:text-accent-warm/70"
+                      className="font-serif text-muted transition-colors group-hover:text-action"
                     >
                       {String(posizione + 1).padStart(2, "0")}
                     </span>

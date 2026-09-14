@@ -47,14 +47,14 @@ export default function Home() {
     <>
       <Hero />
 
-      {/* Superficie avorio dopo l'apertura fotografica, come concordato in V1. */}
-      <section id="ambulatorio" className="bg-sand py-16 sm:py-20 lg:py-24">
+      {/* Superficie bianco ghiaccio dopo l’apertura azzurra. */}
+      <section id="ambulatorio" className="bg-surface-alt py-16 sm:py-20 lg:py-24">
         <div className="wrap">
           <div className="grid gap-9 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-6">
               <Reveal>
-                <p className="eyebrow text-accent">L&rsquo;ambulatorio</p>
-                <h2 className="mt-6 text-[2.125rem] leading-[1.12] text-deep sm:text-[2.75rem] lg:text-[3.25rem]">
+                <p className="eyebrow text-action">L&rsquo;ambulatorio</p>
+                <h2 className="mt-6 text-[2.125rem] leading-[1.12] text-heading sm:text-[2.75rem] lg:text-[3.25rem]">
                   <span className="mb-2 block font-sans text-sm font-medium tracking-normal text-muted">
                     Dott.ssa
                   </span>
@@ -65,7 +65,7 @@ export default function Home() {
                 </p>
                 <Link
                   href="/medicina-felina"
-                  className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent"
+                  className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-action underline decoration-action/30 underline-offset-4 hover:decoration-action"
                 >
                   Profilo e certificazione
                   <ArrowUpRight className="size-4" strokeWidth={1.75} aria-hidden />
@@ -81,7 +81,7 @@ export default function Home() {
                   con una preparazione specifica in medicina felina.
                 </p>
                 <div className="mt-7 border-t border-line pt-6">
-                  <p className="text-base font-medium text-deep">
+                  <p className="text-base font-medium text-heading">
                     {site.availability}
                   </p>
                   <p className="mt-2 max-w-[32rem] text-base leading-relaxed text-ink/80">
@@ -96,7 +96,7 @@ export default function Home() {
       </section>
 
       {/* Tre porte verso le pagine interne: una frase vera ciascuna, nessuna scheda. */}
-      <section className="bg-bone py-20 lg:py-28" aria-labelledby="approfondimenti">
+      <section className="bg-surface py-20 lg:py-28" aria-labelledby="approfondimenti">
         <div className="wrap">
           <Reveal>
             <h2 id="approfondimenti" className="sr-only">
@@ -109,14 +109,14 @@ export default function Home() {
                     href={porta.href}
                     className="group flex h-full flex-col py-8 lg:py-10"
                   >
-                    <p className="eyebrow text-accent">{porta.occhiello}</p>
-                    <h3 className="mt-5 text-2xl leading-snug text-deep sm:text-[1.75rem]">
+                    <p className="eyebrow text-action">{porta.occhiello}</p>
+                    <h3 className="mt-5 text-2xl leading-snug text-heading sm:text-[1.75rem]">
                       {porta.titolo}
                     </h3>
-                    <p className="mt-3 grow text-[0.9375rem] leading-[1.7] text-ink/70">
+                    <p className="mt-3 grow text-[0.9375rem] leading-[1.7] text-muted">
                       {porta.testo}
                     </p>
-                    <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent">
+                    <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-action">
                       {porta.azione}
                       <ArrowUpRight
                         className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
@@ -134,35 +134,36 @@ export default function Home() {
       </section>
 
       {/*
-        Fascia cane. Entrambe le fotografie della dottoressa ritraggono gatti:
-        senza un'immagine canina il sito contraddirebbe ciò che dichiara di fare.
+        Fascia cane. La fotografia è della dottoressa, scattata in ambulatorio:
+        il sito mostra un cane vero dove dichiara di curare anche i cani.
+        È quadrata e ravvicinata, quindi lo slot è 1:1 e non un 3:2 ritagliato.
       */}
-      <section className="bg-deep py-16 text-bone lg:py-20" aria-labelledby="cani">
+      <section className="bg-surface-blue py-16 text-heading lg:py-20" aria-labelledby="cani">
         <div className="wrap">
           <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-6">
               <Reveal>
-                <div className="photo grain relative aspect-3/2">
+                <div className="photo grain relative aspect-square">
                   <Image
-                    src="/foto/cane-divano-luce.webp"
-                    alt="Un cane sdraiato su un divano, attraversato dalla luce che entra da una persiana"
+                    src="/foto/cane-ambulatorio.webp"
+                    alt="Un cane a pelo ruvido con il collare rosa, seduto in ambulatorio e rivolto verso l'obiettivo"
                     fill
-                    sizes="(min-width: 1024px) 56vw, 100vw"
+                    sizes="(min-width: 1024px) 48vw, 100vw"
                     className="object-cover"
                   />
                 </div>
               </Reveal>
             </div>
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-6">
               <Reveal delay={0.1}>
-                <p className="eyebrow text-accent-warm">Cani e gatti</p>
+                <p className="eyebrow text-action">Cani e gatti</p>
                 <h2
                   id="cani"
-                  className="mt-6 text-[1.75rem] leading-[1.2] text-bone sm:text-[2.125rem]"
+                  className="mt-6 text-[1.75rem] leading-[1.2] text-heading sm:text-[2.125rem]"
                 >
                   Cura e attenzione anche per il tuo cane.
                 </h2>
-                <p className="mt-6 text-[1.0625rem] leading-[1.7] text-bone/75">
+                <p className="mt-6 text-[1.0625rem] leading-[1.7] text-ink">
                   Visite, radiografie, esami di laboratorio e piccola chirurgia
                   sono disponibili anche per il tuo cane. La preparazione in
                   medicina felina affianca la medicina veterinaria generale,
@@ -178,17 +179,17 @@ export default function Home() {
       <section
         id="contatti"
         data-contact-end
-        className="bg-bone py-20 lg:py-28"
+        className="bg-surface py-20 lg:py-28"
         aria-labelledby="contatti-home"
       >
         <div className="wrap">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-6">
               <Reveal>
-                <p className="eyebrow text-accent">Appuntamenti</p>
+                <p className="eyebrow text-action">Appuntamenti</p>
                 <h2
                   id="contatti-home"
-                  className="mt-6 text-[2.125rem] leading-[1.12] text-deep sm:text-[2.75rem] lg:text-[3.25rem]"
+                  className="mt-6 text-[2.125rem] leading-[1.12] text-heading sm:text-[2.75rem] lg:text-[3.25rem]"
                 >
                   Richiedi un appuntamento.
                 </h2>
@@ -209,10 +210,10 @@ export default function Home() {
                   <p className="font-sans text-xs font-semibold uppercase tracking-[0.16em] text-muted">
                     Indirizzo
                   </p>
-                  <p className="mt-2 font-serif text-xl leading-snug text-deep">
+                  <p className="mt-2 font-serif text-xl leading-snug text-heading">
                     {site.address.street}
                   </p>
-                  <p className="text-[0.9375rem] text-ink/70">
+                  <p className="text-[0.9375rem] text-muted">
                     {site.address.postalCode} {site.address.locality} —{" "}
                     {site.address.municipality} ({site.address.province})
                   </p>
@@ -220,17 +221,17 @@ export default function Home() {
                     href={site.directions}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-1 inline-flex min-h-11 items-center gap-1.5 text-[0.9375rem] font-medium text-accent underline decoration-accent/30 underline-offset-4 transition-colors hover:decoration-accent"
+                    className="mt-1 inline-flex min-h-11 items-center gap-1.5 text-[0.9375rem] font-medium text-action underline decoration-action/30 underline-offset-4 transition-colors hover:decoration-action"
                   >
                     <MapPin className="size-4 shrink-0" strokeWidth={1.75} aria-hidden />
                     Come raggiungerci
                   </a>
-                  <p className="mt-6 border-t border-line-soft pt-6 text-[0.9375rem] leading-relaxed text-ink/70">
+                  <p className="mt-6 border-t border-line-soft pt-6 text-[0.9375rem] leading-relaxed text-muted">
                     Tutti i recapiti, le indicazioni e il modello per il primo
                     messaggio sono nella{" "}
                     <Link
                       href="/contatti"
-                      className="font-medium text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent"
+                      className="font-medium text-action underline decoration-action/30 underline-offset-4 hover:decoration-action"
                     >
                       pagina contatti
                     </Link>
