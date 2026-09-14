@@ -68,17 +68,6 @@ FORZA_VIRAGGIO = 0.10
 # registrata in CREDITI-FOTO.md.
 FOTO = [
     {
-        "nome": "cane-divano-luce.webp",
-        # belettenoir — https://unsplash.com/photos/NcM8r8uM4s8
-        "slug": "NcM8r8uM4s8",
-        "originale": (3647, 5472),
-        # Fascia orizzontale 3:2 stretta sul cane: a sinistra resta l'area
-        # scura che regge il testo sovrapposto, a destra le strisce di luce.
-        "riquadro": (500, 700, 3647, 2798),
-        "uscita": (2000, 1333),
-        "qualita": 82,
-    },
-    {
         "nome": "mano-gatto.webp",
         # Lucas Doddema — https://unsplash.com/photos/T-nPYpDTVxA
         "slug": "T-nPYpDTVxA",

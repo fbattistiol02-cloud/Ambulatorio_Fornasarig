@@ -134,26 +134,27 @@ export default function Home() {
       </section>
 
       {/*
-        Fascia cane. Entrambe le fotografie della dottoressa ritraggono gatti:
-        senza un'immagine canina il sito contraddirebbe ciò che dichiara di fare.
+        Fascia cane. La fotografia è della dottoressa, scattata in ambulatorio:
+        il sito mostra un cane vero dove dichiara di curare anche i cani.
+        È quadrata e ravvicinata, quindi lo slot è 1:1 e non un 3:2 ritagliato.
       */}
       <section className="bg-surface-blue py-16 text-heading lg:py-20" aria-labelledby="cani">
         <div className="wrap">
           <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-6">
               <Reveal>
-                <div className="photo grain relative aspect-3/2">
+                <div className="photo grain relative aspect-square">
                   <Image
-                    src="/foto/cane-divano-luce.webp"
-                    alt="Un cane sdraiato su un divano, attraversato dalla luce che entra da una persiana"
+                    src="/foto/cane-ambulatorio.webp"
+                    alt="Un cane a pelo ruvido con il collare rosa, seduto in ambulatorio e rivolto verso l'obiettivo"
                     fill
-                    sizes="(min-width: 1024px) 56vw, 100vw"
+                    sizes="(min-width: 1024px) 48vw, 100vw"
                     className="object-cover"
                   />
                 </div>
               </Reveal>
             </div>
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-6">
               <Reveal delay={0.1}>
                 <p className="eyebrow text-action">Cani e gatti</p>
                 <h2
