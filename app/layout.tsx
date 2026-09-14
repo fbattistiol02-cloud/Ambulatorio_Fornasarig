@@ -75,7 +75,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#062726",
+  themeColor: "#e4f1fa",
   colorScheme: "light",
 };
 
@@ -136,7 +136,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="it"
       className={`${sans.variable} ${serifDisplay.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-bone">
+      <body className="flex min-h-full flex-col bg-surface">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

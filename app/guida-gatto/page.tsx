@@ -137,16 +137,16 @@ export default function GuidaGatto() {
       />
 
       {/* 1 — Il trasportino. */}
-      <section className="bg-bone py-16 lg:py-24" aria-labelledby="trasportino">
+      <section className="bg-surface py-16 lg:py-24" aria-labelledby="trasportino">
         <div className="wrap">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
               <div className="lg:sticky lg:top-32">
                 <Reveal>
-                  <p className="eyebrow text-accent">Il trasportino</p>
+                  <p className="eyebrow text-action">Il trasportino</p>
                   <h2
                     id="trasportino"
-                    className="mt-6 text-[1.875rem] leading-[1.2] text-deep sm:text-[2.25rem]"
+                    className="mt-6 text-[1.875rem] leading-[1.2] text-heading sm:text-[2.25rem]"
                   >
                     Il viaggio comincia settimane prima.
                   </h2>
@@ -187,12 +187,12 @@ export default function GuidaGatto() {
                             >
                               Passo {indice + 1}
                             </p>
-                            <h3 className="mt-2 text-xl leading-snug text-deep sm:text-2xl">
+                            <h3 className="mt-2 text-xl leading-snug text-heading sm:text-2xl">
                               {passo.titolo}
                             </h3>
                           </div>
                         </div>
-                        <p className="mt-4 max-w-[38rem] text-[0.9375rem] leading-[1.75] text-ink/70">
+                        <p className="mt-4 max-w-[38rem] text-[0.9375rem] leading-[1.75] text-muted">
                           {passo.testo}
                         </p>
                       </article>
@@ -215,7 +215,7 @@ export default function GuidaGatto() {
       </section>
 
       {/* 2 — Perché il gatto nasconde il dolore. */}
-      <section className="bg-deep text-bone" aria-labelledby="dolore">
+      <section className="bg-surface-blue text-heading" aria-labelledby="dolore">
         <div className="photo grain relative h-[16rem] w-full sm:h-[20rem] lg:h-[24rem]">
           <Image
             src="/foto/gatto-riposo-luce.webp"
@@ -229,10 +229,10 @@ export default function GuidaGatto() {
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
               <Reveal>
-                <p className="eyebrow text-accent-warm">Il dolore</p>
+                <p className="eyebrow text-action">Il dolore</p>
                 <h2
                   id="dolore"
-                  className="mt-6 text-[1.75rem] leading-[1.2] text-bone sm:text-[2.125rem]"
+                  className="mt-6 text-[1.75rem] leading-[1.2] text-heading sm:text-[2.125rem]"
                 >
                   Un gatto malato somiglia a un gatto che riposa.
                 </h2>
@@ -240,14 +240,14 @@ export default function GuidaGatto() {
             </div>
             <div className="lg:col-span-6 lg:col-start-7">
               <Reveal delay={0.1}>
-                <p className="text-[1.0625rem] leading-[1.75] text-bone/80">
+                <p className="text-[1.0625rem] leading-[1.75] text-ink">
                   Il gatto è insieme predatore e preda. Per un animale che in
                   natura può essere a sua volta cacciato, mostrare debolezza è
                   pericoloso: la tendenza a non manifestare il dolore è un
                   comportamento, non una soglia del dolore più alta. Soffre
                   quanto gli altri, lo fa vedere meno.
                 </p>
-                <p className="mt-5 text-[0.9375rem] leading-[1.75] text-bone/60">
+                <p className="mt-5 text-[0.9375rem] leading-[1.75] text-muted">
                   È anche la ragione per cui chi vive con lui è la fonte di
                   informazioni più importante di tutta la visita: i cambiamenti
                   piccoli li nota soltanto chi c&rsquo;è tutti i giorni.
@@ -259,19 +259,19 @@ export default function GuidaGatto() {
       </section>
 
       {/* 3 — Segnali. */}
-      <section className="bg-sand py-16 lg:py-24" aria-labelledby="segnali">
+      <section className="bg-surface-alt py-16 lg:py-24" aria-labelledby="segnali">
         <div className="wrap">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-6">
               <Reveal>
-                <p className="eyebrow text-accent">Quando farlo vedere</p>
+                <p className="eyebrow text-action">Quando farlo vedere</p>
                 <h2
                   id="segnali"
-                  className="mt-6 text-[1.875rem] leading-[1.2] text-deep sm:text-[2.25rem]"
+                  className="mt-6 text-[1.875rem] leading-[1.2] text-heading sm:text-[2.25rem]"
                 >
                   Cambiamenti che vale la pena non lasciar passare.
                 </h2>
-                <p className="mt-6 max-w-[32rem] text-[1.0625rem] leading-[1.7] text-ink/75">
+                <p className="mt-6 max-w-[32rem] text-[1.0625rem] leading-[1.7] text-muted">
                   Nessuno di questi è una diagnosi e nessuno va interpretato da
                   solo. Sono cambiamenti che meritano un controllo: in un gatto,
                   un&rsquo;abitudine che cambia è spesso l&rsquo;unico segnale
@@ -339,21 +339,21 @@ export default function GuidaGatto() {
       {/* 4 — Prepararsi alla visita. */}
       <section
         data-contact-end
-        className="bg-bone py-16 lg:py-24"
+        className="bg-surface py-16 lg:py-24"
         aria-labelledby="preparazione"
       >
         <div className="wrap">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
               <Reveal>
-                <p className="eyebrow text-accent">Prima della visita</p>
+                <p className="eyebrow text-action">Prima della visita</p>
                 <h2
                   id="preparazione"
-                  className="mt-6 text-[1.75rem] leading-[1.2] text-deep sm:text-[2.125rem]"
+                  className="mt-6 text-[1.75rem] leading-[1.2] text-heading sm:text-[2.125rem]"
                 >
                   Come prepararsi.
                 </h2>
-                <p className="mt-6 max-w-[30rem] text-[1.0625rem] leading-[1.7] text-ink/75">
+                <p className="mt-6 max-w-[30rem] text-[1.0625rem] leading-[1.7] text-muted">
                   {site.availability} Se hai notato qualcosa e non sei sicuro
                   che valga una visita, scrivici: è il modo più rapido per
                   capirlo.
@@ -366,7 +366,7 @@ export default function GuidaGatto() {
                   Le indicazioni su che cosa portare sono nella{" "}
                   <Link
                     href="/prestazioni"
-                    className="font-medium text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent"
+                    className="font-medium text-action underline decoration-action/30 underline-offset-4 hover:decoration-action"
                   >
                     pagina prestazioni
                   </Link>

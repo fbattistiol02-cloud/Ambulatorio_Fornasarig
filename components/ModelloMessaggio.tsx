@@ -39,19 +39,19 @@ export function ModelloMessaggio() {
       <p className="font-sans text-xs font-semibold uppercase tracking-[0.16em] text-muted">
         Che cosa scrivere
       </p>
-      <p className="mt-3 max-w-[32rem] text-[0.9375rem] leading-[1.7] text-ink/75">
+      <p className="mt-3 max-w-[32rem] text-[0.9375rem] leading-[1.7] text-muted">
         Più informazioni contiene il primo messaggio, meno scambi servono per
         fissare l&rsquo;appuntamento.
       </p>
 
-      <pre className="mt-5 overflow-x-auto rounded-sm bg-sand p-5 font-sans text-[0.9375rem] leading-[1.8] whitespace-pre-wrap text-ink/85">
+      <pre className="mt-5 overflow-x-auto rounded-sm bg-surface-alt p-5 font-sans text-[0.9375rem] leading-[1.8] whitespace-pre-wrap text-ink/85">
         {messageTemplate}
       </pre>
 
       <button
         type="button"
         onClick={copia}
-        className="mt-4 inline-flex min-h-11 items-center gap-2.5 rounded-sm px-4 py-2.5 text-[0.9375rem] font-medium text-accent ring-1 ring-inset ring-accent/30 transition-colors hover:bg-accent/5 hover:ring-accent/50"
+        className="mt-4 inline-flex min-h-11 items-center gap-2.5 rounded-sm px-4 py-2.5 text-[0.9375rem] font-medium text-action ring-1 ring-inset ring-action transition-colors hover:bg-action/5 hover:ring-action-hover"
       >
         {stato === "copiato" ? (
           <Check className="size-4 shrink-0" strokeWidth={2} aria-hidden />

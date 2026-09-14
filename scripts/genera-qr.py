@@ -37,7 +37,7 @@ codice.save(
     kind="svg",
     scale=1,
     border=2,
-    dark="#062726",
+    dark="#173b57",
     light=None,
     svgclass=None,
     lineclass=None,

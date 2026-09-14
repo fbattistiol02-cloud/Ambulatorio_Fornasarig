@@ -18,11 +18,11 @@ export async function ogImage(titolo?: string, sottotitolo?: string) {
 
   return new ImageResponse(
     (
-      <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", padding: "62px 76px", background: "#062726", color: "#fcfafa", fontFamily: "Inter Tight", justifyContent: "space-between" }}>
+      <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", padding: "62px 76px", background: "#e4f1fa", color: "#173b57", fontFamily: "Inter Tight", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: titolo ? 32 : 44 }}>
           <svg width={titolo ? 110 : 168} height={titolo ? 110 : 168} viewBox="0 0 64 64">
-            <rect x="11" y="11" width="4" height="42" fill="#f59e0b" />
-            <path d={monogramPath} fill="#fcfafa" />
+            <rect x="11" y="11" width="4" height="42" fill="#17649a" />
+            <path d={monogramPath} fill="#173b57" />
           </svg>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div style={{ fontSize: 20, letterSpacing: 3 }}>AMBULATORIO VETERINARIO</div>
@@ -33,12 +33,12 @@ export async function ogImage(titolo?: string, sottotitolo?: string) {
 
         <div style={{ display: "flex", flexDirection: "column", marginTop: 22, marginLeft: titolo ? 0 : 212 }}>
           <div style={{ fontFamily: titolo ? "Newsreader" : "Inter Tight", fontSize: titolo ? 52 : 34, lineHeight: 1.13 }}>{titolo ?? "Cura veterinaria per cani e gatti"}</div>
-          {sottotitolo ? <div style={{ fontSize: 23, lineHeight: 1.4, color: "#d4ded9", marginTop: 14 }}>{sottotitolo}</div> : null}
+          {sottotitolo ? <div style={{ fontSize: 23, lineHeight: 1.4, color: "#506477", marginTop: 14 }}>{sottotitolo}</div> : null}
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, borderTop: "1px solid #78908a", paddingTop: 24, marginTop: 24, fontSize: 24 }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, borderTop: "1px solid #cbddeb", paddingTop: 24, marginTop: 24, fontSize: 24 }}>
           <span>{site.address.locality}</span>
-          <span style={{ color: "#f59e0b" }}>·</span>
+          <span style={{ color: "#17649a" }}>·</span>
           <span>{site.address.municipality}</span>
         </div>
       </div>

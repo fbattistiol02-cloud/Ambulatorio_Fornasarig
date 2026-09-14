@@ -110,7 +110,7 @@ export function Trasportino({
   const Disegno = passi[passo];
 
   return (
-    <span aria-hidden className={cn("block w-20 text-accent", className)}>
+    <span aria-hidden className={cn("block w-20 text-action", className)}>
       <Disegno />
     </span>
   );
