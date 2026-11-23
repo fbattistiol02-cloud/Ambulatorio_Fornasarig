@@ -187,6 +187,7 @@ export const nearbyTowns = [
 export const video = {
   id: "YXpbaKfJkjo",
   occhiello: "Video",
-  titolo: "Guarda il video",
-  testo: "",
+  titolo: "Prevenire è prendersi cura",
+  testo:
+    "La salute di cani e gatti si protegge giorno per giorno. In questo video trovi qualche spunto sulla prevenzione veterinaria.",
 };
