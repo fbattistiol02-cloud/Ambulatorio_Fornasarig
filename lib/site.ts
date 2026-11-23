@@ -175,3 +175,18 @@ export const nearbyTowns = [
   "Palmanova",
   "Udine sud",
 ] as const;
+
+/**
+ * Video YouTube mostrato in home.
+ *
+ * Per attivarlo basta incollare qui l'ID del video: sono gli 11 caratteri dopo
+ * `v=` in `youtube.com/watch?v=XXXXXXXXXXX` (oppure dopo `youtu.be/`).
+ * Finché `id` resta vuoto la sezione non compare. Titolo e testo vanno
+ * concordati con la dottoressa: non inventare affermazioni cliniche.
+ */
+export const video = {
+  id: "YXpbaKfJkjo",
+  occhiello: "Video",
+  titolo: "Guarda il video",
+  testo: "",
+};

@@ -4,8 +4,9 @@ import { ArrowUpRight, MapPin } from "lucide-react";
 
 import { Hero } from "@/components/Hero";
 import { Reveal } from "@/components/Reveal";
+import { VideoYouTube } from "@/components/VideoYouTube";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
-import { site, whatsappHelp } from "@/lib/site";
+import { site, video, whatsappHelp } from "@/lib/site";
 
 /**
  * Pagina iniziale.
@@ -132,6 +133,37 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+
+      {/* Video YouTube: compare solo quando in lib/site.ts è stato inserito l'ID. */}
+      {video.id && (
+        <section className="bg-surface-alt py-16 lg:py-20" aria-labelledby="video">
+          <div className="wrap">
+            <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
+              <div className="lg:col-span-5">
+                <Reveal>
+                  <p className="eyebrow text-action">{video.occhiello}</p>
+                  <h2
+                    id="video"
+                    className="mt-6 text-[1.75rem] leading-[1.2] text-heading sm:text-[2.125rem]"
+                  >
+                    {video.titolo}
+                  </h2>
+                  {video.testo && (
+                    <p className="mt-6 text-[1.0625rem] leading-[1.7] text-ink/85">
+                      {video.testo}
+                    </p>
+                  )}
+                </Reveal>
+              </div>
+              <div className="lg:col-span-7">
+                <Reveal delay={0.1}>
+                  <VideoYouTube id={video.id} titolo={video.titolo} />
+                </Reveal>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/*
         Fascia cane. La fotografia è della dottoressa, scattata in ambulatorio:
