@@ -23,6 +23,8 @@ export const site = {
   certification: "GPCert Medicina Felina",
   order: "Ordine dei Medici Veterinari di Udine",
   registration: "Iscrizione albo n. 366 UD",
+  /** Partita IVA: va esposta in home page (art. 35 DPR 633/1972). */
+  vatNumber: "01780100309",
   /** Testo unico consentito sugli orari: non esistono fasce orarie pubblicate. */
   availability: "Si riceve su appuntamento.",
   patients: "Cani e gatti",

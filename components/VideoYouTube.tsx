@@ -1,6 +1,8 @@
 "use client";
 
 import { Play } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 type VideoYouTubeProps = {
@@ -13,15 +15,16 @@ type VideoYouTubeProps = {
 /**
  * Video YouTube «a richiesta».
  *
- * Al caricamento della pagina compare solo l'anteprima: l'iframe di YouTube
- * (pesante e con cookie propri) viene creato soltanto quando il visitatore
- * preme play. Il sito resta veloce e non attiva servizi di terze parti prima
- * che serva. Si usa il dominio youtube-nocookie.com.
+ * Al caricamento della pagina compare solo l'anteprima, servita dal sito stesso
+ * tramite `next/image`: il browser non contatta Google. L'iframe di YouTube
+ * (pesante) viene creato soltanto quando il visitatore preme play, dopo
+ * l'avviso scritto sotto il video. Si usa il dominio youtube-nocookie.com.
  */
 export function VideoYouTube({ id, titolo }: VideoYouTubeProps) {
   const [attivo, setAttivo] = useState(false);
 
   return (
+    <>
     <div className="photo relative aspect-video overflow-hidden bg-black">
       {attivo ? (
         <iframe
@@ -39,13 +42,12 @@ export function VideoYouTube({ id, titolo }: VideoYouTubeProps) {
           aria-label={`Riproduci il video: ${titolo}`}
           className="group absolute inset-0 size-full cursor-pointer"
         >
-          {/* Anteprima ufficiale di YouTube: non serve scaricarla nel progetto. */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
             alt=""
-            loading="lazy"
-            className="absolute inset-0 size-full object-cover"
+            fill
+            sizes="(min-width: 1024px) 56vw, 100vw"
+            className="object-cover"
           />
           <span className="absolute inset-0 bg-black/20 transition-colors group-hover:bg-black/10" />
           <span className="absolute left-1/2 top-1/2 flex size-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-heading shadow-lg transition-transform duration-300 group-hover:scale-105">
@@ -54,5 +56,13 @@ export function VideoYouTube({ id, titolo }: VideoYouTubeProps) {
         </button>
       )}
     </div>
+    <p className="mt-3 text-sm leading-relaxed text-muted">
+      Premendo play si carica il lettore di YouTube: Google riceve i dati di
+      connessione e può usare cookie o tecnologie simili.{" "}
+      <Link href="/privacy" className="font-medium text-action underline underline-offset-4">
+        Informativa privacy
+      </Link>
+    </p>
+    </>
   );
 }

@@ -118,6 +118,8 @@ export function Footer() {
               {site.order}
               <br />
               {site.registration}
+              <br />
+              P. IVA {site.vatNumber}
             </p>
           </div>
         </div>
@@ -125,6 +127,14 @@ export function Footer() {
         <div className="flex flex-col gap-3 pt-7 text-[0.8125rem] text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {site.name}
+          </p>
+          <p>
+            <Link
+              href="/privacy"
+              className="inline-flex min-h-11 items-center underline underline-offset-4 hover:text-action"
+            >
+              Informativa privacy
+            </Link>
           </p>
           <p>Percoto — Pavia di Udine, Friuli-Venezia Giulia</p>
         </div>

@@ -107,6 +107,7 @@ const jsonLd = {
   },
   telephone: "+39 338 827 3705",
   email: site.email.label,
+  vatID: `IT${site.vatNumber}`,
   hasMap: site.directions,
   currenciesAccepted: "EUR",
   areaServed: {
